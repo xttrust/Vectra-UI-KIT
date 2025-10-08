@@ -1,0 +1,819 @@
+<!-- /* ==========================================================================
+   Vectra UI - Modern Dark/Cyan Theme Design System
+   
+   Author: Florin Pinta (xttrust)
+   Website: https://creativeigniter.com
+   GitHub: https://github.com/xttrust
+   Email: xttrust@creativeigniter.com
+   
+   Description: Complete design system with variables, components & utilities
+   Dependencies: Bootstrap 5.3+, Font Awesome 6+, AOS
+   License: MIT
+   ========================================================================== */ -->
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vectra UI Components Catalog</title>
+  <meta name="description" content="Full component catalog of the UI Kit: cards, navigation, feedback, modals, tabs, accordions, tables, timelines, steps, and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <link rel="stylesheet" href="assets/css/ui-kit.css" />
+  <style>
+    /* Page-local helpers (component grid + code inline) */
+    .component-section { scroll-margin-top: 90px; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid var(--uk-border); }
+    .code-inline { font-family: var(--uk-font-mono); font-size:.75rem; background:var(--uk-surface-alt); padding:.2rem .45rem; border-radius:4px; }
+    .example-grid { display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); }
+  </style>
+</head>
+<body class="no-scroll-x" tabindex="0">
+  <div id="backToTop">↑</div>
+  <nav class="navbar navbar-expand-lg fixed-top uk-navbar py-2">
+    <div class="container-fluid px-gutter">
+      <a class="navbar-brand" href="index.html"><span class="logo-dot"></span> Vectra UI</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html#overview">Overview</a></li>
+          <li class="nav-item"><a class="nav-link active" href="components.html">Components</a></li>
+          <li class="nav-item"><a class="nav-link" href="forms.html">Forms</a></li>
+          <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="utilities.html">Utilities</a></li>
+          <li class="nav-item"><a class="nav-link" href="docs.html">Docs</a></li>
+        </ul>
+        <div class="d-flex gap-2 align-items-center">
+          <button class="theme-toggle" data-toggle="theme" aria-label="Toggle theme"><i class="fa-solid fa-sun"></i></button>
+          <a href="docs.html" class="btn btn-uk-soft btn-sm btn-icon"><i class="fa-solid fa-circle-info"></i><span>Docs</span></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero hero-gradient py-5">
+    <div class="container px-gutter">
+      <h1 class="mb-3">Component Catalog</h1>
+      <p class="lead max-w-md">Below you'll find a structured list of reusable interface components with modern styling, animations, and accessible markup patterns.</p>
+      <div class="d-flex flex-wrap gap-2 small text-muted">
+        <span><i class="fa-solid fa-circle-check text-success me-1"></i>Portable</span>
+        <span><i class="fa-solid fa-circle-check text-success me-1"></i>ARIA Friendly</span>
+        <span><i class="fa-solid fa-circle-check text-success me-1"></i>AOS Ready</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container px-gutter py-5">
+    <div class="row g-5">
+      <aside class="col-lg-3 d-none d-lg-block">
+        <nav id="sideNav" class="uk-side-nav" data-nav="components" role="navigation" aria-label="Component Sections">
+          <a href="#cards">Cards</a>
+          <a href="#badges">Badges</a>
+          <a href="#alerts">Alerts</a>
+          <a href="#buttons">Buttons</a>
+          <a href="#navigation">Navigation</a>
+          <a href="#carousel">Carousel</a>
+          <a href="#mega-menu">Mega Menu</a>
+          <a href="#accordions">Accordions</a>
+          <a href="#tabs">Tabs</a>
+          <a href="#modals">Modals</a>
+          <a href="#toasts">Toasts</a>
+          <a href="#progress">Progress</a>
+          <a href="#tables">Tables</a>
+          <a href="#timeline">Timeline</a>
+          <a href="#steps">Steps</a>
+          <a href="#offcanvas">Offcanvas</a>
+          <a href="#code">Code Blocks</a>
+          <a href="#tooltips">Tooltips</a>
+          <a href="#popovers">Popovers</a>
+          <a href="#spinners">Spinners</a>
+          <a href="#range">Range Slider</a>
+          <a href="#file-upload">File Upload</a>
+          <a href="#product-cards">Product Cards</a>
+          <a href="#comparison-table">Comparison Table</a>
+          <a href="#blog-cards">Blog Cards</a>
+          <a href="#fab">FAB</a>
+          <a href="#share">Share Icons</a>
+          <a href="#cookie-banner">Cookie Banner</a>
+          <a href="#pagination">Pagination</a>
+          <a href="#breadcrumbs">Breadcrumbs</a>
+          <a href="#stats">Stats</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#team">Team</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#cta">CTA Banners</a>
+          <a href="#newsletter">Newsletter</a>
+          <a href="#faq-mini">FAQ Mini</a>
+        </nav>
+      </aside>
+      <div class="col-lg-9">
+
+        <!-- Cards -->
+        <section id="cards" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Cards</h2>
+          <p class="text-muted small mb-4">Use <span class="code-inline">.uk-card</span> variants for elevated surfaces with hover lift and accent outlines. Combine with standard Bootstrap layout utilities.</p>
+          <div class="example-grid mb-3">
+            <div class="uk-card"><h6 class="mb-2">Default Card</h6><p class="small text-muted">Simple card with gradient surface.</p><button class="btn btn-uk-soft btn-sm">Action</button></div>
+            <div class="uk-card uk-card-glass"><h6 class="mb-2">Glass Card</h6><p class="small text-muted">Frosted translucency with blur and glow.</p><button class="btn btn-uk-soft btn-sm">Learn</button></div>
+            <div class="uk-card uk-card-accent"><h6 class="mb-2">Accent Card</h6><p class="small text-muted">Themed accent gradient & border.</p><button class="btn btn-uk-outline btn-sm">Details</button></div>
+            <div class="uk-card uk-card-outline"><h6 class="mb-2">Outline Card</h6><p class="small text-muted">Neutral outline border style.</p><button class="btn btn-uk-soft btn-sm">Open</button></div>
+          </div>
+        </section>
+
+        <!-- Badges -->
+        <section id="badges" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Badges</h2>
+          <p class="text-muted small">Badges highlight status, tags or metrics. Combine <span class="code-inline">.badge-uk</span> with utility classes.</p>
+          <div class="d-flex flex-wrap gap-2 mt-2">
+            <span class="badge-uk">Default</span>
+            <span class="badge-uk" style="--_bg:rgba(41,209,151,.15);color:var(--uk-success)">Success</span>
+            <span class="badge-uk" style="--_bg:rgba(255,77,93,.15);color:var(--uk-danger)">Danger</span>
+            <span class="badge-uk" style="--_bg:rgba(255,179,71,.15);color:var(--uk-warning)">Warning</span>
+            <span class="badge-uk" style="--_bg:rgba(63,169,245,.15);color:var(--uk-info)">Info</span>
+          </div>
+        </section>
+
+        <!-- Alerts -->
+        <section id="alerts" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Alerts</h2>
+          <div class="grid grid-auto-fit">
+            <div class="alert-uk"><i class="fa-solid fa-circle-info"></i><div><strong>Neutral:</strong> System maintenance tonight.</div></div>
+            <div class="alert-uk success"><i class="fa-solid fa-circle-check"></i><div><strong>Success:</strong> Profile updated.</div></div>
+            <div class="alert-uk danger"><i class="fa-solid fa-triangle-exclamation"></i><div><strong>Error:</strong> Something went wrong!</div></div>
+            <div class="alert-uk warning"><i class="fa-solid fa-circle-exclamation"></i><div><strong>Warning:</strong> Storage nearing limit.</div></div>
+          </div>
+        </section>
+
+        <!-- Buttons -->
+        <section id="buttons" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Buttons</h2>
+          <div class="d-flex flex-wrap gap-2">
+            <button class="btn btn-uk btn-icon"><i class="fa-solid fa-bolt"></i><span>Primary</span></button>
+            <button class="btn btn-uk-outline btn-icon"><i class="fa-solid fa-circle"></i><span>Outline</span></button>
+            <button class="btn btn-uk-soft btn-icon"><i class="fa-solid fa-diamond"></i><span>Soft</span></button>
+            <button class="btn btn-uk-ghost btn-icon"><i class="fa-regular fa-eye"></i><span>Ghost</span></button>
+            <button class="btn btn-uk-gradient btn-icon"><i class="fa-solid fa-star"></i><span>Gradient</span></button>
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <section id="navigation" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Navigation</h2>
+          <p class="text-muted small">Use the sticky top navbar sample built into each page. Offcanvas is included below for mobile/secondary menus.</p>
+          <button class="btn btn-uk-soft btn-sm" data-bs-toggle="offcanvas" data-bs-target="#demoCanvas">Open Offcanvas</button>
+        </section>
+
+        <!-- Carousel -->
+        <section id="carousel" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Carousel</h2>
+          <p class="text-muted small">Lightweight Bootstrap carousel with overlay captions and gradient fade edges.</p>
+          <div id="ukCarousel" class="carousel slide uk-carousel-demo" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#ukCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#ukCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#ukCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner rounded overflow-hidden">
+              <div class="carousel-item active" data-bs-interval="5000">
+                <div class="uk-carousel-image" style="--img:url('https://picsum.photos/1200/420?random=1')"></div>
+                <div class="carousel-caption d-none d-md-block text-start">
+                  <h5>Build Faster</h5>
+                  <p class="small">Use ready sections & utilities to accelerate delivery.</p>
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="5000">
+                <div class="uk-carousel-image" style="--img:url('https://picsum.photos/1200/420?random=2')"></div>
+                <div class="carousel-caption d-none d-md-block text-start">
+                  <h5>Responsive by Design</h5>
+                  <p class="small">Fluid grids & adaptive spacing tokens baked in.</p>
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="5000">
+                <div class="uk-carousel-image" style="--img:url('https://picsum.photos/1200/420?random=3')"></div>
+                <div class="carousel-caption d-none d-md-block text-start">
+                  <h5>Accessible Patterns</h5>
+                  <p class="small">Semantic markup with focus states & contrast.</p>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#ukCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></button>
+            <button class="carousel-control-next" type="button" data-bs-target="#ukCarousel" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></button>
+          </div>
+        </section>
+
+        <!-- Mega Menu -->
+        <section id="mega-menu" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Mega Menu</h2>
+          <p class="text-muted small">Expandable navigation panel for product categories or marketing overviews. Uses a dropdown with a structured grid.</p>
+          <div class="dropdown position-static">
+            <button class="btn btn-uk-soft btn-sm dropdown-toggle" data-bs-toggle="dropdown">Open Mega Menu</button>
+            <div class="dropdown-menu w-100 p-4 mega-menu shadow">
+              <div class="row g-4">
+                <div class="col-md-3 small">
+                  <h6 class="text-uppercase text-muted fw-bold mb-3">Platform</h6>
+                  <ul class="list-unstyled m-0 lh-sm">
+                    <li class="mb-2"><a href="#" class="mega-link">Overview</a></li>
+                    <li class="mb-2"><a href="#" class="mega-link">API Access</a></li>
+                    <li class="mb-2"><a href="#" class="mega-link">Integrations</a></li>
+                    <li class="mb-2"><a href="#" class="mega-link">Changelog</a></li>
+                  </ul>
+                </div>
+                <div class="col-md-3 small">
+                  <h6 class="text-uppercase text-muted fw-bold mb-3">Resources</h6>
+                  <ul class="list-unstyled m-0 lh-sm">
+                    <li class="mb-2"><a href="#" class="mega-link">Docs</a></li>
+                    <li class="mb-2"><a href="#" class="mega-link">Support</a></li>
+                    <li class="mb-2"><a href="#" class="mega-link">Community</a></li>
+                    <li class="mb-2"><a href="#" class="mega-link">Status</a></li>
+                  </ul>
+                </div>
+                <div class="col-md-3 small">
+                  <h6 class="text-uppercase text-muted fw-bold mb-3">Company</h6>
+                  <ul class="list-unstyled m-0 lh-sm">
+                    <li class="mb-2"><a href="#" class="mega-link">About</a></li>
+                    <li class="mb-2"><a href="#" class="mega-link">Careers</a></li>
+                    <li class="mb-2"><a href="#" class="mega-link">Blog</a></li>
+                    <li class="mb-2"><a href="#" class="mega-link">Press</a></li>
+                  </ul>
+                </div>
+                <div class="col-md-3 small">
+                  <div class="uk-card p-3 h-100 d-flex flex-column justify-content-between">
+                    <div>
+                      <h6 class="mb-2">Launch Faster</h6>
+                      <p class="small text-muted mb-3">Use our marketing sections + components page to assemble complete landing pages in minutes.</p>
+                    </div>
+                    <a href="sections.html" class="btn btn-uk btn-sm">View Sections</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Accordions -->
+        <section id="accordions" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Accordions</h2>
+          <div class="accordion accordion-uk" id="faqAcc">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="q1"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#a1" aria-expanded="true" aria-controls="a1">What is this UI Kit?</button></h2>
+              <div id="a1" class="accordion-collapse collapse show" data-bs-parent="#faqAcc"><div class="accordion-body small">A portable design system built on Bootstrap for rapid development.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="q2"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2">Can I copy parts?</button></h2>
+              <div id="a2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body small">Yes. Copy individual components, sections, or utilities freely.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="q3"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a3">Supports dark mode?</button></h2>
+              <div id="a3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body small">Dark/light theming uses CSS variables with a toggle in JS.</div></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Tabs -->
+        <section id="tabs" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Tabs</h2>
+          <ul class="nav nav-tabs uk-tabs" id="demoTabs" role="tablist">
+            <li class="nav-item" role="presentation"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tabOne" type="button" role="tab">Overview</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tabTwo" type="button" role="tab">Code</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tabThree" type="button" role="tab">Notes</button></li>
+          </ul>
+          <div class="tab-content border rounded-bottom p-3 border-top-0 bg-transparent uk-tab-content-spaced" id="demoTabsContent">
+            <div class="tab-pane fade show active small" id="tabOne" role="tabpanel">Tabs use Bootstrap's tab plugin with custom pill styling.</div>
+            <div class="tab-pane fade small" id="tabTwo" role="tabpanel"><code>&lt;ul class="nav nav-tabs"&gt;...</code></div>
+            <div class="tab-pane fade small" id="tabThree" role="tabpanel">Add AOS attributes to each panel container for animated transitions.</div>
+          </div>
+        </section>
+
+        <!-- Modals -->
+        <section id="modals" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Modals</h2>
+          <p class="text-muted small">Custom gradient backgrounds & shadow layer.</p>
+          <button class="btn btn-uk-soft btn-sm" data-bs-toggle="modal" data-bs-target="#demoModal">Launch Modal</button>
+        </section>
+
+        <!-- Toasts -->
+        <section id="toasts" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Toasts</h2>
+          <p class="text-muted small">Position container at top-right. Trigger via JS.</p>
+          <button class="btn btn-uk-soft btn-sm" id="showToastBtn">Show Toast</button>
+          <div class="toast-container position-fixed top-0 end-0 p-3" id="toastPlacement"></div>
+        </section>
+
+        <!-- Progress -->
+        <section id="progress" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Progress & Counters</h2>
+          <div class="mb-3">
+            <div class="progress-uk mb-2" style="max-width:380px"><div class="bar" style="width:65%"></div></div>
+            <div class="d-flex gap-4 small">
+              <div class="text-muted">Progress 65%</div>
+              <div data-counter="12500" class="gradient-text" style="font-weight:600;">0</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Tables -->
+        <section id="tables" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Tables</h2>
+          <div class="table-responsive small" style="max-width:680px;">
+            <table class="table table-uk table-uk-hover align-middle mb-0">
+              <thead><tr><th>Plan</th><th>Users</th><th>Storage</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>Starter</td><td>3</td><td>1 GB</td><td><span class="badge-uk">Active</span></td></tr>
+                <tr><td>Pro</td><td>12</td><td>15 GB</td><td><span class="badge-uk" style="--_bg:rgba(41,209,151,.15);color:var(--uk-success)">Healthy</span></td></tr>
+                <tr><td>Enterprise</td><td>120</td><td>250 GB</td><td><span class="badge-uk" style="--_bg:rgba(255,179,71,.15);color:var(--uk-warning)">Scaling</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Timeline -->
+        <section id="timeline" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Timeline</h2>
+          <div class="timeline max-w-md">
+            <div class="timeline-item small"><strong>v1.0 Release</strong><br>Core components & theming established.</div>
+            <div class="timeline-item small"><strong>v1.2 Utilities</strong><br>Added gradient, glass, motion utilities.</div>
+            <div class="timeline-item small"><strong>v2.0 Expansion</strong><br>Introduced pricing, timeline, steps.</div>
+          </div>
+        </section>
+
+        <!-- Steps -->
+        <section id="steps" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Steps</h2>
+          <div class="steps">
+            <div class="step small"><strong>Plan</strong><br>Define project scope.</div>
+            <div class="step small"><strong>Design</strong><br>Create UI flows.</div>
+            <div class="step small"><strong>Build</strong><br>Implement components.</div>
+            <div class="step small"><strong>Launch</strong><br>Deploy & iterate.</div>
+          </div>
+        </section>
+
+        <!-- Offcanvas -->
+        <section id="offcanvas" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Offcanvas</h2>
+          <p class="text-muted small">Useful for secondary navigation or settings.</p>
+          <button class="btn btn-uk-soft btn-sm" data-bs-toggle="offcanvas" data-bs-target="#demoCanvas">Open Example</button>
+        </section>
+
+        <!-- Code Blocks -->
+        <section id="code" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Code Blocks</h2>
+          <div class="code-block" style="max-width:680px;">
+            <button class="copy-btn" type="button">Copy</button>
+<code>&lt;div class="uk-card uk-card-glass"&gt;
+  &lt;h5&gt;Example&lt;/h5&gt;
+  &lt;p&gt;Frosted utility with blur and accent glow.&lt;/p&gt;
+&lt;/div&gt;</code>
+          </div>
+        </section>
+
+        <!-- Tooltips -->
+        <section id="tooltips" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Tooltips</h2>
+          <p class="text-muted small">Use Bootstrap's tooltip plugin. We supply accent styling via <span class="code-inline">.tooltip-uk</span>.</p>
+          <div class="d-flex flex-wrap gap-2">
+            <button type="button" class="btn btn-uk-soft btn-sm" data-bs-toggle="tooltip" data-bs-title="Top tooltip">Top</button>
+            <button type="button" class="btn btn-uk-soft btn-sm" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Right tooltip">Right</button>
+            <button type="button" class="btn btn-uk-soft btn-sm" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Bottom tooltip">Bottom</button>
+            <button type="button" class="btn btn-uk-soft btn-sm" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Left tooltip">Left</button>
+          </div>
+        </section>
+
+        <!-- Popovers -->
+        <section id="popovers" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Popovers</h2>
+          <p class="text-muted small">Accent themed popovers for additional context on focus/hover/click.</p>
+          <button type="button" class="btn btn-uk btn-sm" data-bs-toggle="popover" title="Popover title" data-bs-content="And here's some amazing content. It's very engaging.">Toggle Popover</button>
+        </section>
+
+        <!-- Spinners -->
+        <section id="spinners" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Spinners</h2>
+          <p class="text-muted small">Use for loading states. Accent variants available with <span class="code-inline">.spinner-uk</span>.</p>
+          <div class="d-flex flex-wrap align-items-center gap-4">
+            <div class="spinner-border spinner-uk" role="status" aria-label="Loading"></div>
+            <div class="spinner-grow spinner-uk" role="status" aria-label="Loading"></div>
+            <button class="btn btn-uk-soft btn-sm" disabled>
+              <span class="spinner-border spinner-border-sm me-2 spinner-uk" aria-hidden="true"></span> Loading...
+            </button>
+          </div>
+        </section>
+
+        <!-- Range Slider -->
+        <section id="range" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Range Slider</h2>
+          <p class="text-muted small">Custom styled range input with accent track fill.</p>
+          <div style="max-width:360px" class="mt-2">
+            <label for="rangeDemo" class="form-label small text-muted">Intensity</label>
+            <input type="range" class="form-range form-range-uk" id="rangeDemo" min="0" max="100" value="45" />
+          </div>
+        </section>
+
+        <!-- File Upload -->
+        <section id="file-upload" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">File Upload</h2>
+          <p class="text-muted small">Styled file input wrapper with drag-hover state.</p>
+          <div class="file-upload-uk" data-file-upload>
+            <input type="file" id="fileDemo" class="file-input" aria-label="Choose file" />
+            <label for="fileDemo" class="file-label">
+              <i class="fa-solid fa-cloud-arrow-up me-2"></i>
+              <span class="file-label-text">Drop or select a file</span>
+            </label>
+          </div>
+        </section>
+
+        <!-- Pagination -->
+        <section id="pagination" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Pagination</h2>
+          <nav aria-label="Example pagination">
+            <ul class="pagination pagination-uk">
+              <li class="page-item disabled"><span class="page-link">Prev</span></li>
+              <li class="page-item active"><span class="page-link">1</span></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+          </nav>
+        </section>
+
+        <!-- Breadcrumbs -->
+        <section id="breadcrumbs" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Breadcrumbs</h2>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb breadcrumb-uk">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Library</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Data</li>
+            </ol>
+          </nav>
+        </section>
+
+        <!-- Stats -->
+        <section id="stats" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Stats</h2>
+          <div class="row g-3 row-cols-2 row-cols-md-4">
+            <div class="col">
+              <div class="stat-block">
+                <div class="stat-value" data-counter="1200">0</div>
+                <div class="stat-label small text-muted">Customers</div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="stat-block">
+                <div class="stat-value" data-counter="98">0</div>
+                <div class="stat-label small text-muted">Uptime %</div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="stat-block">
+                <div class="stat-value" data-counter="340">0</div>
+                <div class="stat-label small text-muted">Integrations</div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="stat-block">
+                <div class="stat-value" data-counter="24">0</div>
+                <div class="stat-label small text-muted">Countries</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section id="testimonials" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Testimonials</h2>
+          <div class="testimonial-slider" data-autoplay="6000">
+            <div class="testimonial-track" style="transition:transform .6s var(--uk-transition);">
+              <div class="testimonial-card active">
+                <p class="mb-3">“This UI Kit let us assemble our MVP interface in a weekend.”</p>
+                <div class="d-flex align-items-center gap-2">
+                  <div class="avatar-sm"><img src="https://i.pravatar.cc/100?img=11" alt="User"/></div>
+                  <div class="small"><strong>Alex Morgan</strong><br><span class="text-muted">Product Lead</span></div>
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <p class="mb-3">“Tokens & utilities are thoughtfully structured—super maintainable.”</p>
+                <div class="d-flex align-items-center gap-2">
+                  <div class="avatar-sm"><img src="https://i.pravatar.cc/100?img=22" alt="User"/></div>
+                  <div class="small"><strong>Sara Lee</strong><br><span class="text-muted">Engineering</span></div>
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <p class="mb-3">“Dark mode looks fantastic. The gradient accents pop.”</p>
+                <div class="d-flex align-items-center gap-2">
+                  <div class="avatar-sm"><img src="https://i.pravatar.cc/100?img=33" alt="User"/></div>
+                  <div class="small"><strong>Michael Chen</strong><br><span class="text-muted">Designer</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex gap-2 mt-3">
+              <button class="btn btn-uk-soft btn-sm t-prev" type="button"><i class="fa-solid fa-arrow-left"></i></button>
+              <button class="btn btn-uk-soft btn-sm t-next" type="button"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Team -->
+        <section id="team" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Team</h2>
+            <div class="row g-4 row-cols-2 row-cols-md-4">
+              <div class="col">
+                <div class="team-card uk-card p-3 text-center">
+                  <div class="team-avatar mb-3"><img src="https://i.pravatar.cc/160?img=5" alt="Member"/></div>
+                  <h6 class="mb-1">Jamie Fox</h6>
+                  <p class="small text-muted mb-2">CEO</p>
+                  <div class="d-flex justify-content-center gap-2 small text-muted"><i class="fa-brands fa-linkedin"></i><i class="fa-brands fa-github"></i></div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="team-card uk-card p-3 text-center">
+                  <div class="team-avatar mb-3"><img src="https://i.pravatar.cc/160?img=6" alt="Member"/></div>
+                  <h6 class="mb-1">Aria Khan</h6>
+                  <p class="small text-muted mb-2">CTO</p>
+                  <div class="d-flex justify-content-center gap-2 small text-muted"><i class="fa-brands fa-linkedin"></i><i class="fa-brands fa-github"></i></div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="team-card uk-card p-3 text-center">
+                  <div class="team-avatar mb-3"><img src="https://i.pravatar.cc/160?img=7" alt="Member"/></div>
+                  <h6 class="mb-1">Liam Stone</h6>
+                  <p class="small text-muted mb-2">Design</p>
+                  <div class="d-flex justify-content-center gap-2 small text-muted"><i class="fa-brands fa-dribbble"></i><i class="fa-brands fa-github"></i></div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="team-card uk-card p-3 text-center">
+                  <div class="team-avatar mb-3"><img src="https://i.pravatar.cc/160?img=8" alt="Member"/></div>
+                  <h6 class="mb-1">Nina Vale</h6>
+                  <p class="small text-muted mb-2">Growth</p>
+                  <div class="d-flex justify-content-center gap-2 small text-muted"><i class="fa-brands fa-linkedin"></i><i class="fa-brands fa-x-twitter"></i></div>
+                </div>
+              </div>
+            </div>
+        </section>
+
+        <!-- Gallery -->
+        <section id="gallery" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Gallery</h2>
+          <div class="gallery-mosaic">
+            <div class="g-item tall" style="--img:url('https://picsum.photos/400/600?random=21')"></div>
+            <div class="g-item" style="--img:url('https://picsum.photos/400/400?random=22')"></div>
+            <div class="g-item wide" style="--img:url('https://picsum.photos/600/400?random=23')"></div>
+            <div class="g-item" style="--img:url('https://picsum.photos/400/400?random=24')"></div>
+            <div class="g-item tall" style="--img:url('https://picsum.photos/400/600?random=25')"></div>
+            <div class="g-item" style="--img:url('https://picsum.photos/400/400?random=26')"></div>
+          </div>
+        </section>
+
+        <!-- CTA -->
+        <section id="cta" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">CTA Banners</h2>
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div class="cta-banner gradient-1 p-4 p-md-5">
+                <div class="d-flex flex-column h-100">
+                  <div class="mb-3">
+                    <h5 class="mb-2">Ready to Ship?</h5>
+                    <p class="small text-muted mb-0">Grab the sections bundle and assemble full pages instantly.</p>
+                  </div>
+                  <div class="mt-auto"><a href="sections.html" class="btn btn-uk btn-sm">Browse Sections</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="cta-banner gradient-2 p-4 p-md-5 text-center">
+                <h5 class="mb-2">Need a Custom Theme?</h5>
+                <p class="small text-muted mb-3">Extend tokens or override partials to match brand identity.</p>
+                <a href="docs.html#theming" class="btn btn-uk-soft btn-sm">Theming Docs</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section id="newsletter" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Newsletter</h2>
+          <form class="newsletter-box" onsubmit="event.preventDefault(); this.reset();">
+            <div class="d-flex flex-column flex-sm-row gap-2">
+              <input type="email" required class="form-control" placeholder="Enter your email" aria-label="Email" />
+              <button class="btn btn-uk" type="submit">Subscribe</button>
+            </div>
+            <p class="small text-muted mt-2 mb-0">No spam. Unsubscribe anytime.</p>
+          </form>
+        </section>
+
+        <!-- FAQ Mini -->
+        <section id="faq-mini" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">FAQ Mini</h2>
+          <div class="row g-4 row-cols-1 row-cols-md-3 small">
+            <div class="col"><div class="faq-item"><h6>Can I use this commercially?</h6><p class="text-muted mb-0">Yes, MIT licensed.</p></div></div>
+            <div class="col"><div class="faq-item"><h6>Supports light mode?</h6><p class="text-muted mb-0">Toggle in the header.</p></div></div>
+            <div class="col"><div class="faq-item"><h6>Can I customize tokens?</h6><p class="text-muted mb-0">Fully – adjust CSS variables.</p></div></div>
+          </div>
+        </section>
+
+        <!-- Product Cards -->
+        <section id="product-cards" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Product Cards</h2>
+          <p class="text-muted small">Optimized for ecommerce / catalog layouts with image aspect ratio, rating and price.</p>
+          <div class="row g-3 row-cols-1 row-cols-sm-2 row-cols-lg-3">
+            <div class="col">
+              <div class="product-card">
+                <div class="product-media" style="--img:url('https://picsum.photos/400/400?random=71')"></div>
+                <div class="p-3">
+                  <div class="d-flex justify-content-between mb-1 small"><span class="badge-uk">New</span><span class="text-muted">In stock</span></div>
+                  <h6 class="mb-1">Wireless Headset Pro</h6>
+                  <div class="rating small" aria-label="4.5 out of 5 stars">★★★★★<span style="width:90%"></span></div>
+                  <div class="d-flex align-items-center justify-content-between mt-2">
+                    <div class="price-tag">$129 <small class="text-muted">USD</small></div>
+                    <button class="btn btn-uk-soft btn-sm"><i class="fa-solid fa-cart-plus"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="product-card">
+                <div class="product-media" style="--img:url('https://picsum.photos/400/400?random=72')"></div>
+                <div class="p-3">
+                  <div class="d-flex justify-content-between mb-1 small"><span class="badge-uk" style="--_bg:rgba(255,179,71,.15);color:var(--uk-warning)">Hot</span><span class="text-muted">Ships 24h</span></div>
+                  <h6 class="mb-1">Smart Home Hub Mini</h6>
+                  <div class="rating small" aria-label="5 out of 5 stars">★★★★★<span style="width:100%"></span></div>
+                  <div class="d-flex align-items-center justify-content-between mt-2">
+                    <div class="price-tag">$89 <small class="text-muted">USD</small></div>
+                    <button class="btn btn-uk-soft btn-sm"><i class="fa-solid fa-cart-plus"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="product-card">
+                <div class="product-media" style="--img:url('https://picsum.photos/400/400?random=73')"></div>
+                <div class="p-3">
+                  <div class="d-flex justify-content-between mb-1 small"><span class="badge-uk" style="--_bg:rgba(63,169,245,.15);color:var(--uk-info)">Featured</span><span class="text-muted">Low stock</span></div>
+                  <h6 class="mb-1">4K Action Camera</h6>
+                  <div class="rating small" aria-label="4 out of 5 stars">★★★★★<span style="width:80%"></span></div>
+                  <div class="d-flex align-items-center justify-content-between mt-2">
+                    <div class="price-tag">$219 <small class="text-muted">USD</small></div>
+                    <button class="btn btn-uk-soft btn-sm"><i class="fa-solid fa-cart-plus"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Comparison Table -->
+        <section id="comparison-table" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Comparison Table</h2>
+          <p class="text-muted small">Highlight feature differences across plans; best value column emphasized.</p>
+          <div class="table-responsive comparison-wrapper" style="max-width:900px;">
+            <table class="table table-uk comparison-table align-middle small mb-0">
+              <thead>
+                <tr>
+                  <th class="text-muted fw-normal">Feature</th>
+                  <th>Starter</th>
+                  <th class="featured">Pro <span class="badge-uk ms-1" style="--_bg:rgba(0,173,181,.18)">Best</span></th>
+                  <th>Scale</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Projects</td><td>3</td><td class="featured">25</td><td>Unlimited</td></tr>
+                <tr><td>Team Members</td><td>5</td><td class="featured">15</td><td>Unlimited</td></tr>
+                <tr><td>Integrations</td><td><i class="fa-regular fa-circle-xmark text-muted"></i></td><td class="featured"><i class="fa-solid fa-check text-success"></i></td><td><i class="fa-solid fa-check text-success"></i></td></tr>
+                <tr><td>Analytics</td><td><i class="fa-regular fa-circle-xmark text-muted"></i></td><td class="featured"><i class="fa-solid fa-check text-success"></i></td><td><i class="fa-solid fa-check text-success"></i></td></tr>
+                <tr><td>Priority Support</td><td><i class="fa-regular fa-circle-xmark text-muted"></i></td><td class="featured"><i class="fa-solid fa-check text-success"></i></td><td><i class="fa-solid fa-check text-success"></i></td></tr>
+                <tr><td>SSO / SAML</td><td><i class="fa-regular fa-circle-xmark text-muted"></i></td><td class="featured"><i class="fa-regular fa-circle-xmark text-muted"></i></td><td><i class="fa-solid fa-check text-success"></i></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Blog Cards -->
+        <section id="blog-cards" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Blog Cards</h2>
+          <p class="text-muted small">Use for article listings and knowledge base summaries.</p>
+          <div class="row g-4 row-cols-1 row-cols-md-3">
+            <div class="col">
+              <article class="blog-card">
+                <div class="blog-media" style="--img:url('https://picsum.photos/600/400?random=81')"></div>
+                <div class="p-3">
+                  <div class="d-flex justify-content-between align-items-center mb-2 small"><span class="badge-uk" style="--_bg:rgba(63,169,245,.15);color:var(--uk-info)">Guide</span><time datetime="2025-08-01" class="text-muted">Aug 1</time></div>
+                  <h6 class="mb-2">Design Tokens: A Practical Workflow</h6>
+                  <p class="small text-muted mb-0">How to structure a scalable token architecture for rapid theming.</p>
+                </div>
+              </article>
+            </div>
+            <div class="col">
+              <article class="blog-card">
+                <div class="blog-media" style="--img:url('https://picsum.photos/600/400?random=82')"></div>
+                <div class="p-3">
+                  <div class="d-flex justify-content-between align-items-center mb-2 small"><span class="badge-uk" style="--_bg:rgba(41,209,151,.18);color:var(--uk-success)">Update</span><time datetime="2025-07-12" class="text-muted">Jul 12</time></div>
+                  <h6 class="mb-2">Performance Tips for CSS Heavy UIs</h6>
+                  <p class="small text-muted mb-0">Reduce layout thrash and leverage containment & will-change.</p>
+                </div>
+              </article>
+            </div>
+            <div class="col">
+              <article class="blog-card">
+                <div class="blog-media" style="--img:url('https://picsum.photos/600/400?random=83')"></div>
+                <div class="p-3">
+                  <div class="d-flex justify-content-between align-items-center mb-2 small"><span class="badge-uk" style="--_bg:rgba(255,179,71,.2);color:var(--uk-warning)">News</span><time datetime="2025-06-22" class="text-muted">Jun 22</time></div>
+                  <h6 class="mb-2">v2 Roadmap & Upcoming Patterns</h6>
+                  <p class="small text-muted mb-0">Planned additions: lightbox, charts, advanced forms.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAB -->
+        <section id="fab" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Floating Action Button (FAB)</h2>
+          <p class="text-muted small">Primary quick action. Use <span class="code-inline">.uk-fab</span> for fixed positioning; add <span class="code-inline">data-fab</span> for optional scroll show/hide.</p>
+          <div class="d-flex gap-3 flex-wrap align-items-center">
+            <button class="uk-fab demo position-relative" type="button" data-fab><i class="fa-solid fa-plus"></i></button>
+            <div class="small text-muted">Example: <code>&lt;button class=&quot;uk-fab&quot; data-fab&gt;+&lt;/button&gt;</code></div>
+          </div>
+        </section>
+
+        <!-- Share Icons -->
+        <section id="share" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Share Icons</h2>
+            <p class="text-muted small">Circular branded icon buttons for social distribution.</p>
+            <div class="share-icons">
+              <a href="#" aria-label="Share on X" class="x"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="#" aria-label="Share on LinkedIn" class="linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" aria-label="Share on GitHub" class="github"><i class="fa-brands fa-github"></i></a>
+              <a href="#" aria-label="Share via Email" class="mail"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </section>
+
+        <!-- Cookie Banner -->
+        <section id="cookie-banner" class="component-section" data-aos="fade-up">
+          <h2 class="h4 mb-3">Cookie Banner</h2>
+          <p class="text-muted small">Appears at bottom until dismissed (persisted in <span class="code-inline">localStorage</span>).</p>
+          <p class="small">Dismiss logic: <code>localStorage.setItem('uk-cookie-consent','1')</code></p>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal fade" id="demoModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header"><h5 class="modal-title">Modal Title</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+        <div class="modal-body small">This is a themed modal with gradient background and consistent surface styling.</div>
+        <div class="modal-footer"><button class="btn btn-uk-soft" data-bs-dismiss="modal">Close</button><button class="btn btn-uk">Confirm</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Offcanvas (Enhanced Demo) -->
+  <div class="offcanvas offcanvas-end offcanvas-uk" tabindex="-1" id="demoCanvas" aria-labelledby="demoCanvasLabel">
+    <div class="offcanvas-header py-3">
+      <h5 id="demoCanvasLabel" class="mb-0">Quick Menu</h5>
+      <button type="button" class="btn-close close-btn" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <p class="small mb-4">Use this panel for mobile navigation, contextual shortcuts, or quick settings. It features motion, accent glow, and accessible focus states.</p>
+      <nav aria-label="Offcanvas navigation">
+        <div class="mini-heading">Primary Sections</div>
+        <ul class="offcanvas-links" role="list">
+          <li><a href="#cards"><span class="icon"><i class="fa-regular fa-clone"></i></span><span class="label">Cards</span></a></li>
+          <li><a href="#navigation"><span class="icon"><i class="fa-solid fa-compass"></i></span><span class="label">Navigation</span></a></li>
+          <li><a href="#modals"><span class="icon"><i class="fa-regular fa-square-plus"></i></span><span class="label">Modals</span></a></li>
+          <li><a href="#timeline"><span class="icon"><i class="fa-solid fa-timeline"></i></span><span class="label">Timeline</span></a></li>
+        </ul>
+        <div class="mini-heading mt-3">Actions</div>
+        <ul class="offcanvas-links" role="list">
+          <li><a href="#tooltips"><span class="icon"><i class="fa-regular fa-lightbulb"></i></span><span class="label">Tooltips</span></a></li>
+          <li><a href="#tabs"><span class="icon"><i class="fa-solid fa-table-columns"></i></span><span class="label">Tabs</span></a></li>
+          <li><a href="#forms"><span class="icon"><i class="fa-regular fa-pen-to-square"></i></span><span class="label">Forms</span></a></li>
+          <li><a href="#product-cards"><span class="icon"><i class="fa-solid fa-bag-shopping"></i></span><span class="label">Products</span></a></li>
+        </ul>
+      </nav>
+      <div class="mt-4 d-flex gap-2">
+        <button class="btn btn-uk btn-sm flex-grow-1" data-bs-dismiss="offcanvas">Close</button>
+        <a href="#navigation" class="btn btn-uk-soft btn-sm flex-grow-1">Go To Nav</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="assets/js/ui-kit.js"></script>
+  <script>
+    document.getElementById('showToastBtn').addEventListener('click', function(){
+      const container = document.getElementById('toastPlacement');
+      const wrapper = document.createElement('div');
+      wrapper.innerHTML = `\n        <div class="toast toast-uk align-items-center show" role="alert" aria-live="assertive" aria-atomic="true">\n          <div class="toast-header">\n            <strong class="me-auto">Notification</strong>\n            <small>Just now</small>\n            <button type="button" class="btn-close ms-2 mb-1" data-bs-dismiss="toast" aria-label="Close"></button>\n          </div>\n          <div class="toast-body small">This is a themed toast message.</div>\n        </div>`;
+      container.appendChild(wrapper.firstElementChild);
+      setTimeout(()=> container.firstElementChild?.classList.remove('show'), 4000);
+    });
+  </script>
+</body>
+</html>
