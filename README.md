@@ -4,7 +4,279 @@
 
 **Modern  Responsive  Accessible  Free Forever**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[!  📁 docs/
+    📁 img/            # Documentation screenshots
+  📄 LICENSE             # MIT License
+```
+
+---
+
+## 🎨 Component Library
+
+### Layout & Structure
+
+| Component | Status | Description |
+|-----------|--------|-------------|
+| Navbar (Sticky/Transparent) | ✅ | Responsive navigation with blur effects |
+| Hero Sections | ✅ | Gradient, centered, split, minimal variants |
+| Cards & Panels | ✅ | Glass, accent, outline, elevated styles |
+| Grid System | ✅ | Bootstrap 5 grid with custom utilities |
+| Footer | ✅ | Multi-column footer with social links |
+
+### Navigation & Menus
+
+| Component | Status | Description |
+|-----------|--------|-------------|
+| Top Navigation | ✅ | Responsive collapse with theme toggle |
+| Sidebar Navigation | ✅ | Scrollspy-enabled catalog navigation |
+| Breadcrumbs | ✅ | Themed breadcrumb navigation |
+| Tabs | ✅ | Styled tabs with active state |
+| Pagination | ✅ | Page navigation component |
+| Accordion | ✅ | Collapsible content panels |
+| Offcanvas | ✅ | Slide-in side panels |
+
+### Content & Display
+
+| Component | Status | Description |
+|-----------|--------|-------------|
+| Typography | ✅ | Heading styles, text utilities, gradient text |
+| Testimonials | ✅ | Slider with autoplay and ARIA |
+| Carousel | ✅ | Image carousel with controls |
+| Modals | ✅ | Dialog boxes with backdrop |
+| Tooltips & Popovers | ✅ | Contextual overlays |
+| Progress Bars | ✅ | Animated progress indicators |
+| Timeline | ✅ | Vertical timeline component |
+| Badges | ✅ | Status and label badges |
+| Alerts | ✅ | Notification messages |
+
+### Forms & Input
+
+| Component | Status | Description |
+|-----------|--------|-------------|
+| Text Inputs | ✅ | Standard and floating label variants |
+| Select Dropdowns | ✅ | Styled select elements |
+| Checkboxes & Radios | ✅ | Custom styled form controls |
+| Switches | ✅ | Toggle switches |
+| Range Sliders | ✅ | Styled range inputs |
+| File Upload | ✅ | Custom file input styling |
+| Multi-Step Forms | ✅ | Wizard with progress indicators |
+| Auth Panels | ✅ | Login, register, password recovery |
+| Form Validation | ✅ | Error and success states |
+
+### SaaS & Marketing
+
+| Component | Status | Description |
+|-----------|--------|-------------|
+| Pricing Tables | ✅ | Feature comparison and plan cards |
+| Product Cards | ✅ | E-commerce ready product displays |
+| Team Section | ✅ | Team member cards with social links |
+| FAQ Section | ✅ | Accordion-style frequently asked questions |
+| CTA Sections | ✅ | Call-to-action blocks |
+| Newsletter Forms | ✅ | Email subscription forms |
+| Stats/Counters | ✅ | Animated statistics display |
+| Logo Grid | ✅ | Client/partner logo showcase |
+| Gallery | ✅ | Image grid layouts |
+| Blog Cards | ✅ | Article preview cards |
+| Cookie Banner | ✅ | GDPR compliance notice |
+| Floating Action Button | ✅ | FAB for quick actions |
+| Share Buttons | ✅ | Social media sharing |
+
+---
+
+## 🎯 Design System
+
+### Color Palette
+
+**Dark Theme:**
+
+- Background: `#0A0F1E` (Deep navy)
+- Surface: `#0F1828` (Dark slate)
+- Text: `#E2E8F0` (Light gray)
+- Accent: `#00ADB5` → `#56DFCF` (Teal/cyan gradient)
+
+**Light Theme:**
+
+- Background: `#FAFBFC` (Off-white)
+- Surface: `#FFFFFF` (Pure white)
+- Text: `#0F172A` (Deep slate)
+- Accent: `#0ABAB5` → `#ADEED9` (Teal gradient with pink highlights)
+
+### Typography
+
+- **Headings**: Inter (700-800 weight)
+- **Body**: Inter (400-500 weight)
+- **Code**: Fira Code
+
+### Spacing Scale
+
+`0.25rem` · `0.5rem` · `0.75rem` · `1rem` · `1.5rem` · `2rem` · `3rem` · `4rem` · `6rem`
+
+### Border Radius
+
+- `xs`: 4px
+- `sm`: 6px
+- `md`: 8px (default)
+- `lg`: 12px
+- `xl`: 16px
+- `pill`: 999px
+
+---
+
+## 💡 Usage Examples
+
+### Theme Toggle
+
+```html
+<button id="themeToggle" class="btn btn-icon">
+  <i class="fas fa-moon"></i>
+</button>
+```
+
+The theme automatically persists to localStorage and applies on page load.
+
+### Component Example - Card
+
+```html
+<div class="uk-card uk-card-glass">
+  <div class="uk-card-body">
+    <h5 class="uk-card-title">Card Title</h5>
+    <p class="uk-card-text">Card content goes here.</p>
+    <a href="#" class="btn btn-accent">Learn More</a>
+  </div>
+</div>
+```
+
+### Component Example - Hero Section
+
+```html
+<section class="hero gradient-bg">
+  <div class="container">
+    <div class="hero-content text-center">
+      <h1 class="hero-title">Welcome to Vectra UI</h1>
+      <p class="hero-subtitle">Build faster with premium components</p>
+      <a href="#" class="btn btn-accent btn-lg">Get Started</a>
+    </div>
+  </div>
+</section>
+```
+
+---
+
+## 🔧 Customization
+
+### Changing Colors
+
+Override CSS custom properties in your own stylesheet:
+
+```css
+:root {
+  --uk-accent: #FF6B6B;        /* Your brand color */
+  --uk-accent-alt: #FFE66D;    /* Secondary color */
+  --uk-radius-md: 16px;        /* Border radius */
+}
+```
+
+### Custom Theme
+
+Create a custom theme by adding a data attribute:
+
+```html
+<html data-theme="custom">
+```
+
+```css
+[data-theme="custom"] {
+  --uk-bg: #yourColor;
+  --uk-text: #yourColor;
+  /* ... other variables */
+}
+```
+
+---
+
+## 🚀 JavaScript Features
+
+The optional `ui-kit.js` file provides:
+
+- **Theme Toggle** - Persistent dark/light mode switching
+- **Back to Top** - Smooth scroll to top button
+- **Code Copy** - One-click code snippet copying
+- **Stat Counters** - Animated number counting
+- **Testimonial Slider** - Auto-playing testimonial carousel
+- **Sidebar Navigation** - Smooth scrolling and active states
+- **AOS Integration** - Scroll-triggered animations
+
+**Progressive Enhancement**: The site works perfectly without JavaScript!
+
+---
+
+## 📱 Browser Support
+
+- ✅ Chrome (latest)
+- ✅ Firefox (latest)
+- ✅ Safari (latest)
+- ✅ Edge (latest)
+- ⚠️ IE11 (not supported - requires modern CSS features)
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+**You are free to:**
+
+- ✅ Use commercially
+- ✅ Modify and adapt
+- ✅ Distribute
+- ✅ Use privately
+
+**No attribution required** - but appreciated! ⭐
+
+---
+
+## 👨‍💻 Author
+
+**Florin Pinta** ([@xttrust](https://github.com/xttrust))
+
+---
+
+## 🙏 Acknowledgments
+
+- [Bootstrap](https://getbootstrap.com/) - Component framework
+- [Font Awesome](https://fontawesome.com/) - Icon library
+- [AOS](https://michalsnik.github.io/aos/) - Animate on scroll library
+- [Inter](https://rsms.me/inter/) - Typography
+
+---
+
+## 🌟 Show Your Support
+
+If you find this project useful, please consider:
+
+- ⭐ Starring the repository
+- 🐛 Reporting bugs and issues
+- 💡 Suggesting new features
+- 📢 Sharing with others
+- ☕ [Buy me a coffee](https://github.com/sponsors/xttrust) (optional)
+
+---
+
+**🚀 Built with ❤️ by [Florin Pinta](https://github.com/xttrust)**
+
+**[⬆ Back to Top](#-vectra-ui-kit)**cense: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3+-purple.svg)](https://getbootstrap.com/)
 [![Theme](https://img.shields.io/badge/Theme-Dark%20%2F%20Light-00ADB5.svg)](#features)
 
