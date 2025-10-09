@@ -40,6 +40,7 @@
     },
     cache(){
       this.doc = document;
+      this.html = document.documentElement;
       this.body = document.body;
       this.backToTop = document.getElementById('backToTop');
       this.themeToggle = document.querySelector('[data-toggle="theme"]');
@@ -47,14 +48,14 @@
     initTheme(){
       const saved = localStorage.getItem('uikit-theme');
       if (saved){
-        this.body.setAttribute('data-theme', saved);
+        this.html.setAttribute('data-theme', saved);
         if (saved === 'light') this.themeToggle?.classList.add('active');
       }
     },
     toggleTheme(){
-      const current = this.body.getAttribute('data-theme');
+      const current = this.html.getAttribute('data-theme');
       const next = current === 'light' ? 'dark' : 'light';
-      this.body.setAttribute('data-theme', next);
+      this.html.setAttribute('data-theme', next);
       localStorage.setItem('uikit-theme', next);
       this.themeToggle?.classList.toggle('active', next === 'light');
     },

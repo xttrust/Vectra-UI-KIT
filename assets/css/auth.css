@@ -69,6 +69,10 @@
   border-radius: var(--uk-radius); padding: 1rem; margin-top: 1rem; text-align: center; color: var(--uk-accent);
 }
 
+[data-theme="light"] .success-message {
+  background: rgba(10,186,181,.1);
+}
+
 /* Profile page */
 .profile-header {
   background: linear-gradient(140deg, var(--uk-surface), var(--uk-surface-alt));
@@ -76,6 +80,8 @@
   border: 1px solid var(--uk-border); padding: 2rem; margin-bottom: 2rem; text-align: center;
 }
 .profile-avatar { width: 120px; height: 120px; border-radius: 50%; overflow: hidden; margin: 0 auto 1.5rem; box-shadow: 0 0 0 4px rgba(0,173,181,.18), 0 8px 24px -6px rgba(0,0,0,.5); position: relative; }
+
+[data-theme="light"] .profile-avatar { box-shadow: 0 0 0 4px rgba(10,186,181,.18), 0 8px 24px -6px rgba(0,0,0,.5); }
 .profile-avatar img { width: 100%; height: 100%; object-fit: cover; }
 .profile-avatar-edit { position: absolute; bottom: 0; right: 0; width: 32px; height: 32px; background: var(--uk-accent); color: #042326; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .9rem; cursor: pointer; transition: transform var(--uk-transition-fast); }
 .profile-avatar-edit:hover { transform: scale(1.1); }
@@ -101,6 +107,8 @@
 .form-switch .form-check-input { width: 3rem; height: 1.5rem; background-color: var(--uk-border); border-color: var(--uk-border); }
 .form-switch .form-check-input:checked { background-color: var(--uk-accent); border-color: var(--uk-accent); }
 .form-switch .form-check-input:focus { box-shadow: 0 0 0 .2rem rgba(0,173,181,.25); }
+
+[data-theme="light"] .form-switch .form-check-input:focus { box-shadow: 0 0 0 .2rem rgba(10,186,181,.25); }
 
 .activity-item { display: flex; align-items: center; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--uk-border); }
 .activity-item:last-child { border-bottom: none; }
