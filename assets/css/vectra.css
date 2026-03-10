@@ -348,7 +348,7 @@ small, .v-small { font-size: .8125rem; }
   border-bottom: 1px solid rgba(255,255,255,.06);
   box-shadow: 0 1px 12px rgba(0,0,0,.4);
   transition: background var(--v-t-fast), box-shadow var(--v-t-fast);
-  height: var(--v-navbar-h);
+  min-height: var(--v-navbar-h);
 }
 .v-navbar.scrolled {
   background: rgba(17, 19, 24, .96);
@@ -1654,6 +1654,18 @@ small, .v-small { font-size: .8125rem; }
    RESPONSIVE
    ────────────────────────────────────────────────────────── */
 @media (max-width: 991.98px) {
+  /* Allow navbar to grow vertically when the collapse is open */
+  .v-navbar {
+    height: auto;
+    align-items: flex-start;
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+  }
+  .v-navbar > .container,
+  .v-navbar > .container-fluid {
+    flex-wrap: wrap;
+    align-items: center;
+  }
   .v-navbar .navbar-collapse {
     background: var(--v-surface);
     border: 1px solid var(--v-border);
@@ -1661,8 +1673,14 @@ small, .v-small { font-size: .8125rem; }
     margin-top: .5rem;
     padding: .75rem;
     box-shadow: var(--v-shadow-lg);
+    width: 100%;
   }
   [data-theme="light"] .v-navbar .navbar-collapse { background: var(--v-surface); }
+
+  /* Right-side actions: keep them on the same row as the toggler */
+  .v-navbar .navbar-collapse .d-flex {
+    padding: .5rem .25rem .25rem;
+  }
 
   .v-hero { padding-bottom: 2.5rem; }
 }
