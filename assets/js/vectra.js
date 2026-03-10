@@ -159,8 +159,6 @@
         const activate = (link) => {
           links.forEach(l => l.classList.remove('active'));
           link.classList.add('active');
-          // Scroll active link into view inside the sidebar
-          link.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
         };
 
         const observer = new IntersectionObserver(entries => {

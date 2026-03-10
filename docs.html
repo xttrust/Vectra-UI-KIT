@@ -93,6 +93,12 @@
           <a href="#accessibility">Accessibility</a>
           <a href="#customisation">Customisation</a>
           <a href="#changelog">Changelog</a>
+          <span class="v-nav-group-label mt-3">Auth Pages</span>
+          <a href="#auth-pages">Auth Overview</a>
+          <a href="#auth-login">Login</a>
+          <a href="#auth-register">Register</a>
+          <a href="#auth-recovery">Recovery</a>
+          <a href="#auth-profile">Profile</a>
         </nav>
       </aside>
 
@@ -355,6 +361,128 @@ localStorage.setItem('vectra-theme', 'light');</code></pre>
 .my-widget:hover {
   box-shadow: var(--v-shadow);
 }</code></pre>
+          </div>
+        </section>
+
+        <!-- Auth Pages -->
+        <section id="auth-pages" class="doc-section">
+          <h2>Auth Pages — Overview</h2>
+          <p class="lead">Vectra ships four ready-to-use authentication page templates in the <code>auth/</code> directory. Each page is fully themed, responsive, and built with the same design-token system as the rest of the kit.</p>
+          <table class="table table-sm">
+            <thead><tr><th>File</th><th>URL</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>auth/login.html</code></td><td><a class="v-link" href="auth/login.html" target="_blank">auth/login.html</a></td><td>Email + password sign-in with social buttons and a remember-me checkbox.</td></tr>
+              <tr><td><code>auth/register.html</code></td><td><a class="v-link" href="auth/register.html" target="_blank">auth/register.html</a></td><td>Full registration form with name, email, password, confirm-password, and a terms checkbox.</td></tr>
+              <tr><td><code>auth/recover.html</code></td><td><a class="v-link" href="auth/recover.html" target="_blank">auth/recover.html</a></td><td>Password-recovery flow with an animated sent-confirmation state.</td></tr>
+              <tr><td><code>auth/profile.html</code></td><td><a class="v-link" href="auth/profile.html" target="_blank">auth/profile.html</a></td><td>Tabbed user-settings page: personal info, security (password + 2FA), notifications, and billing.</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Auth: Login -->
+        <section id="auth-login" class="doc-section">
+          <h2>Auth — Login</h2>
+          <p class="lead">A clean, centred card for email/password sign-in. Includes social login buttons and a remember-me toggle.</p>
+          <div class="v-code-block">
+            <div class="v-code-header"><span class="v-code-lang">html</span><button class="v-copy-btn">Copy</button></div>
+            <pre><code>&lt;!-- Link to the page --&gt;
+&lt;a href="auth/login.html"&gt;Sign in&lt;/a&gt;
+
+&lt;!-- Core form structure --&gt;
+&lt;form method="post" action="/login"&gt;
+  &lt;input type="email" name="email" required placeholder="Email address" /&gt;
+  &lt;input type="password" name="password" required placeholder="Password"
+         id="pw" /&gt;
+  &lt;button type="button" data-pw-toggle="pw" aria-label="Show password"&gt;
+    &lt;i class="fa-solid fa-eye"&gt;&lt;/i&gt;
+  &lt;/button&gt;
+  &lt;button type="submit"&gt;Sign in&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+          </div>
+          <div class="v-alert v-alert-info mt-3">
+            <i class="fa-solid fa-circle-info"></i>
+            The <code>data-pw-toggle</code> attribute wires the eye-button to reveal/hide the password — handled automatically by <code>Vectra.initPasswordToggle()</code>.
+          </div>
+        </section>
+
+        <!-- Auth: Register -->
+        <section id="auth-register" class="doc-section">
+          <h2>Auth — Register</h2>
+          <p class="lead">Full registration card with first/last name, email, password confirmation, and a terms-of-service checkbox.</p>
+          <div class="v-code-block">
+            <div class="v-code-header"><span class="v-code-lang">html</span><button class="v-copy-btn">Copy</button></div>
+            <pre><code>&lt;!-- Link to the page --&gt;
+&lt;a href="auth/register.html"&gt;Create account&lt;/a&gt;
+
+&lt;!-- Minimum required fields --&gt;
+&lt;form method="post" action="/register"&gt;
+  &lt;input type="text"  name="first_name" required placeholder="First name" /&gt;
+  &lt;input type="text"  name="last_name"  required placeholder="Last name" /&gt;
+  &lt;input type="email" name="email"      required placeholder="Email address" /&gt;
+  &lt;input type="password" name="password" required placeholder="Password" id="pw" /&gt;
+  &lt;input type="password" name="confirm"  required placeholder="Confirm password" /&gt;
+  &lt;input type="checkbox" name="terms" required /&gt;
+  &lt;button type="submit"&gt;Create account&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+          </div>
+        </section>
+
+        <!-- Auth: Recovery -->
+        <section id="auth-recovery" class="doc-section">
+          <h2>Auth — Recovery</h2>
+          <p class="lead">A two-state password-recovery page: the initial email-input form, and an animated &ldquo;link sent&rdquo; confirmation card that replaces it on submission.</p>
+          <div class="v-code-block">
+            <div class="v-code-header"><span class="v-code-lang">html</span><button class="v-copy-btn">Copy</button></div>
+            <pre><code>&lt;!-- Link to the page --&gt;
+&lt;a href="auth/recover.html"&gt;Forgot password?&lt;/a&gt;
+
+&lt;!-- State 1: email form (shown by default) --&gt;
+&lt;div id="recoverForm"&gt;
+  &lt;form&gt;
+    &lt;input type="email" required placeholder="Email address" /&gt;
+    &lt;button type="submit"&gt;Send reset link&lt;/button&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+
+&lt;!-- State 2: confirmation (hidden by default) --&gt;
+&lt;div id="recoverSuccess" style="display:none"&gt;
+  &lt;i class="fa-solid fa-circle-check"&gt;&lt;/i&gt;
+  &lt;p&gt;Check your inbox — a reset link is on its way.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </section>
+
+        <!-- Auth: Profile -->
+        <section id="auth-profile" class="doc-section">
+          <h2>Auth — Profile</h2>
+          <p class="lead">A fully tabbed user-settings dashboard. Four tabs: <strong>Personal Info</strong>, <strong>Security</strong> (password change + 2FA toggle), <strong>Notifications</strong>, and <strong>Billing</strong>.</p>
+          <div class="v-code-block">
+            <div class="v-code-header"><span class="v-code-lang">html</span><button class="v-copy-btn">Copy</button></div>
+            <pre><code>&lt;!-- Link to the page --&gt;
+&lt;a href="auth/profile.html"&gt;My Profile&lt;/a&gt;
+
+&lt;!-- Tab navigation (Bootstrap pill tabs) --&gt;
+&lt;ul class="nav nav-pills" role="tablist"&gt;
+  &lt;li class="nav-item"&gt;&lt;button data-bs-toggle="pill"
+    data-bs-target="#tab-personal"&gt;Personal Info&lt;/button&gt;&lt;/li&gt;
+  &lt;li class="nav-item"&gt;&lt;button data-bs-toggle="pill"
+    data-bs-target="#tab-security"&gt;Security&lt;/button&gt;&lt;/li&gt;
+  &lt;li class="nav-item"&gt;&lt;button data-bs-toggle="pill"
+    data-bs-target="#tab-notifications"&gt;Notifications&lt;/button&gt;&lt;/li&gt;
+  &lt;li class="nav-item"&gt;&lt;button data-bs-toggle="pill"
+    data-bs-target="#tab-billing"&gt;Billing&lt;/button&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class="tab-content"&gt;
+  &lt;div class="tab-pane" id="tab-personal"&gt;&lt;!-- personal info fields --&gt;&lt;/div&gt;
+  &lt;div class="tab-pane" id="tab-security"&gt;&lt;!-- password + 2FA --&gt;&lt;/div&gt;
+  &lt;div class="tab-pane" id="tab-notifications"&gt;&lt;!-- toggles --&gt;&lt;/div&gt;
+  &lt;div class="tab-pane" id="tab-billing"&gt;&lt;!-- billing info --&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+          <div class="v-alert v-alert-info mt-3">
+            <i class="fa-solid fa-circle-info"></i>
+            Tab switching is handled by Bootstrap 5's built-in pill-tab component — no extra JavaScript needed.
           </div>
         </section>
 
