@@ -1654,18 +1654,14 @@ small, .v-small { font-size: .8125rem; }
    RESPONSIVE
    ────────────────────────────────────────────────────────── */
 @media (max-width: 991.98px) {
-  /* Allow navbar to grow vertically when the collapse is open */
-  .v-navbar {
-    height: auto;
-    align-items: flex-start;
-    padding-top: .75rem;
-    padding-bottom: .75rem;
-  }
+  /* Allow the navbar to grow when the collapse menu is open */
+  .v-navbar { height: auto; }
+
   .v-navbar > .container,
   .v-navbar > .container-fluid {
     flex-wrap: wrap;
-    align-items: center;
   }
+
   .v-navbar .navbar-collapse {
     background: var(--v-surface);
     border: 1px solid var(--v-border);
@@ -1677,11 +1673,6 @@ small, .v-small { font-size: .8125rem; }
   }
   [data-theme="light"] .v-navbar .navbar-collapse { background: var(--v-surface); }
 
-  /* Right-side actions: keep them on the same row as the toggler */
-  .v-navbar .navbar-collapse .d-flex {
-    padding: .5rem .25rem .25rem;
-  }
-
   .v-hero { padding-bottom: 2.5rem; }
 }
 
@@ -1689,7 +1680,38 @@ small, .v-small { font-size: .8125rem; }
   .v-steps { flex-direction: column; }
   .v-step  { flex: 1 1 auto; }
   .v-pricing-grid { grid-template-columns: 1fr; }
-  .v-cookie-banner { flex-direction: column; bottom: .5rem; }
+
+  /* Compact cookie banner on mobile — slim bottom strip, never taller than needed */
+  .v-cookie-banner {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: .6rem;
+    padding: .75rem 1rem;
+    bottom: 0;
+    border-radius: var(--v-r-lg) var(--v-r-lg) 0 0;
+    width: 100%;
+    max-width: 100%;
+    left: 0;
+    transform: translateX(0) translateY(calc(100% + 2rem));
+  }
+  .v-cookie-banner.show { transform: translateX(0) translateY(0); }
+  .v-cookie-text {
+    flex: 1 1 0;
+    font-size: .8rem;
+    min-width: 0;
+  }
+  .v-cookie-text p { margin: 0; white-space: normal; }
+  .v-cookie-actions {
+    flex-shrink: 0;
+    flex-wrap: nowrap;
+    gap: .4rem;
+  }
+  .v-cookie-actions .v-btn {
+    padding: .3rem .7rem;
+    font-size: .8rem;
+    white-space: nowrap;
+  }
 
   .v-footer-bottom { flex-direction: column; align-items: flex-start; }
 }
