@@ -148,6 +148,7 @@ html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
   scrollbar-color: var(--v-border-2) var(--v-bg-2);
+  overflow-x: hidden; /* Must be on html — overflow-x on body alone is reassigned here by browsers */
 }
 
 body {
@@ -158,6 +159,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  max-width: 100%;
 }
 
 /* Subtle ambient gradient behind content */
