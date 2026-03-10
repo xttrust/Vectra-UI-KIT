@@ -1,362 +1,287 @@
-<!-- /* ==========================================================================
-   Vectra UI - Modern Dark/Cyan Theme Design System
-   
-   Author: Florin Pinta (xttrust)
-   Website: https://creativeigniter.com
-   GitHub: https://github.com/xttrust
-   Email: xttrust@creativeigniter.com
-   
-   Description: Complete design system with variables, components & utilities
-   Dependencies: Bootstrap 5.3+, Font Awesome 6+, AOS
-   License: MIT
-   ========================================================================== */ -->
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Profile - Vectra UI Auth</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-  <link rel="stylesheet" href="../assets/css/ui-kit.css" />
-  <link rel="stylesheet" href="../assets/css/auth.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile — Vectra UI Kit</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2300c2cb'/><text x='50%' y='56%' dominant-baseline='middle' text-anchor='middle' font-family='system-ui' font-weight='700' font-size='18' fill='%2301292b'>V</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../assets/css/vectra.css" />
+  <style>
+    .profile-page{min-height:100vh;background:var(--v-bg);padding-top:var(--v-navbar-h)}
+    .profile-sidebar .v-avatar-lg{width:80px;height:80px;font-size:1.8rem}
+    .profile-nav-link{display:flex;align-items:center;gap:.6rem;padding:.55rem .9rem;border-radius:var(--v-r-sm);color:var(--v-text-2);font-size:.875rem;text-decoration:none;transition:background var(--v-t-fast),color var(--v-t-fast);cursor:pointer;border:none;background:none;width:100%;text-align:left}
+    .profile-nav-link:hover,.profile-nav-link.active{background:var(--v-accent-soft);color:var(--v-accent)}
+    .profile-nav-link i{width:16px;text-align:center;font-size:.85rem}
+    .danger-zone{border:1px solid var(--v-danger);border-radius:var(--v-r);padding:1.25rem;margin-top:1.5rem}
+    .danger-zone h6{color:var(--v-danger);margin-bottom:.5rem}
+  </style>
 </head>
-<body class="uk-bg">
-  <nav class="navbar navbar-expand-lg fixed-top uk-navbar py-2">
-    <div class="container-fluid px-gutter">
-      <a class="navbar-brand" href="../index.html"><span class="logo-dot"></span> Vectra UI</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-      <div class="collapse navbar-collapse" id="mainNav">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="../components.html">Components</a></li>
-          <li class="nav-item"><a class="nav-link" href="../forms.html">Forms</a></li>
-        </ul>
-        <ul class="navbar-nav">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="fa-solid fa-user me-2"></i>John Doe
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="profile.html"><i class="fa-solid fa-user me-2"></i>Profile</a></li>
-              <li><a class="dropdown-item" href="settings.html"><i class="fa-solid fa-gear me-2"></i>Settings</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="login.html"><i class="fa-solid fa-sign-out-alt me-2"></i>Logout</a></li>
-            </ul>
-          </li>
-        </ul>
+<body>
+
+  <!-- Minimal navbar for profile page -->
+  <nav class="navbar fixed-top v-navbar" aria-label="App navigation">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand" href="../index.html"><span class="logo-dot" aria-hidden="true"></span> Vectra UI</a>
+      <div class="d-flex align-items-center gap-3">
+        <button class="v-theme-toggle" data-toggle="theme" aria-label="Toggle theme"><i class="fa-solid fa-sun"></i></button>
+        <div class="dropdown">
+          <button class="v-btn v-btn-ghost v-btn-sm d-flex align-items-center gap-2" data-bs-toggle="dropdown"
+                  aria-expanded="false" aria-label="User menu">
+            <div class="v-avatar" style="width:32px;height:32px;font-size:.85rem">AJ</div>
+            <span class="d-none d-sm-inline v-small">Alice Johnson</span>
+            <i class="fa-solid fa-chevron-down fa-xs v-text-muted"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="profile.html"><i class="fa-solid fa-user fa-fw me-2"></i>Profile</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="login.html"><i class="fa-solid fa-right-from-bracket fa-fw me-2"></i>Sign Out</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </nav>
 
-  <main class="container px-gutter py-5" style="padding-top: 6rem;">
-    <!-- Profile Header -->
-    <div class="profile-header" data-aos="fade-down">
-      <div class="profile-avatar">
-        <img src="https://i.imgur.com/8Km9tLL.jpg" alt="Profile Avatar" />
-        <div class="profile-avatar-edit" title="Change Avatar">
-          <i class="fa-solid fa-camera"></i>
-        </div>
-      </div>
-      <h1 class="profile-name">John Doe</h1>
-      <p class="profile-email">john.doe@example.com</p>
-      <div class="profile-stats">
-        <div class="stat-item">
-          <span class="stat-number">42</span>
-          <span class="stat-label">Posts</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">1.2K</span>
-          <span class="stat-label">Followers</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">387</span>
-          <span class="stat-label">Following</span>
-        </div>
-      </div>
-      <div class="profile-actions">
-        <button class="btn btn-uk-outline btn-sm">
-          <i class="fa-solid fa-user-plus me-2"></i>Follow
-        </button>
-        <button class="btn btn-uk-soft btn-sm">
-          <i class="fa-solid fa-message me-2"></i>Message
-        </button>
-        <button class="btn btn-uk-ghost btn-sm">
-          <i class="fa-solid fa-share-nodes me-2"></i>Share
-        </button>
-      </div>
-    </div>
+  <div class="profile-page">
+    <div class="container py-5">
+      <div class="row g-4">
 
-    <!-- Profile Content Tabs -->
-    <div class="profile-card" data-aos="fade-up">
-      <ul class="nav nav-tabs" id="profileTabs" role="tablist">
-        <li class="nav-item" role="presentation">
-          <button class="nav-link active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview" type="button" role="tab" aria-controls="overview" aria-selected="true">
-            <i class="fa-solid fa-chart-line me-2"></i>Overview
-          </button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings" type="button" role="tab" aria-controls="settings" aria-selected="false">
-            <i class="fa-solid fa-gear me-2"></i>Settings
-          </button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link" id="activity-tab" data-bs-toggle="tab" data-bs-target="#activity" type="button" role="tab" aria-controls="activity" aria-selected="false">
-            <i class="fa-solid fa-history me-2"></i>Activity
-          </button>
-        </li>
-      </ul>
+        <!-- Sidebar -->
+        <aside class="col-lg-3 col-md-4">
+          <div class="v-card text-center mb-3">
+            <div class="v-avatar-lg mx-auto mb-3" style="background:var(--v-accent-soft);color:var(--v-accent);width:80px;height:80px;font-size:1.8rem">
+              AJ
+            </div>
+            <div style="font-weight:600">Alice Johnson</div>
+            <div class="v-small v-text-muted mb-3">alice@example.com</div>
+            <span class="v-badge v-badge-success">Active</span>
+          </div>
+          <nav class="v-card" aria-label="Profile navigation">
+            <button class="profile-nav-link active" data-tab-target="tab-profile">
+              <i class="fa-solid fa-user"></i> Profile
+            </button>
+            <button class="profile-nav-link" data-tab-target="tab-security">
+              <i class="fa-solid fa-shield-halved"></i> Security
+            </button>
+            <button class="profile-nav-link" data-tab-target="tab-notifications">
+              <i class="fa-solid fa-bell"></i> Notifications
+            </button>
+            <button class="profile-nav-link" data-tab-target="tab-billing">
+              <i class="fa-solid fa-credit-card"></i> Billing
+            </button>
+          </nav>
+        </aside>
 
-      <div class="tab-content" id="profileTabsContent">
-        <!-- Overview Tab -->
-        <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="card-header">
-                <div class="card-icon">
-                  <i class="fa-solid fa-user"></i>
+        <!-- Main content -->
+        <main class="col-lg-9 col-md-8">
+
+          <!-- Profile Tab -->
+          <div id="tab-profile">
+            <div class="v-card mb-4">
+              <h5 class="mb-4">Personal Information</h5>
+              <form>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label" for="p-fname">First name</label>
+                    <input type="text" class="form-control" id="p-fname" value="Alice" />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label" for="p-lname">Last name</label>
+                    <input type="text" class="form-control" id="p-lname" value="Johnson" />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label" for="p-email">Email</label>
+                    <input type="email" class="form-control" id="p-email" value="alice@example.com" />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label" for="p-phone">Phone</label>
+                    <input type="tel" class="form-control" id="p-phone" placeholder="+1 555 000 0000" />
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label" for="p-bio">Bio</label>
+                    <textarea class="form-control" id="p-bio" rows="3" placeholder="Tell us about yourself…"></textarea>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label" for="p-url">Website</label>
+                    <input type="url" class="form-control" id="p-url" placeholder="https://yoursite.com" />
+                  </div>
+                  <div class="col-12">
+                    <button type="submit" class="v-btn v-btn-primary">Save Changes</button>
+                  </div>
                 </div>
+              </form>
+            </div>
+
+            <div class="v-card mb-4">
+              <h5 class="mb-3">Avatar</h5>
+              <div class="d-flex align-items-center gap-4 flex-wrap">
+                <div class="v-avatar-lg" style="width:80px;height:80px;font-size:1.8rem;background:var(--v-accent-soft);color:var(--v-accent)">AJ</div>
                 <div>
-                  <h3 class="card-title">Personal Information</h3>
-                  <p class="card-subtitle">Your basic profile details</p>
+                  <div class="v-drop-zone" style="padding:1rem 1.5rem;max-width:280px">
+                    <i class="fa-solid fa-cloud-arrow-up mb-1" style="font-size:1.25rem"></i>
+                    <p class="mb-1 v-small">Drop new avatar here or click to browse</p>
+                    <p class="v-text-xs v-text-muted mb-0">PNG, JPG up to 2 MB</p>
+                    <input type="file" accept="image/*" style="display:none" />
+                  </div>
+                  <p class="v-small v-text-muted mt-2 mb-0">Recommended: 400×400 px, square, max 2 MB.</p>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Security Tab (hidden by default) -->
+          <div id="tab-security" style="display:none">
+            <div class="v-card mb-4">
+              <h5 class="mb-4">Change Password</h5>
+              <form>
+                <div class="mb-3">
+                  <label class="form-label" for="s-cur">Current password</label>
+                  <div class="v-input-icon-wrap">
+                    <input type="password" class="form-control" id="s-cur" placeholder="Current password" autocomplete="current-password" />
+                    <button class="v-input-icon-btn" type="button" data-pw-toggle="s-cur" aria-label="Show current password"><i class="fa-regular fa-eye"></i></button>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="s-new">New password</label>
+                  <div class="v-input-icon-wrap">
+                    <input type="password" class="form-control" id="s-new" placeholder="New password" autocomplete="new-password" minlength="8" />
+                    <button class="v-input-icon-btn" type="button" data-pw-toggle="s-new" aria-label="Show new password"><i class="fa-regular fa-eye"></i></button>
+                  </div>
+                </div>
+                <div class="mb-4">
+                  <label class="form-label" for="s-conf">Confirm new password</label>
+                  <div class="v-input-icon-wrap">
+                    <input type="password" class="form-control" id="s-conf" placeholder="Confirm new password" autocomplete="new-password" />
+                    <button class="v-input-icon-btn" type="button" data-pw-toggle="s-conf" aria-label="Show confirm password"><i class="fa-regular fa-eye"></i></button>
+                  </div>
+                </div>
+                <button type="submit" class="v-btn v-btn-primary">Update Password</button>
+              </form>
+            </div>
+
+            <div class="v-card mb-4">
+              <div class="v-flex-between flex-wrap gap-3">
+                <div>
+                  <h5 class="mb-1">Two-factor Authentication</h5>
+                  <p class="v-small v-text-muted mb-0">Add an extra layer of security to your account.</p>
+                </div>
+                <div class="form-check form-switch mb-0">
+                  <input class="form-check-input" type="checkbox" role="switch" id="2fa-toggle" />
+                  <label class="form-check-label v-small" for="2fa-toggle">Enable 2FA</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="danger-zone">
+              <h6><i class="fa-solid fa-triangle-exclamation me-2"></i>Danger Zone</h6>
+              <p class="v-small v-text-muted mb-3">Once deleted, your account and all data cannot be recovered.</p>
+              <button type="button" class="v-btn v-btn-sm"
+                      style="background:var(--v-danger-soft);color:var(--v-danger);border:1px solid var(--v-danger)">
+                Delete Account
+              </button>
+            </div>
+          </div>
+
+          <!-- Notifications Tab -->
+          <div id="tab-notifications" style="display:none">
+            <div class="v-card">
+              <h5 class="mb-4">Notification Preferences</h5>
+              <div class="d-flex flex-column gap-3">
+                <div class="v-flex-between">
+                  <div>
+                    <div style="font-size:.9rem;font-weight:500">Product updates</div>
+                    <div class="v-small v-text-muted">New features, improvements, and announcements.</div>
+                  </div>
+                  <div class="form-check form-switch mb-0">
+                    <input class="form-check-input" type="checkbox" role="switch" id="n-prod" checked />
+                  </div>
+                </div>
+                <div class="v-border-t" style="border-top:1px solid var(--v-border)"></div>
+                <div class="v-flex-between">
+                  <div>
+                    <div style="font-size:.9rem;font-weight:500">Security alerts</div>
+                    <div class="v-small v-text-muted">Sign-ins from new devices or locations.</div>
+                  </div>
+                  <div class="form-check form-switch mb-0">
+                    <input class="form-check-input" type="checkbox" role="switch" id="n-sec" checked />
+                  </div>
+                </div>
+                <div class="v-border-t" style="border-top:1px solid var(--v-border)"></div>
+                <div class="v-flex-between">
+                  <div>
+                    <div style="font-size:.9rem;font-weight:500">Marketing emails</div>
+                    <div class="v-small v-text-muted">Promotions, tips, and offers.</div>
+                  </div>
+                  <div class="form-check form-switch mb-0">
+                    <input class="form-check-input" type="checkbox" role="switch" id="n-mkt" />
+                  </div>
+                </div>
+              </div>
+              <div class="mt-4">
+                <button type="button" class="v-btn v-btn-primary">Save Preferences</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Billing Tab -->
+          <div id="tab-billing" style="display:none">
+            <div class="v-card mb-4">
+              <div class="v-flex-between flex-wrap gap-3 mb-3">
+                <div>
+                  <h5 class="mb-1">Current Plan</h5>
+                  <p class="v-small v-text-muted mb-0">You are on the <strong style="color:var(--v-text)">Pro</strong> plan.</p>
+                </div>
+                <span class="v-badge v-badge-success">Active</span>
               </div>
               <div class="row g-3">
-                <div class="col-12">
-                  <label class="form-label">Full Name</label>
-                  <input type="text" class="form-control" value="John Doe" readonly>
+                <div class="col-sm-4">
+                  <div class="v-surface-2 p-3 rounded">
+                    <div class="v-small v-text-muted mb-1">Amount</div>
+                    <div style="font-size:1.25rem;font-weight:700">$29<span class="v-small v-text-muted">/mo</span></div>
+                  </div>
                 </div>
-                <div class="col-12">
-                  <label class="form-label">Email Address</label>
-                  <input type="email" class="form-control" value="john.doe@example.com" readonly>
+                <div class="col-sm-4">
+                  <div class="v-surface-2 p-3 rounded">
+                    <div class="v-small v-text-muted mb-1">Next billing</div>
+                    <div style="font-weight:600">Aug 1, 2025</div>
+                  </div>
                 </div>
-                <div class="col-md-6">
-                  <label class="form-label">Phone</label>
-                  <input type="tel" class="form-control" value="+1 (555) 123-4567" readonly>
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label">Location</label>
-                  <input type="text" class="form-control" value="San Francisco, CA" readonly>
-                </div>
-                <div class="col-12">
-                  <label class="form-label">Bio</label>
-                  <textarea class="form-control" rows="3" readonly>Passionate developer and UI/UX enthusiast. Love creating beautiful and functional web experiences.</textarea>
+                <div class="col-sm-4">
+                  <div class="v-surface-2 p-3 rounded">
+                    <div class="v-small v-text-muted mb-1">Payment</div>
+                    <div style="font-weight:600"><i class="fa-brands fa-cc-visa me-1" style="color:var(--v-info)"></i>•••• 4242</div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="card-header">
-                <div class="card-icon">
-                  <i class="fa-solid fa-chart-pie"></i>
-                </div>
-                <div>
-                  <h3 class="card-title">Account Statistics</h3>
-                  <p class="card-subtitle">Your activity overview</p>
-                </div>
-              </div>
-              <div class="row g-4">
-                <div class="col-6">
-                  <div class="text-center">
-                    <div style="font-size: 2rem; color: var(--uk-accent); font-weight: 600;">42</div>
-                    <div style="font-size: 0.85rem; color: var(--uk-text-dim);">Total Posts</div>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="text-center">
-                    <div style="font-size: 2rem; color: var(--uk-accent); font-weight: 600;">1.2K</div>
-                    <div style="font-size: 0.85rem; color: var(--uk-text-dim);">Followers</div>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="text-center">
-                    <div style="font-size: 2rem; color: var(--uk-accent); font-weight: 600;">387</div>
-                    <div style="font-size: 0.85rem; color: var(--uk-text-dim);">Following</div>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="text-center">
-                    <div style="font-size: 2rem; color: var(--uk-accent); font-weight: 600;">98%</div>
-                    <div style="font-size: 0.85rem; color: var(--uk-text-dim);">Profile Complete</div>
-                  </div>
-                </div>
+              <div class="d-flex gap-2 mt-3">
+                <button class="v-btn v-btn-soft v-btn-sm">Upgrade Plan</button>
+                <button class="v-btn v-btn-ghost v-btn-sm">Cancel Subscription</button>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Settings Tab -->
-        <div class="tab-pane fade" id="settings" role="tabpanel" aria-labelledby="settings-tab">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="card-header">
-                <div class="card-icon">
-                  <i class="fa-solid fa-shield-alt"></i>
-                </div>
-                <div>
-                  <h3 class="card-title">Privacy & Security</h3>
-                  <p class="card-subtitle">Control your privacy settings</p>
-                </div>
-              </div>
-              <div class="setting-item">
-                <div class="setting-info">
-                  <div class="setting-name">Profile Visibility</div>
-                  <div class="setting-desc">Make your profile visible to everyone</div>
-                </div>
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" id="profileVisibility" checked>
-                </div>
-              </div>
-              <div class="setting-item">
-                <div class="setting-info">
-                  <div class="setting-name">Activity Status</div>
-                  <div class="setting-desc">Show when you're online</div>
-                </div>
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" id="activityStatus" checked>
-                </div>
-              </div>
-              <div class="setting-item">
-                <div class="setting-info">
-                  <div class="setting-name">Two-Factor Authentication</div>
-                  <div class="setting-desc">Add an extra layer of security</div>
-                </div>
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" id="twoFactor">
-                </div>
-              </div>
-              <div class="setting-item">
-                <div class="setting-info">
-                  <div class="setting-name">Email Notifications</div>
-                  <div class="setting-desc">Receive updates via email</div>
-                </div>
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" id="emailNotifications" checked>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="card-header">
-                <div class="card-icon">
-                  <i class="fa-solid fa-bell"></i>
-                </div>
-                <div>
-                  <h3 class="card-title">Notifications</h3>
-                  <p class="card-subtitle">Manage your notification preferences</p>
-                </div>
-              </div>
-              <div class="setting-item">
-                <div class="setting-info">
-                  <div class="setting-name">Push Notifications</div>
-                  <div class="setting-desc">Receive push notifications on your device</div>
-                </div>
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" id="pushNotifications" checked>
-                </div>
-              </div>
-              <div class="setting-item">
-                <div class="setting-info">
-                  <div class="setting-name">Message Notifications</div>
-                  <div class="setting-desc">Get notified about new messages</div>
-                </div>
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" id="messageNotifications" checked>
-                </div>
-              </div>
-              <div class="setting-item">
-                <div class="setting-info">
-                  <div class="setting-name">Follow Notifications</div>
-                  <div class="setting-desc">When someone follows you</div>
-                </div>
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" id="followNotifications">
-                </div>
-              </div>
-              <div class="setting-item">
-                <div class="setting-info">
-                  <div class="setting-name">Marketing Emails</div>
-                  <div class="setting-desc">Receive promotional content</div>
-                </div>
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" id="marketingEmails">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Activity Tab -->
-        <div class="tab-pane fade" id="activity" role="tabpanel" aria-labelledby="activity-tab">
-          <div class="card-header">
-            <div class="card-icon">
-              <i class="fa-solid fa-history"></i>
-            </div>
-            <div>
-              <h3 class="card-title">Recent Activity</h3>
-              <p class="card-subtitle">Your latest actions and updates</p>
-            </div>
-          </div>
-          <div class="activity-item">
-            <div class="activity-icon">
-              <i class="fa-solid fa-user-plus"></i>
-            </div>
-            <div class="activity-content">
-              <div class="activity-title">You followed Sarah Johnson</div>
-              <div class="activity-meta">2 hours ago</div>
-            </div>
-          </div>
-          <div class="activity-item">
-            <div class="activity-icon">
-              <i class="fa-solid fa-heart"></i>
-            </div>
-            <div class="activity-content">
-              <div class="activity-title">You liked a post by Mike Chen</div>
-              <div class="activity-meta">5 hours ago</div>
-            </div>
-          </div>
-          <div class="activity-item">
-            <div class="activity-icon">
-              <i class="fa-solid fa-comment"></i>
-            </div>
-            <div class="activity-content">
-              <div class="activity-title">You commented on "Amazing sunset photo!"</div>
-              <div class="activity-meta">1 day ago</div>
-            </div>
-          </div>
-          <div class="activity-item">
-            <div class="activity-icon">
-              <i class="fa-solid fa-share"></i>
-            </div>
-            <div class="activity-content">
-              <div class="activity-title">You shared a post by Alex Rivera</div>
-              <div class="activity-meta">2 days ago</div>
-            </div>
-          </div>
-          <div class="activity-item">
-            <div class="activity-icon">
-              <i class="fa-solid fa-edit"></i>
-            </div>
-            <div class="activity-content">
-              <div class="activity-title">You updated your profile picture</div>
-              <div class="activity-meta">3 days ago</div>
-            </div>
-          </div>
-        </div>
+        </main>
       </div>
     </div>
-  </main>
+  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="../assets/js/vectra.js"></script>
   <script>
-    AOS.init();
+    // Simple tab switching for profile page
+    const navLinks = document.querySelectorAll('[data-tab-target]');
+    const tabs = document.querySelectorAll('#tab-profile,#tab-security,#tab-notifications,#tab-billing');
 
-    // Tab switching functionality
-    const triggerTabList = [].slice.call(document.querySelectorAll('#profileTabs button'));
-    triggerTabList.forEach(function (triggerEl) {
-      const tabTrigger = new bootstrap.Tab(triggerEl);
-      triggerEl.addEventListener('click', function (event) {
-        event.preventDefault();
-        tabTrigger.show();
+    navLinks.forEach(link => {
+      link.addEventListener('click', function () {
+        const target = this.getAttribute('data-tab-target');
+        navLinks.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+        tabs.forEach(t => { t.style.display = t.id === target ? '' : 'none'; });
       });
     });
   </script>

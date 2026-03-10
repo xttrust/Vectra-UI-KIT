@@ -1,86 +1,93 @@
-<!-- /* ==========================================================================
-   Vectra UI - Modern Dark/Cyan Theme Design System
-   
-   Author: Florin Pinta (xttrust)
-   Website: https://creativeigniter.com
-   GitHub: https://github.com/xttrust
-   Email: xttrust@creativeigniter.com
-   
-   Description: Complete design system with variables, components & utilities
-   Dependencies: Bootstrap 5.3+, Font Awesome 6+, AOS
-   License: MIT
-   ========================================================================== */ -->
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Login - Vectra UI Auth</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-  <link rel="stylesheet" href="../assets/css/ui-kit.css" />
-  <link rel="stylesheet" href="../assets/css/auth.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In — Vectra UI Kit</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2300c2cb'/><text x='50%' y='56%' dominant-baseline='middle' text-anchor='middle' font-family='system-ui' font-weight='700' font-size='18' fill='%2301292b'>V</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../assets/css/vectra.css" />
 </head>
-<body class="uk-bg">
-  <main class="container d-flex flex-column justify-content-center align-items-center min-vh-100">
-    <div class="auth-card" data-aos="fade-up">
-      <div class="auth-header">
-        <div class="auth-logo">
-          <i class="fa-solid fa-shield-alt"></i>
-        </div>
-        <h1 class="auth-title">Welcome Back</h1>
-        <p class="auth-subtitle">Sign in to your account</p>
+<body class="v-auth-body">
+
+  <div class="v-auth-wrap">
+
+    <!-- Brand -->
+    <a href="../index.html" class="v-auth-brand">
+      <span class="logo-dot" aria-hidden="true"></span>
+      Vectra UI
+    </a>
+
+    <div class="v-auth-panel">
+      <div class="v-auth-header">
+        <h1>Welcome back</h1>
+        <p>Sign in to your account to continue.</p>
       </div>
 
-      <div class="social-login">
-        <a href="#" class="social-btn">
-          <i class="fa-brands fa-google"></i>
-          Continue with Google
-        </a>
-        <a href="#" class="social-btn">
-          <i class="fa-brands fa-github"></i>
-          Continue with GitHub
-        </a>
+      <!-- Social Logins -->
+      <div class="v-auth-socials">
+        <button type="button" class="v-btn v-btn-outline w-100 justify-content-center gap-2">
+          <i class="fa-brands fa-google"></i> Continue with Google
+        </button>
+        <button type="button" class="v-btn v-btn-outline w-100 justify-content-center gap-2">
+          <i class="fa-brands fa-github"></i> Continue with GitHub
+        </button>
       </div>
 
-      <div class="divider">
-        <span>or</span>
-      </div>
+      <div class="v-divider-label">or sign in with email</div>
 
-      <form>
-        <div class="form-floating">
-          <input type="email" class="form-control" id="loginEmail" placeholder="name@example.com" required>
-          <label for="loginEmail"><i class="fa-solid fa-envelope me-2"></i>Email address</label>
-        </div>
-        <div class="form-floating">
-          <input type="password" class="form-control" id="loginPassword" placeholder="Password" required>
-          <label for="loginPassword"><i class="fa-solid fa-lock me-2"></i>Password</label>
+      <!-- Login Form -->
+      <form novalidate>
+        <div class="mb-3">
+          <label class="form-label" for="login-email">Email address</label>
+          <input type="email" class="form-control" id="login-email" autocomplete="email"
+                 placeholder="alice@example.com" required />
         </div>
 
-        <div class="d-flex justify-content-between align-items-center mb-3">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="rememberMe">
-            <label class="form-check-label" for="rememberMe">Remember me</label>
+        <div class="mb-1">
+          <label class="form-label" for="login-pw">Password</label>
+          <div class="v-input-icon-wrap">
+            <input type="password" class="form-control" id="login-pw" autocomplete="current-password"
+                   placeholder="Enter your password" required />
+            <button class="v-input-icon-btn" type="button" data-pw-toggle="login-pw" aria-label="Show password">
+              <i class="fa-regular fa-eye"></i>
+            </button>
           </div>
-          <a href="recover.html" class="uk-link">Forgot password?</a>
         </div>
 
-        <button type="submit" class="btn btn-uk w-100 mb-3">
-          <i class="fa-solid fa-sign-in-alt me-2"></i>Sign In
+        <div class="v-flex-between mb-4 mt-2">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="remember" />
+            <label class="form-check-label v-small" for="remember">Remember me</label>
+          </div>
+          <a href="recover.html" class="v-small v-text-accent" style="text-decoration:none">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="v-btn v-btn-primary w-100 justify-content-center">
+          Sign In
         </button>
       </form>
 
-      <div class="auth-footer">
+      <p class="v-auth-footer-text">
         Don't have an account? <a href="register.html">Create one</a>
-      </div>
+      </p>
     </div>
-  </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
+    <p class="v-auth-meta">
+      <a href="../docs.html">Documentation</a> ·
+      <a href="https://github.com/xttrust/Vectra-UI-KIT" target="_blank" rel="noopener">GitHub</a> ·
+      <button class="v-theme-toggle-inline" data-toggle="theme" aria-label="Toggle theme">
+        <i class="fa-solid fa-circle-half-stroke"></i> Toggle theme
+      </button>
+    </p>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="../assets/js/vectra.js"></script>
 </body>
 </html>

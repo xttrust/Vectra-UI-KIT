@@ -1,205 +1,329 @@
-<!-- /* ==========================================================================
-   Vectra UI - Modern Dark/Cyan Theme Design System
-   
-   Author: Florin Pinta (xttrust)
-   Website: https://creativeigniter.com
-   GitHub: https://github.com/xttrust
-   Email: xttrust@creativeigniter.com
-   
-   Description: Complete design system with variables, components & utilities
-   Dependencies: Bootstrap 5.3+, Font Awesome 6+, AOS
-   License: MIT
-   ========================================================================== */ -->
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vectra UI Utilities</title>
-  <meta name="description" content="Utility classes for gradient text, glass surfaces, spacing, depth, animations, layout helpers, counters, and more." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Utilities — Vectra UI Kit</title>
+  <meta name="description" content="Utility classes for colour, spacing, typography, flex, display, borders, shadows and more." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2300c2cb'/><text x='50%' y='56%' dominant-baseline='middle' text-anchor='middle' font-family='system-ui' font-weight='700' font-size='18' fill='%2301292b'>V</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-  <link rel="stylesheet" href="assets/css/ui-kit.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/css/vectra.css" />
   <style>
-    .utility-section { scroll-margin-top: 90px; padding-top:2rem; margin-top:2rem; border-top:1px solid var(--uk-border); }
+    .util-section{scroll-margin-top:var(--v-navbar-h);padding-top:2rem;padding-bottom:2rem;border-top:1px solid var(--v-border)}
+    .util-section:first-child{border-top:none}
+    .util-section h2{font-size:1.15rem;margin-bottom:.3rem}
+    .util-section .desc{font-size:.875rem;color:var(--v-text-2);margin-bottom:1.5rem;max-width:620px}
+    .swatch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.75rem}
+    .swatch{border-radius:var(--v-r);overflow:hidden;border:1px solid var(--v-border)}
+    .swatch-color{height:64px}
+    .swatch-label{padding:.4rem .6rem;font-size:.72rem;font-family:var(--v-mono);background:var(--v-surface-2);border-top:1px solid var(--v-border)}
+    .util-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem}
+    code.u{background:var(--v-surface-2);padding:.15em .45em;border-radius:var(--v-r-xs);font-size:.8rem;font-family:var(--v-mono);color:var(--v-accent)}
   </style>
 </head>
-<body class="no-scroll-x">
-  <div id="backToTop">↑</div>
-  <nav class="navbar navbar-expand-lg fixed-top uk-navbar py-2">
-    <div class="container-fluid px-gutter">
-      <a class="navbar-brand" href="index.html"><span class="logo-dot"></span> Vectra UI</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"><span class="navbar-toggler-icon"></span></button>
+<body>
+
+  <button id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <nav class="navbar navbar-expand-lg fixed-top v-navbar" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><span class="logo-dot" aria-hidden="true"></span> Vectra UI</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
       <div class="collapse navbar-collapse" id="mainNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="index.html#overview">Overview</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Overview</a></li>
           <li class="nav-item"><a class="nav-link" href="components.html">Components</a></li>
           <li class="nav-item"><a class="nav-link" href="forms.html">Forms</a></li>
-          <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
           <li class="nav-item"><a class="nav-link active" href="utilities.html">Utilities</a></li>
           <li class="nav-item"><a class="nav-link" href="docs.html">Docs</a></li>
         </ul>
-        <div class="d-flex gap-2 align-items-center">
-          <button class="theme-toggle" data-toggle="theme" aria-label="Toggle theme"><i class="fa-solid fa-sun"></i></button>
-          <a href="docs.html" class="btn btn-uk-soft btn-sm btn-icon"><i class="fa-solid fa-circle-info"></i><span>Docs</span></a>
+        <div class="d-flex align-items-center gap-2">
+          <button class="v-theme-toggle" data-toggle="theme" aria-label="Toggle theme"><i class="fa-solid fa-sun"></i></button>
+          <a href="docs.html" class="v-btn v-btn-soft v-btn-sm"><i class="fa-solid fa-book"></i> Docs</a>
         </div>
       </div>
     </div>
   </nav>
 
-  <header class="hero hero-gradient py-5">
-    <div class="container px-gutter">
-      <h1 class="mb-3">Utility Classes</h1>
-      <p class="lead max-w-md">Custom utility layer supplements Bootstrap for color accents, shadows, gradients, glass, spacing, layout, animations and more.</p>
-      <div class="small text-muted">Focused, deliberate, and composable.</div>
+  <header class="v-hero">
+    <div class="container">
+      <span class="v-label">Reference</span>
+      <h1 class="mb-3">Utilities</h1>
+      <p class="v-lead">Single-purpose helper classes for colour, spacing, typography, flex, borders, shadows, and more.</p>
     </div>
   </header>
 
-  <main class="container px-gutter py-5">
+  <div class="container py-5">
     <div class="row g-5">
-      <aside class="col-lg-3 d-none d-lg-block">
-        <nav id="utilityNav" class="uk-side-nav" data-nav="utilities" role="navigation" aria-label="Utility Sections">
+
+      <aside class="col-xl-2 col-lg-3 d-none d-lg-block">
+        <nav class="v-side-nav" data-sidenav aria-label="Utility sections">
+          <span class="v-nav-group-label">Contents</span>
           <a href="#colors">Colors</a>
-          <a href="#typography">Typography</a>
+          <a href="#text-utils">Text</a>
+          <a href="#bg-utils">Backgrounds</a>
           <a href="#spacing">Spacing</a>
-          <a href="#shadows">Shadows</a>
-          <a href="#gradients">Gradients</a>
-          <a href="#glass">Glass</a>
-          <a href="#lists">Lists</a>
-          <a href="#grid">Grid Helpers</a>
-          <a href="#counters">Counters</a>
-          <a href="#motion">Motion</a>
+          <a href="#flex-utils">Flex</a>
+          <a href="#border-utils">Borders</a>
+          <a href="#shadow-utils">Shadows</a>
+          <a href="#sizing">Sizing</a>
+          <a href="#display">Display</a>
+          <a href="#dividers">Dividers</a>
+          <a href="#labels">Labels</a>
+          <a href="#misc">Miscellaneous</a>
         </nav>
       </aside>
-      <div class="col-lg-9">
-        <section id="colors" class="utility-section" data-aos="fade-up">
-          <h2 class="h5 mb-3">Colors & Theme</h2>
-          <div class="row g-3 small">
-            <div class="col-6 col-sm-4"><div class="placeholder-box" style="background:var(--uk-accent);color:#042326;">Accent</div></div>
-            <div class="col-6 col-sm-4"><div class="placeholder-box" style="background:var(--uk-accent-soft);color:var(--uk-accent);">Accent Soft</div></div>
-            <div class="col-6 col-sm-4"><div class="placeholder-box" style="background:var(--uk-success);color:#042326;">Success</div></div>
-            <div class="col-6 col-sm-4"><div class="placeholder-box" style="background:var(--uk-danger);">Danger</div></div>
-            <div class="col-6 col-sm-4"><div class="placeholder-box" style="background:var(--uk-warning);color:#042326;">Warning</div></div>
-            <div class="col-6 col-sm-4"><div class="placeholder-box" style="background:var(--uk-info);">Info</div></div>
+
+      <main class="col-xl-10 col-lg-9">
+
+        <!-- Colors -->
+        <section id="colors" class="util-section">
+          <h2>Color Tokens</h2>
+          <p class="desc">CSS custom properties defined on <code>:root</code>. Use them in your overrides or components.</p>
+          <div class="swatch-grid mb-3">
+            <div class="swatch"><div class="swatch-color" style="background:var(--v-accent)"></div><div class="swatch-label">--v-accent</div></div>
+            <div class="swatch"><div class="swatch-color" style="background:var(--v-accent-2)"></div><div class="swatch-label">--v-accent-2</div></div>
+            <div class="swatch"><div class="swatch-color" style="background:var(--v-bg)"></div><div class="swatch-label">--v-bg</div></div>
+            <div class="swatch"><div class="swatch-color" style="background:var(--v-bg-2)"></div><div class="swatch-label">--v-bg-2</div></div>
+            <div class="swatch"><div class="swatch-color" style="background:var(--v-surface)"></div><div class="swatch-label">--v-surface</div></div>
+            <div class="swatch"><div class="swatch-color" style="background:var(--v-surface-2)"></div><div class="swatch-label">--v-surface-2</div></div>
+            <div class="swatch"><div class="swatch-color" style="background:var(--v-success)"></div><div class="swatch-label">--v-success</div></div>
+            <div class="swatch"><div class="swatch-color" style="background:var(--v-warning)"></div><div class="swatch-label">--v-warning</div></div>
+            <div class="swatch"><div class="swatch-color" style="background:var(--v-danger)"></div><div class="swatch-label">--v-danger</div></div>
+            <div class="swatch"><div class="swatch-color" style="background:var(--v-info)"></div><div class="swatch-label">--v-info</div></div>
           </div>
         </section>
 
-        <section id="typography" class="utility-section" data-aos="fade-up">
-          <h2 class="h5 mb-3">Typography</h2>
-          <p class="small text-muted">Base type scale with <code>.gradient-text</code> highlight and code block styling.</p>
-          <h1>Heading 1</h1>
-          <h2>Heading 2</h2>
-          <h3>Heading 3</h3>
-          <h4>Heading 4</h4>
-          <p class="lead">Lead paragraph emphasizing content summary.</p>
-          <p>Regular paragraph text with <span class="gradient-text">gradient highlight</span> and inline <code>code</code> sample.</p>
+        <!-- Text -->
+        <section id="text-utils" class="util-section">
+          <h2>Text Utilities</h2>
+          <p class="desc">Colour, size, weight, alignment, and transform helpers.</p>
+
+          <h6 class="mb-2">Colour</h6>
+          <div class="util-row mb-3">
+            <span class="v-text-accent">v-text-accent</span>
+            <span class="v-text-muted" style="margin-left:8px">v-text-muted</span>
+            <span class="v-text-faint" style="margin-left:8px">v-text-faint</span>
+            <span style="background:var(--v-success-soft);padding:0 6px;border-radius:4px;color:var(--v-success);margin-left:8px">v-text-success (custom)</span>
+          </div>
+
+          <h6 class="mb-2">Size</h6>
+          <div class="mb-3" style="display:flex;flex-direction:column;gap:4px">
+            <span class="v-text-xs">v-text-xs — 0.72 rem</span>
+            <span class="v-small">v-small — 0.8125 rem</span>
+            <span>body (default) — 0.9375 rem</span>
+            <span style="font-size:1.1rem">slightly larger</span>
+          </div>
+
+          <h6 class="mb-2">Class reference</h6>
+          <table class="table table-sm">
+            <thead><tr><th>Class</th><th>Property</th></tr></thead>
+            <tbody>
+              <tr><td><code class="u">v-text-accent</code></td><td>color: var(--v-accent)</td></tr>
+              <tr><td><code class="u">v-text-muted</code></td><td>color: var(--v-text-2)</td></tr>
+              <tr><td><code class="u">v-text-faint</code></td><td>color: var(--v-text-3)</td></tr>
+              <tr><td><code class="u">v-text-xs</code></td><td>font-size: .72rem</td></tr>
+              <tr><td><code class="u">v-small</code></td><td>font-size: .8125rem</td></tr>
+              <tr><td><code class="u">v-mono</code></td><td>font-family: var(--v-mono)</td></tr>
+            </tbody>
+          </table>
         </section>
 
-        <section id="spacing" class="utility-section" data-aos="fade-up">
-          <h2 class="h5 mb-3">Spacing Utilities</h2>
-          <div class="demo-grid" style="max-width:480px;" data-aos="fade-up">
-            <div class="cell">.mt-6</div>
-            <div class="cell">.mb-6</div>
-            <div class="cell">.py-6</div>
-            <div class="cell">.px-gutter</div>
+        <!-- Backgrounds -->
+        <section id="bg-utils" class="util-section">
+          <h2>Backgrounds</h2>
+          <p class="desc">Surface and semantic background helpers.</p>
+          <table class="table table-sm">
+            <thead><tr><th>Class</th><th>Value</th></tr></thead>
+            <tbody>
+              <tr><td><code class="u">v-bg</code></td><td>background: var(--v-bg)</td></tr>
+              <tr><td><code class="u">v-bg-alt</code></td><td>background: var(--v-bg-2)</td></tr>
+              <tr><td><code class="u">v-surface</code></td><td>background: var(--v-surface)</td></tr>
+              <tr><td><code class="u">v-surface-2</code></td><td>background: var(--v-surface-2)</td></tr>
+              <tr><td><code class="u">v-gradient</code></td><td>background: var(--v-accent-grad); -webkit-background-clip: text; color: transparent</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Spacing -->
+        <section id="spacing" class="util-section">
+          <h2>Spacing</h2>
+          <p class="desc">Vectra uses Bootstrap's spacing scale (<code>m-*</code>, <code>p-*</code>, <code>gap-*</code>). Additionally, <code>.v-section</code> provides page-section padding.</p>
+          <table class="table table-sm">
+            <thead><tr><th>Class</th><th>Value</th></tr></thead>
+            <tbody>
+              <tr><td><code class="u">v-section</code></td><td>padding: 80px 0 (desktop) / 56px 0 (tablet) / 40px 0 (mobile)</td></tr>
+              <tr><td><code class="u">v-section-sm</code></td><td>padding: 48px 0</td></tr>
+            </tbody>
+          </table>
+          <p class="desc mt-2">For granular control use Bootstrap utilities: <code class="u">mt-3</code>, <code class="u">px-4</code>, <code class="u">gap-2</code>, etc.</p>
+        </section>
+
+        <!-- Flex -->
+        <section id="flex-utils" class="util-section">
+          <h2>Flex Helpers</h2>
+          <p class="desc">Shortcuts built on top of Bootstrap's flex utilities.</p>
+          <table class="table table-sm">
+            <thead><tr><th>Class</th><th>Equivalent</th></tr></thead>
+            <tbody>
+              <tr><td><code class="u">v-flex-between</code></td><td>display:flex; align-items:center; justify-content:space-between</td></tr>
+              <tr><td><code class="u">v-flex-center</code></td><td>display:flex; align-items:center; justify-content:center</td></tr>
+              <tr><td><code class="u">v-flex-col</code></td><td>display:flex; flex-direction:column</td></tr>
+            </tbody>
+          </table>
+          <h6 class="mt-3 mb-2">Live example — <code class="u">v-flex-between</code></h6>
+          <div class="v-card v-flex-between gap-2" style="padding:.75rem 1rem">
+            <span>Left content</span>
+            <button class="v-btn v-btn-sm v-btn-soft">Action</button>
           </div>
         </section>
 
-        <section id="shadows" class="utility-section" data-aos="fade-up">
-          <h2 class="h5 mb-3">Shadows & Elevation</h2>
-          <div class="example-grid mb-3">
-            <div class="uk-card depth-1"><small>depth-1</small></div>
-            <div class="uk-card depth-2"><small>depth-2</small></div>
-            <div class="uk-card depth-3"><small>depth-3</small></div>
-            <div class="uk-card depth-4"><small>depth-4</small></div>
+        <!-- Borders -->
+        <section id="border-utils" class="util-section">
+          <h2>Borders</h2>
+          <p class="desc">Consistent border utilities.</p>
+          <table class="table table-sm">
+            <thead><tr><th>Class</th><th>Value</th></tr></thead>
+            <tbody>
+              <tr><td><code class="u">v-border</code></td><td>border: 1px solid var(--v-border)</td></tr>
+              <tr><td><code class="u">v-border-t</code></td><td>border-top: 1px solid var(--v-border)</td></tr>
+              <tr><td><code class="u">v-border-b</code></td><td>border-bottom: 1px solid var(--v-border)</td></tr>
+              <tr><td><code class="u">v-rounded</code></td><td>border-radius: var(--v-r)</td></tr>
+              <tr><td><code class="u">v-rounded-lg</code></td><td>border-radius: var(--v-r-lg)</td></tr>
+              <tr><td><code class="u">v-rounded-pill</code></td><td>border-radius: var(--v-r-pill)</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Shadows -->
+        <section id="shadow-utils" class="util-section">
+          <h2>Shadows</h2>
+          <p class="desc">Box-shadow utilities, auto-scaled for light and dark themes.</p>
+          <div class="row g-3 mb-3">
+            <div class="col-6 col-md-3"><div class="v-card" style="box-shadow:var(--v-shadow-xs);min-height:60px;display:flex;align-items:center;justify-content:center;font-size:.8rem">shadow-xs</div></div>
+            <div class="col-6 col-md-3"><div class="v-card" style="box-shadow:var(--v-shadow-sm);min-height:60px;display:flex;align-items:center;justify-content:center;font-size:.8rem">shadow-sm</div></div>
+            <div class="col-6 col-md-3"><div class="v-card" style="box-shadow:var(--v-shadow);min-height:60px;display:flex;align-items:center;justify-content:center;font-size:.8rem">shadow</div></div>
+            <div class="col-6 col-md-3"><div class="v-card" style="box-shadow:var(--v-shadow-lg);min-height:60px;display:flex;align-items:center;justify-content:center;font-size:.8rem">shadow-lg</div></div>
+          </div>
+          <table class="table table-sm">
+            <thead><tr><th>Token</th><th>Usage</th></tr></thead>
+            <tbody>
+              <tr><td><code class="u">--v-shadow-xs</code></td><td>Subtle lift (chips, badges)</td></tr>
+              <tr><td><code class="u">--v-shadow-sm</code></td><td>Low elevation (inputs, inline cards)</td></tr>
+              <tr><td><code class="u">--v-shadow</code></td><td>Cards, panels</td></tr>
+              <tr><td><code class="u">--v-shadow-lg</code></td><td>Modals, dropdowns</td></tr>
+              <tr><td><code class="u">--v-shadow-xl</code></td><td>Full-screen overlays</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Sizing -->
+        <section id="sizing" class="util-section">
+          <h2>Sizing</h2>
+          <p class="desc">Width / height helpers. For granular sizing, Bootstrap provides <code>w-25</code>, <code>w-50</code>, <code>w-100</code>, <code>h-100</code>, etc.</p>
+          <table class="table table-sm">
+            <thead><tr><th>Class</th><th>Value</th></tr></thead>
+            <tbody>
+              <tr><td><code class="u">v-avatar</code></td><td>48×48 px inline circle, uses accent background</td></tr>
+              <tr><td><code class="u">v-avatar-lg</code></td><td>72×72 px variant</td></tr>
+              <tr><td><code class="u">v-icon-box</code></td><td>40×40 px soft accent square</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Display -->
+        <section id="display" class="util-section">
+          <h2>Display</h2>
+          <p class="desc">Use Bootstrap's <code>d-*</code> and <code>d-{bp}-*</code> utilities. They're already in scope via the Bootstrap CDN link.</p>
+          <table class="table table-sm mb-0">
+            <thead><tr><th>Class</th><th>CSS</th></tr></thead>
+            <tbody>
+              <tr><td><code class="u">d-none</code></td><td>display: none</td></tr>
+              <tr><td><code class="u">d-block</code></td><td>display: block</td></tr>
+              <tr><td><code class="u">d-flex</code></td><td>display: flex</td></tr>
+              <tr><td><code class="u">d-grid</code></td><td>display: grid</td></tr>
+              <tr><td><code class="u">d-lg-none</code></td><td>display: none (≥ 992 px)</td></tr>
+              <tr><td><code class="u">d-none d-lg-block</code></td><td>hidden on mobile, visible on desktop</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Dividers -->
+        <section id="dividers" class="util-section">
+          <h2>Dividers</h2>
+          <p class="desc">Horizontal and labelled dividers.</p>
+          <div class="mb-3">
+            <div class="v-divider"></div>
+          </div>
+          <div class="mb-4">
+            <div class="v-divider-label">or</div>
+          </div>
+          <div class="v-code-block">
+            <div class="v-code-header"><span class="v-code-lang">html</span><button class="v-copy-btn">Copy</button></div>
+            <pre><code>&lt;div class="v-divider"&gt;&lt;/div&gt;
+
+&lt;div class="v-divider-label"&gt;or continue with&lt;/div&gt;</code></pre>
           </div>
         </section>
 
-        <section id="gradients" class="utility-section" data-aos="fade-up">
-          <h2 class="h5 mb-3">Gradients & Glow</h2>
-          <div class="row g-3">
-            <div class="col-sm-6">
-              <div class="uk-card" style="background:var(--uk-accent-grad);color:#042326;"><strong>Accent Gradient</strong></div>
-            </div>
-            <div class="col-sm-6">
-              <div class="uk-card hover-glow"><strong>Hover Glow</strong></div>
-            </div>
+        <!-- Labels -->
+        <section id="labels" class="util-section">
+          <h2>Labels &amp; Chips</h2>
+          <p class="desc"><code>.v-label</code> is an uppercase category tag. Use it above headings to add context.</p>
+          <div class="mb-3">
+            <span class="v-label">New feature</span>
+            <span class="v-label ms-2" style="background:var(--v-danger-soft);color:var(--v-danger)">Deprecated</span>
+            <span class="v-label ms-2" style="background:var(--v-warning-soft);color:var(--v-warning)">Beta</span>
+          </div>
+          <div class="v-code-block">
+            <div class="v-code-header"><span class="v-code-lang">html</span><button class="v-copy-btn">Copy</button></div>
+            <pre><code>&lt;span class="v-label"&gt;New feature&lt;/span&gt;</code></pre>
           </div>
         </section>
 
-        <section id="glass" class="utility-section" data-aos="fade-up">
-          <h2 class="h5 mb-3">Glass / Frosted</h2>
-          <div class="row g-3">
-            <div class="col-md-6"><div class="uk-card uk-card-glass">Glass Card</div></div>
-            <div class="col-md-6"><div class="glass uk-card">.glass Utility</div></div>
-          </div>
+        <!-- Miscellaneous -->
+        <section id="misc" class="util-section">
+          <h2>Miscellaneous</h2>
+          <p class="desc">Additional single-purpose helpers.</p>
+          <table class="table table-sm">
+            <thead><tr><th>Class</th><th>Purpose</th></tr></thead>
+            <tbody>
+              <tr><td><code class="u">v-truncate</code></td><td>Single-line overflow ellipsis</td></tr>
+              <tr><td><code class="u">v-cursor-pointer</code></td><td>cursor: pointer</td></tr>
+              <tr><td><code class="u">v-no-select</code></td><td>user-select: none</td></tr>
+              <tr><td><code class="u">v-gradient</code></td><td>Accent gradient text (applies background-clip)</td></tr>
+            </tbody>
+          </table>
         </section>
 
-        <section id="lists" class="utility-section" data-aos="fade-up">
-          <h2 class="h5 mb-3">Check Lists</h2>
-          <ul class="list-check small max-w-sm">
-            <li>Accessible</li>
-            <li>Composable</li>
-            <li>Modern</li>
-            <li>Lightweight</li>
-          </ul>
-        </section>
+      </main>
+    </div>
+  </div>
 
-        <section id="grid" class="utility-section" data-aos="fade-up">
-          <h2 class="h5 mb-3">Grid Helpers</h2>
-          <div class="demo-grid mb-3" style="max-width:640px;">
-            <div class="cell">cell</div>
-            <div class="cell">cell</div>
-            <div class="cell">cell</div>
-            <div class="cell">cell</div>
-            <div class="cell">cell</div>
-            <div class="cell">cell</div>
-          </div>
-        </section>
-
-        <section id="counters" class="utility-section" data-aos="fade-up">
-          <h2 class="h5 mb-3">Counters</h2>
-          <div class="row g-3">
-            <div class="col-sm-4">
-              <div class="uk-card text-center">
-                <div class="h3 mb-1 gradient-text" data-counter="2400" data-counter-duration="1400">0</div>
-                <div class="small text-muted">Downloads</div>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="uk-card text-center">
-                <div class="h3 mb-1 gradient-text" data-counter="11000" data-counter-duration="2000">0</div>
-                <div class="small text-muted">Components</div>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="uk-card text-center">
-                <div class="h3 mb-1 gradient-text" data-counter="98" data-counter-duration="1600">0</div>
-                <div class="small text-muted">Satisfaction %</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="motion" class="utility-section" data-aos="fade-up">
-          <h2 class="h5 mb-3">Motion / AOS</h2>
-          <p class="small text-muted">Apply <code>data-aos</code> attributes to any block for reveal animation.</p>
-          <div class="row g-3">
-            <div class="col-md-4"><div class="uk-card" data-aos="fade-right">Fade Right</div></div>
-            <div class="col-md-4"><div class="uk-card" data-aos="zoom-in">Zoom In</div></div>
-            <div class="col-md-4"><div class="uk-card" data-aos="flip-left">Flip Left</div></div>
-          </div>
-        </section>
+  <!-- Footer -->
+  <footer class="v-footer">
+    <div class="container">
+      <div class="v-footer-bottom">
+        <span>© 2025 Vectra UI Kit by <a href="https://github.com/xttrust" target="_blank" rel="noopener">xttrust</a>.</span>
+        <div class="d-flex gap-3">
+          <a href="index.html">Home</a>
+          <a href="components.html">Components</a>
+          <a href="docs.html">Docs</a>
+        </div>
       </div>
     </div>
-  </main>
+  </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script src="assets/js/ui-kit.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" crossorigin="anonymous"></script>
+  <script src="assets/js/vectra.js"></script>
 </body>
 </html>

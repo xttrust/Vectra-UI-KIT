@@ -1,263 +1,448 @@
-<!-- /* ==========================================================================
-  Vectra UI - Modern Dark/Cyan Theme Design System
-   
-   Author: Florin Pinta (xttrust)
-   Website: https://creativeigniter.com
-   GitHub: https://github.com/xttrust
-   Email: xttrust@creativeigniter.com
-   
-   Description: Complete design system with variables, components & utilities
-   Dependencies: Bootstrap 5.3+, Font Awesome 6+, AOS
-   License: MIT
-   ========================================================================== */ -->
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vectra UI Forms & Authentication</title>
-  <meta name="description" content="Authentication pages and form patterns: login, registration, password reset, contact, newsletter, multi-step, floating labels." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forms — Vectra UI Kit</title>
+  <meta name="description" content="Form elements and patterns: text inputs, selects, checkboxes, switches, validation states, floating labels, and more." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2300c2cb'/><text x='50%' y='56%' dominant-baseline='middle' text-anchor='middle' font-family='system-ui' font-weight='700' font-size='18' fill='%2301292b'>V</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-  <link rel="stylesheet" href="assets/css/ui-kit.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/css/vectra.css" />
   <style>
-    .form-showcase-section { scroll-margin-top: 90px; padding-top:2rem; margin-top:2rem; border-top:1px solid var(--uk-border); }
-    .password-toggle { position:absolute; top:50%; right:.75rem; transform:translateY(-50%); cursor:pointer; color:var(--uk-text-dim); }
-    .multi-step { position:relative; }
-    .step-pane { display:none; }
-    .step-pane.active { display:block; animation: fadeIn .6s ease; }
-    @keyframes fadeIn { from { opacity:0; transform:translateY(10px);} to {opacity:1; transform:translateY(0);} }
+    .form-section { padding-top:2rem; padding-bottom:2rem; border-top:1px solid var(--v-border); scroll-margin-top:var(--v-navbar-h); }
+    .form-section:first-child { border-top:none; }
+    .form-section h2 { font-size:1.15rem; margin-bottom:.35rem; }
+    .form-section .desc { font-size:.875rem; color:var(--v-text-2); margin-bottom:1.5rem; max-width:620px; }
   </style>
 </head>
-<body class="no-scroll-x">
-  <div id="backToTop">↑</div>
-  <nav class="navbar navbar-expand-lg fixed-top uk-navbar py-2">
-    <div class="container-fluid px-gutter">
-      <a class="navbar-brand" href="index.html"><span class="logo-dot"></span> Vectra UI</a>
-      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#mainNav"><span class="navbar-toggler-icon"></span></button>
+<body>
+
+  <button id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <nav class="navbar navbar-expand-lg fixed-top v-navbar" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><span class="logo-dot" aria-hidden="true"></span> Vectra UI</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
       <div class="collapse navbar-collapse" id="mainNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="index.html#overview">Overview</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Overview</a></li>
           <li class="nav-item"><a class="nav-link" href="components.html">Components</a></li>
           <li class="nav-item"><a class="nav-link active" href="forms.html">Forms</a></li>
-          <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
           <li class="nav-item"><a class="nav-link" href="utilities.html">Utilities</a></li>
           <li class="nav-item"><a class="nav-link" href="docs.html">Docs</a></li>
         </ul>
-        <div class="d-flex gap-2 align-items-center">
-          <button class="theme-toggle" data-toggle="theme" aria-label="Toggle theme"><i class="fa-solid fa-sun"></i></button>
-          <a href="components.html#forms" class="btn btn-uk-soft btn-sm btn-icon"><i class="fa-solid fa-layer-group"></i><span>Components</span></a>
+        <div class="d-flex align-items-center gap-2">
+          <button class="v-theme-toggle" data-toggle="theme" aria-label="Toggle theme"><i class="fa-solid fa-sun"></i></button>
+          <a href="docs.html" class="v-btn v-btn-soft v-btn-sm"><i class="fa-solid fa-book"></i> Docs</a>
         </div>
       </div>
     </div>
   </nav>
 
-  <header class="hero hero-gradient py-5" id="auth">
-    <div class="container px-gutter">
-      <h1 class="mb-3">Forms & Authentication</h1>
-      <p class="lead max-w-md">Professional, accessible form patterns for login, registration, password flows, contact submission and multi-step entry.</p>
-      <div class="small text-muted">Includes validation states & dark/light theming.</div>
+  <header class="v-hero">
+    <div class="container">
+      <span class="v-label">Form Elements</span>
+      <h1 class="mb-3">Forms</h1>
+      <p class="v-lead">Every input, select, checkbox, switch, and validation state — all dark/light-theme aware.</p>
     </div>
   </header>
 
-  <main class="container px-gutter py-5">
+  <div class="container py-5">
     <div class="row g-5">
-      <aside class="col-lg-3 d-none d-lg-block">
-        <nav id="formNav" class="uk-side-nav" data-nav="forms" role="navigation" aria-label="Form Sections">
-          <a href="#login">Login</a>
-          <a href="#register">Register</a>
-          <a href="#password">Password Reset</a>
-          <a href="#contact">Contact Form</a>
+
+      <aside class="col-xl-2 col-lg-3 d-none d-lg-block">
+        <nav class="v-side-nav" data-sidenav aria-label="Form sections">
+          <span class="v-nav-group-label">Contents</span>
+          <a href="#text-inputs">Text Inputs</a>
+          <a href="#select">Select</a>
+          <a href="#textarea">Textarea</a>
+          <a href="#input-group">Input Groups</a>
+          <a href="#password">Password</a>
           <a href="#floating">Floating Labels</a>
-          <a href="#newsletter">Newsletter</a>
-          <a href="#multistep">Multi Step</a>
-          <a href="#inline">Inline Form</a>
+          <a href="#checks">Checkboxes</a>
+          <a href="#radios">Radios</a>
+          <a href="#switches">Switches</a>
+          <a href="#range">Range Slider</a>
+          <a href="#validation">Validation</a>
+          <a href="#sample-forms">Sample Forms</a>
         </nav>
       </aside>
-      <div class="col-lg-9">
-        <section id="login" class="form-showcase-section" data-aos="fade-up">
-          <h2 class="h5 mb-3">Login Form</h2>
-          <div class="auth-panel max-w-sm">
-            <form>
-              <div class="mb-3 position-relative">
-                <label class="form-label small text-uppercase fw-semibold">Email</label>
-                <input type="email" class="form-control" placeholder="you@example.com" required />
-              </div>
-              <div class="mb-2 position-relative">
-                <label class="form-label small text-uppercase fw-semibold">Password</label>
-                <input type="password" class="form-control password-input" placeholder="••••••••" required />
-                <span class="password-toggle"><i class="fa-regular fa-eye"></i></span>
-              </div>
-              <div class="d-flex justify-content-between align-items-center mb-3 small">
-                <div class="form-check m-0"><input class="form-check-input" type="checkbox" id="remember" /><label class="form-check-label" for="remember">Remember</label></div>
-                <a href="#password" class="text-decoration-none">Forgot?</a>
-              </div>
-              <button class="btn btn-uk w-100 btn-icon"><i class="fa-solid fa-right-to-bracket"></i><span>Sign In</span></button>
-              <div class="divider-text">OR CONTINUE WITH</div>
-              <div class="d-flex gap-2"><button type="button" class="btn btn-uk-soft w-50 btn-icon"><i class="fa-brands fa-google"></i><span>Google</span></button><button type="button" class="btn btn-uk-soft w-50 btn-icon"><i class="fa-brands fa-github"></i><span>GitHub</span></button></div>
-              <p class="small text-muted mt-3 mb-0">No account? <a href="#register">Create one</a></p>
-            </form>
+
+      <main class="col-xl-10 col-lg-9">
+
+        <!-- Text Inputs -->
+        <section id="text-inputs" class="form-section">
+          <h2>Text Inputs</h2>
+          <p class="desc">All input types share consistent background, border, focus ring, and placeholder colouring across themes.</p>
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <label class="form-label" for="inp-text">Full name</label>
+              <input type="text" class="form-control" id="inp-text" placeholder="Alice Johnson" />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="inp-email">Email address</label>
+              <input type="email" class="form-control" id="inp-email" placeholder="alice@example.com" />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="inp-number">Age</label>
+              <input type="number" class="form-control" id="inp-number" placeholder="28" min="0" max="120" />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="inp-date">Date of birth</label>
+              <input type="date" class="form-control" id="inp-date" />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="inp-tel">Phone</label>
+              <input type="tel" class="form-control" id="inp-tel" placeholder="+1 555 000 0000" />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="inp-url">Website</label>
+              <input type="url" class="form-control" id="inp-url" placeholder="https://yoursite.com" />
+            </div>
+            <div class="col-12">
+              <label class="form-label" for="inp-search">Search</label>
+              <input type="search" class="form-control" id="inp-search" placeholder="Search components…" />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="inp-disabled">Disabled</label>
+              <input type="text" class="form-control" id="inp-disabled" value="Cannot edit this" disabled />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="inp-readonly">Read-only</label>
+              <input type="text" class="form-control" id="inp-readonly" value="Read-only value" readonly />
+            </div>
           </div>
         </section>
 
-        <section id="register" class="form-showcase-section" data-aos="fade-up">
-          <h2 class="h5 mb-3">Registration Form</h2>
-          <div class="auth-panel max-w-sm">
-            <form>
+        <!-- Select -->
+        <section id="select" class="form-section">
+          <h2>Select</h2>
+          <p class="desc">Styled <code>&lt;select&gt;</code> with proper dark/light background and arrow.</p>
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <label class="form-label" for="sel-country">Country</label>
+              <select class="form-select" id="sel-country">
+                <option value="" disabled selected>Choose a country…</option>
+                <option>United States</option>
+                <option>United Kingdom</option>
+                <option>Germany</option>
+                <option>France</option>
+                <option>Australia</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="sel-size">T-shirt size</label>
+              <select class="form-select" id="sel-size" multiple>
+                <option>Small</option>
+                <option>Medium</option>
+                <option>Large</option>
+                <option>X-Large</option>
+              </select>
+              <div class="v-small v-text-muted mt-1">Hold Ctrl / ⌘ to select multiple.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Textarea -->
+        <section id="textarea" class="form-section">
+          <h2>Textarea</h2>
+          <p class="desc">Resizable multiline input, themed consistently.</p>
+          <div class="mb-4">
+            <label class="form-label" for="inp-bio">Bio</label>
+            <textarea class="form-control" id="inp-bio" rows="4" placeholder="Tell us about yourself…"></textarea>
+          </div>
+        </section>
+
+        <!-- Input Groups -->
+        <section id="input-group" class="form-section">
+          <h2>Input Groups</h2>
+          <p class="desc">Prepend or append text, icons, or buttons to any input.</p>
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <label class="form-label" for="ig-username">Username</label>
+              <div class="input-group">
+                <span class="input-group-text">@</span>
+                <input type="text" class="form-control" id="ig-username" placeholder="username" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="ig-price">Price</label>
+              <div class="input-group">
+                <span class="input-group-text">$</span>
+                <input type="number" class="form-control" id="ig-price" placeholder="0.00" />
+                <span class="input-group-text">USD</span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="ig-search">Search</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="ig-search" placeholder="Search…" />
+                <button class="v-btn v-btn-primary" type="button" style="border-radius:0 var(--v-r-sm) var(--v-r-sm) 0">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Password -->
+        <section id="password" class="form-section">
+          <h2>Password Input</h2>
+          <p class="desc">Show/hide toggle via <code>data-pw-toggle</code>. No extra configuration needed.</p>
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <label class="form-label" for="inp-pw">Password</label>
+              <div class="v-input-icon-wrap">
+                <input type="password" class="form-control" id="inp-pw" placeholder="Enter password" />
+                <button class="v-input-icon-btn" type="button" data-pw-toggle="inp-pw" aria-label="Show password">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="inp-pw2">Confirm password</label>
+              <div class="v-input-icon-wrap">
+                <input type="password" class="form-control" id="inp-pw2" placeholder="Confirm password" />
+                <button class="v-input-icon-btn" type="button" data-pw-toggle="inp-pw2" aria-label="Show confirm password">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="v-code-block">
+            <div class="v-code-header"><span class="v-code-lang">html</span><button class="v-copy-btn">Copy</button></div>
+            <pre><code>&lt;div class="v-input-icon-wrap"&gt;
+  &lt;input type="password" class="form-control" id="pw" /&gt;
+  &lt;button class="v-input-icon-btn"
+          type="button"
+          data-pw-toggle="pw"
+          aria-label="Show password"&gt;
+    &lt;i class="fa-regular fa-eye"&gt;&lt;/i&gt;
+  &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </section>
+
+        <!-- Floating Labels -->
+        <section id="floating" class="form-section">
+          <h2>Floating Labels</h2>
+          <p class="desc">Bootstrap floating label inputs styled with Vectra tokens.</p>
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input type="email" class="form-control" id="fl-email" placeholder="name@example.com" />
+                <label for="fl-email">Email address</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="fl-name" placeholder="Full name" />
+                <label for="fl-name">Full name</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-floating">
+                <select class="form-select" id="fl-country">
+                  <option value="" disabled selected>Select…</option>
+                  <option>United States</option>
+                  <option>United Kingdom</option>
+                </select>
+                <label for="fl-country">Country</label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Checkboxes -->
+        <section id="checks" class="form-section">
+          <h2>Checkboxes</h2>
+          <p class="desc">Styled with accent colour. Use Bootstrap's <code>.form-check</code> wrapper.</p>
+          <div class="row g-2 mb-4">
+            <div class="col-auto">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="chk1" checked />
+                <label class="form-check-label" for="chk1">Design system</label>
+              </div>
+            </div>
+            <div class="col-auto">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="chk2" />
+                <label class="form-check-label" for="chk2">Component library</label>
+              </div>
+            </div>
+            <div class="col-auto">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="chk3" disabled />
+                <label class="form-check-label" for="chk3">Disabled option</label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Radios -->
+        <section id="radios" class="form-section">
+          <h2>Radio Buttons</h2>
+          <p class="desc">Standard radio group with accent-coloured selection state.</p>
+          <div class="row g-2 mb-4">
+            <div class="col-auto">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="plan" id="plan1" value="starter" checked />
+                <label class="form-check-label" for="plan1">Starter — Free</label>
+              </div>
+            </div>
+            <div class="col-auto">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="plan" id="plan2" value="pro" />
+                <label class="form-check-label" for="plan2">Pro — $29/mo</label>
+              </div>
+            </div>
+            <div class="col-auto">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="plan" id="plan3" value="enterprise" />
+                <label class="form-check-label" for="plan3">Enterprise — $99/mo</label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Switches -->
+        <section id="switches" class="form-section">
+          <h2>Switches (Toggle)</h2>
+          <p class="desc">On/off toggle using Bootstrap's <code>.form-switch</code> pattern.</p>
+          <div class="d-flex flex-wrap gap-4 mb-4">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="sw1" checked />
+              <label class="form-check-label" for="sw1">Enable notifications</label>
+            </div>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="sw2" />
+              <label class="form-check-label" for="sw2">Dark mode</label>
+            </div>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="sw3" disabled />
+              <label class="form-check-label" for="sw3">Disabled switch</label>
+            </div>
+          </div>
+        </section>
+
+        <!-- Range -->
+        <section id="range" class="form-section">
+          <h2>Range Slider</h2>
+          <p class="desc">Native <code>&lt;input type="range"&gt;</code> with thumb styled to the accent colour.</p>
+          <div class="mb-4">
+            <label class="form-label" for="rng1">Volume: <span id="rngVal">60</span>%</label>
+            <input type="range" class="form-range" id="rng1" min="0" max="100" value="60"
+                   oninput="document.getElementById('rngVal').textContent=this.value" />
+          </div>
+        </section>
+
+        <!-- Validation -->
+        <section id="validation" class="form-section">
+          <h2>Validation States</h2>
+          <p class="desc">Use <code>.is-valid</code> / <code>.is-invalid</code> classes on inputs. Include <code>.valid-feedback</code> / <code>.invalid-feedback</code> beneath.</p>
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <label class="form-label" for="v-valid">Email (valid)</label>
+              <input type="email" class="form-control is-valid" id="v-valid" value="alice@example.com" />
+              <div class="valid-feedback">Looks good!</div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="v-invalid">Email (invalid)</label>
+              <input type="email" class="form-control is-invalid" id="v-invalid" value="not-an-email" />
+              <div class="invalid-feedback">Please provide a valid email address.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sample Forms -->
+        <section id="sample-forms" class="form-section">
+          <h2>Sample Forms</h2>
+          <p class="desc">Full form examples: contact, settings, and newsletter.</p>
+
+          <!-- Contact Form -->
+          <div class="v-card mb-4">
+            <h5 class="mb-3">Contact Us</h5>
+            <form novalidate>
               <div class="row g-3">
-                <div class="col-sm-6"><label class="form-label small text-uppercase fw-semibold">First Name</label><input type="text" class="form-control" required /></div>
-                <div class="col-sm-6"><label class="form-label small text-uppercase fw-semibold">Last Name</label><input type="text" class="form-control" required /></div>
-                <div class="col-12"><label class="form-label small text-uppercase fw-semibold">Email</label><input type="email" class="form-control" required /></div>
-                <div class="col-12 position-relative"><label class="form-label small text-uppercase fw-semibold">Password</label><input type="password" class="form-control password-input" required /><span class="password-toggle"><i class="fa-regular fa-eye"></i></span></div>
-                <div class="col-12"><div class="form-check small m-0"><input class="form-check-input" type="checkbox" id="terms" required /><label class="form-check-label" for="terms">I agree to terms</label></div></div>
+                <div class="col-md-6">
+                  <label class="form-label" for="cf-fname">First name</label>
+                  <input type="text" class="form-control" id="cf-fname" required placeholder="Alice" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="cf-lname">Last name</label>
+                  <input type="text" class="form-control" id="cf-lname" required placeholder="Johnson" />
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="cf-email">Email</label>
+                  <input type="email" class="form-control" id="cf-email" required placeholder="alice@example.com" />
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="cf-subject">Subject</label>
+                  <select class="form-select" id="cf-subject">
+                    <option value="" disabled selected>Choose…</option>
+                    <option>General inquiry</option>
+                    <option>Bug report</option>
+                    <option>Feature request</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="cf-msg">Message</label>
+                  <textarea class="form-control" id="cf-msg" rows="4" placeholder="Your message…" required></textarea>
+                </div>
+                <div class="col-12">
+                  <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="cf-agree" required />
+                    <label class="form-check-label" for="cf-agree">I agree to the <a href="#">privacy policy</a></label>
+                  </div>
+                  <button type="submit" class="v-btn v-btn-primary"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+                </div>
               </div>
-              <button class="btn btn-uk w-100 mt-3">Create Account</button>
             </form>
           </div>
-        </section>
 
-        <section id="password" class="form-showcase-section" data-aos="fade-up">
-          <h2 class="h5 mb-3">Password Reset</h2>
-          <div class="row g-4">
-            <div class="col-md-6">
-              <div class="auth-panel">
-                <h6 class="mb-3">Request Reset</h6>
-                <form>
-                  <label class="form-label small text-uppercase fw-semibold">Email</label>
-                  <input type="email" class="form-control mb-3" placeholder="you@example.com" required />
-                  <button class="btn btn-uk w-100">Send Link</button>
-                </form>
+          <!-- Newsletter -->
+          <div class="v-card">
+            <div class="v-flex-between flex-wrap gap-3">
+              <div>
+                <h5 class="mb-1">Stay in the loop</h5>
+                <p class="v-small v-text-muted mb-0">Get updates when new components or documentation are added.</p>
               </div>
-            </div>
-            <div class="col-md-6">
-              <div class="auth-panel">
-                <h6 class="mb-3">Set New Password</h6>
-                <form>
-                  <label class="form-label small text-uppercase fw-semibold">New Password</label>
-                  <input type="password" class="form-control mb-3" required />
-                  <label class="form-label small text-uppercase fw-semibold">Confirm Password</label>
-                  <input type="password" class="form-control mb-3" required />
-                  <button class="btn btn-uk w-100">Update Password</button>
-                </form>
-              </div>
+              <form class="d-flex gap-2 flex-wrap" style="max-width:400px">
+                <input type="email" class="form-control" placeholder="your@email.com" aria-label="Email for newsletter" required style="flex:1;min-width:180px" />
+                <button class="v-btn v-btn-primary" type="submit">Subscribe</button>
+              </form>
             </div>
           </div>
         </section>
 
-        <section id="contact" class="form-showcase-section" data-aos="fade-up">
-          <h2 class="h5 mb-3">Contact Form</h2>
-          <div class="uk-card max-w-md">
-            <form class="row g-3">
-              <div class="col-sm-6"><label class="form-label small text-uppercase fw-semibold">Name</label><input type="text" class="form-control" required /></div>
-              <div class="col-sm-6"><label class="form-label small text-uppercase fw-semibold">Email</label><input type="email" class="form-control" required /></div>
-              <div class="col-12"><label class="form-label small text-uppercase fw-semibold">Subject</label><input type="text" class="form-control" required /></div>
-              <div class="col-12"><label class="form-label small text-uppercase fw-semibold">Message</label><textarea class="form-control" rows="4" required></textarea></div>
-              <div class="col-12 text-end"><button class="btn btn-uk btn-icon"><i class="fa-solid fa-paper-plane"></i><span>Send</span></button></div>
-            </form>
-          </div>
-        </section>
+      </main>
+    </div>
+  </div>
 
-        <section id="floating" class="form-showcase-section" data-aos="fade-up">
-          <h2 class="h5 mb-3">Floating Labels</h2>
-          <div class="row g-4">
-            <div class="col-md-6">
-              <div class="form-floating mb-3"><input type="email" class="form-control" id="floatEmail" placeholder="name@example.com" /><label for="floatEmail">Email address</label></div>
-              <div class="form-floating mb-3"><input type="password" class="form-control" id="floatPass" placeholder="Password" /><label for="floatPass">Password</label></div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-floating mb-3"><input type="text" class="form-control" id="floatName" placeholder="Your Name" /><label for="floatName">Your Name</label></div>
-              <div class="form-floating mb-3"><select class="form-select" id="floatSelect"><option>Option A</option><option>Option B</option></select><label for="floatSelect">Select Option</label></div>
-            </div>
-          </div>
-        </section>
-
-        <section id="newsletter" class="form-showcase-section" data-aos="fade-up">
-          <h2 class="h5 mb-3">Newsletter</h2>
-          <form class="row g-2 max-w-sm">
-            <div class="col-8"><input type="email" class="form-control" placeholder="Email" required /></div>
-            <div class="col-4 d-grid"><button class="btn btn-uk" type="button">Join</button></div>
-          </form>
-          <p class="small text-muted mt-2">No spam. Unsubscribe anytime.</p>
-        </section>
-
-        <section id="multistep" class="form-showcase-section" data-aos="fade-up">
-          <h2 class="h5 mb-3">Multi-Step Form</h2>
-          <div class="uk-card max-w-md multi-step" id="multiStep">
-            <div class="steps small mb-3">
-              <div class="step" data-step-ind="1"><strong>Account</strong></div>
-              <div class="step" data-step-ind="2"><strong>Profile</strong></div>
-              <div class="step" data-step-ind="3"><strong>Confirm</strong></div>
-            </div>
-            <div class="step-pane active" data-step="1">
-              <div class="mb-3"><label class="form-label small text-uppercase fw-semibold">Email</label><input type="email" class="form-control" required /></div>
-              <div class="mb-3"><label class="form-label small text-uppercase fw-semibold">Password</label><input type="password" class="form-control" required /></div>
-              <button class="btn btn-uk w-100" data-step-next>Next</button>
-            </div>
-            <div class="step-pane" data-step="2">
-              <div class="mb-3"><label class="form-label small text-uppercase fw-semibold">Display Name</label><input type="text" class="form-control" required /></div>
-              <div class="mb-3"><label class="form-label small text-uppercase fw-semibold">Location</label><input type="text" class="form-control" required /></div>
-              <div class="d-flex gap-2">
-                <button class="btn btn-uk-soft w-50" data-step-prev>Back</button>
-                <button class="btn btn-uk w-50" data-step-next>Next</button>
-              </div>
-            </div>
-            <div class="step-pane" data-step="3">
-              <p class="small text-muted">Review and submit your information.</p>
-              <div class="d-flex gap-2">
-                <button class="btn btn-uk-soft w-50" data-step-prev>Back</button>
-                <button class="btn btn-uk-gradient w-50" type="button">Submit</button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="inline" class="form-showcase-section" data-aos="fade-up">
-          <h2 class="h5 mb-3">Inline Form</h2>
-          <form class="row gy-2 gx-3 align-items-center small">
-            <div class="col-auto"><label class="visually-hidden" for="inlineUsername">Username</label><input type="text" class="form-control form-control-sm" id="inlineUsername" placeholder="Username" /></div>
-            <div class="col-auto"><label class="visually-hidden" for="inlineEmail">Email</label><input type="email" class="form-control form-control-sm" id="inlineEmail" placeholder="Email" /></div>
-            <div class="col-auto"><button class="btn btn-uk btn-sm">Invite</button></div>
-          </form>
-        </section>
+  <!-- Footer -->
+  <footer class="v-footer">
+    <div class="container">
+      <div class="v-footer-bottom">
+        <span>© 2025 Vectra UI Kit by <a href="https://github.com/xttrust" target="_blank" rel="noopener">xttrust</a>.</span>
+        <div class="d-flex gap-3">
+          <a href="index.html">Home</a>
+          <a href="components.html">Components</a>
+          <a href="docs.html">Docs</a>
+        </div>
       </div>
     </div>
-  </main>
+  </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script src="assets/js/ui-kit.js"></script>
-  <script>
-    // Password visibility toggle
-    document.querySelectorAll('.password-toggle').forEach(t => {
-      t.addEventListener('click', () => {
-        const input = t.parentElement.querySelector('.password-input');
-        if (!input) return;
-        const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
-        input.setAttribute('type', type);
-        t.innerHTML = type === 'password' ? '<i class="fa-regular fa-eye"></i>' : '<i class="fa-regular fa-eye-slash"></i>';
-      });
-    });
-
-    // Multi-step form logic
-    (function(){
-      const container = document.getElementById('multiStep');
-      if(!container) return;
-      const panes = container.querySelectorAll('.step-pane');
-      let current = 0;
-
-      function show(index){
-        panes.forEach((p,i)=>p.classList.toggle('active', i===index));
-        current = index;
-      }
-      container.addEventListener('click', e => {
-        if(e.target.matches('[data-step-next]')) { e.preventDefault(); show(Math.min(panes.length-1, current+1)); }
-        if(e.target.matches('[data-step-prev]')) { e.preventDefault(); show(Math.max(0, current-1)); }
-      });
-    })();
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" crossorigin="anonymous"></script>
+  <script src="assets/js/vectra.js"></script>
 </body>
 </html>

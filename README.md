@@ -1,421 +1,168 @@
-﻿# Vectra UI Kit
+# Vectra UI Kit — Pro Edition
 
-## A Premium, Production-Ready Design System
+> A professional, accessible, dark/light-theme UI kit built on Bootstrap 5.  
+> No build tools. Drop in two files and go.
 
-**Modern · Responsive · Accessible · Free Forever**
+[![License: MIT](https://img.shields.io/badge/License-MIT-00c2cb.svg)](LICENSE)
+[![Bootstrap 5.3](https://img.shields.io/badge/Bootstrap-5.3-7952b3.svg)](https://getbootstrap.com)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-
-[![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3+-purple.svg)](https://getbootstrap.com/)
-
-[![Theme](https://img.shields.io/badge/Theme-Dark%20%2F%20Light-00ADB5.svg)](#features)
-
-[Live Demo](https://xttrust.github.io/Vectra-UI-KIT/) · [Components](#component-library) · [Documentation](docs.html) · [Report Bug](https://github.com/xttrust/Vectra-UI-KIT/issues)
-
-------
-
-## 📸 Preview
-
-### 🌙 Dark Theme
-
-![Home Hero Dark](docs/img/home-hero-dark.png)
-
-*Sleek dark theme with vibrant teal/cyan accents*
-
-### ☀️ Light Theme
-
-![Home Hero Light](docs/img/home-hero.png)
-
-*Clean light theme with premium slate tones*
-
-### 🎨 Components Showcase
-
-![Components Catalog](docs/img/components-catalog-dark.png)
-
-*50+ production-ready components*
-
-![Core Components](docs/img/core-components-dark.png)
-
-*Cards, forms, buttons, and more*
-
-------
+---
 
 ## ✨ Features
 
-Vectra UI is a fast, portable design system built with HTML, CSS (design tokens), and Bootstrap 5. It delivers a polished dark/cyan aesthetic, accessible components, marketing sections, form flows, and a layer of vanilla JavaScript. **No build steps required**—copy the components you need and ship.
+- **Dark & light themes** — toggle on the fly; preference persisted to `localStorage`
+- **Working scroll spy** — IntersectionObserver-based, not Bootstrap's unreliable offset math
+- **Working modals** — correct z-index stacking, backdrop blur, dark-mode close button
+- **30+ components** — cards, buttons, badges, alerts, modals, tabs, accordion, timeline, steps, pricing, testimonials, FAB, and more
+- **Full form library** — all input types, floating labels, input groups, password toggle, validation states
+- **Auth page templates** — login, register, password recovery, profile settings
+- **Accessible** — focus rings, ARIA attributes, keyboard nav, `prefers-reduced-motion` support
+- **Anchor-safe navigation** — `scroll-margin-top` applied globally so anchors never hide under the fixed navbar
+- **Zero build tools** — pure HTML, CSS, and vanilla JS; fully CDN-driven
+- **MIT licensed** — free for commercial and personal use
 
-### 🎯 Key Highlights
-
-- **🎨 Dual Theme System** - Beautiful dark & light modes with smooth transitions
-
-- **⚡ Zero Build Required** - Pure HTML, CSS, and vanilla JavaScript
-
-- **📦 50+ Components** - Production-ready UI primitives and complex patterns
-
-- **🎭 Design Tokens** - CSS variables for easy customization
-
-- **♿ Accessibility First** - WCAG compliant with semantic HTML and ARIA labels
-
-- **📱 Fully Responsive** - Mobile-first design that works everywhere
-
-- **🚀 Bootstrap 5.3+ Powered** - Built on the world's most popular framework
-
-- **🎪 Rich Animations** - AOS (Animate On Scroll) integration
-
-- **💼 Production Ready** - Used in real-world SaaS applications
-
-### 🛠️ Tech Stack
-
-- **HTML5** - Semantic markup
-
-- **CSS3** - Modern features (Grid, Flexbox, Custom Properties)
-
-- **Bootstrap 5.3+** - Component framework
-
-- **Font Awesome 6+** - Icon library
-
-- **AOS** - Scroll animations
-
-- **Vanilla JavaScript** - No framework dependencies
-
-------
+---
 
 ## 🚀 Quick Start
 
-### Option 1: Clone the Repository
+```html
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My App</title>
 
-```bash
-git clone https://github.com/xttrust/Vectra-UI-KIT.git
-cd Vectra-UI-KIT
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" crossorigin="anonymous" />
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" />
+
+  <!-- AOS (optional) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" crossorigin="anonymous" />
+
+  <!-- Vectra -->
+  <link rel="stylesheet" href="assets/css/vectra.css" />
+</head>
+<body>
+
+  <!-- your content here -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" crossorigin="anonymous"></script>
+  <script src="assets/js/vectra.js"></script>
+</body>
+</html>
 ```
 
+Set `data-theme="light"` on `<html>` for a light-mode start, or swap themes programmatically:
 
-
-Open `index.html` in your browser - that's it! No build process required.
-
-
-
-### Option 2: Download ZIP
-
-
-
-[Download the latest release](https://github.com/xttrust/Vectra-UI-KIT/archive/refs/heads/main.zip) and extract it.
-
-
-
-### Option 3: Use Individual Components
-
-
-
-Copy/paste component blocks from:
-
-
-
-- `components.html` - UI primitives and complex components
-
-- `sections.html` - Marketing and landing sections
-
-- `forms.html` - Auth, contact, and multi-step form patterns
-
-- `pricing.html` - Pricing tables and plan displays
-
-
+```js
+Vectra.toggleTheme();
+```
 
 ---
 
-## 📁 Project Structure
+## 📁 File Structure
 
-```text
+```
 Vectra-UI-KIT/
-├── 📄 index.html          # Landing page & overview
-├── 📄 components.html     # Complete component catalog
-├── 📄 sections.html       # Marketing section library
-├── 📄 forms.html          # Form patterns & authentication
-├── 📄 pricing.html        # Pricing tables & plans
-├── 📄 utilities.html      # Utility classes reference
-├── 📄 docs.html           # Documentation & guides
-├── 📁 assets/
-│   ├── 📁 css/
-│   │   ├── ui-kit.css     # Core styles (design tokens + components)
-│   │   └── auth.css       # Authentication page styles
-│   ├── 📁 js/
-│   │   └── ui-kit.js      # Interactive enhancements
-│   └── 📁 img/            # Demo images
-├── 📁 auth/
-│   ├── login.html         # Login page
-│   ├── register.html      # Registration page
-│   ├── recover.html       # Password recovery
-│   └── profile.html       # User profile
-├── 📁 docs/
-│   └── 📁 img/            # Documentation screenshots
-└── 📄 LICENSE             # MIT License
+├── index.html          Landing / showcase page
+├── components.html     Full component catalog
+├── forms.html          Form elements reference
+├── utilities.html      Utility classes reference
+├── docs.html           Documentation
+├── LICENSE             MIT license
+├── README.md           This file
+├── auth/
+│   ├── login.html
+│   ├── register.html
+│   ├── recover.html
+│   └── profile.html
+└── assets/
+    ├── css/
+    │   └── vectra.css  Design system (~900 lines)
+    └── js/
+        └── vectra.js   JS engine (~400 lines)
 ```
 
 ---
 
-## 🎨 Component Library
+## 🎨 Theming
 
-### Layout & Structure
-
-| Component | Status | Description |
-|-----------|--------|-------------|
-| Navbar (Sticky/Transparent) | ✅ | Responsive navigation with blur effects |
-| Hero Sections | ✅ | Gradient, centered, split, minimal variants |
-| Cards & Panels | ✅ | Glass, accent, outline, elevated styles |
-| Grid System | ✅ | Bootstrap 5 grid with custom utilities |
-| Footer | ✅ | Multi-column footer with social links |
-
-### Navigation & Menus
-
-| Component | Status | Description |
-|-----------|--------|-------------|
-| Top Navigation | ✅ | Responsive collapse with theme toggle |
-| Sidebar Navigation | ✅ | Scrollspy-enabled catalog navigation |
-| Breadcrumbs | ✅ | Themed breadcrumb navigation |
-| Tabs | ✅ | Styled tabs with active state |
-| Pagination | ✅ | Page navigation component |
-| Accordion | ✅ | Collapsible content panels |
-| Offcanvas | ✅ | Slide-in side panels |
-
-### Content & Display
-
-| Component | Status | Description |
-|-----------|--------|-------------|
-| Typography | ✅ | Heading styles, text utilities, gradient text |
-| Testimonials | ✅ | Slider with autoplay and ARIA |
-| Carousel | ✅ | Image carousel with controls |
-| Modals | ✅ | Dialog boxes with backdrop |
-| Tooltips & Popovers | ✅ | Contextual overlays |
-| Progress Bars | ✅ | Animated progress indicators |
-| Timeline | ✅ | Vertical timeline component |
-| Badges | ✅ | Status and label badges |
-| Alerts | ✅ | Notification messages |
-
-### Forms & Input
-
-| Component | Status | Description |
-|-----------|--------|-------------|
-| Text Inputs | ✅ | Standard and floating label variants |
-| Select Dropdowns | ✅ | Styled select elements |
-| Checkboxes & Radios | ✅ | Custom styled form controls |
-| Switches | ✅ | Toggle switches |
-| Range Sliders | ✅ | Styled range inputs |
-| File Upload | ✅ | Custom file input styling |
-| Multi-Step Forms | ✅ | Wizard with progress indicators |
-| Auth Panels | ✅ | Login, register, password recovery |
-| Form Validation | ✅ | Error and success states |
-
-### SaaS & Marketing
-
-| Component | Status | Description |
-|-----------|--------|-------------|
-| Pricing Tables | ✅ | Feature comparison and plan cards |
-| Product Cards | ✅ | E-commerce ready product displays |
-| Team Section | ✅ | Team member cards with social links |
-| FAQ Section | ✅ | Accordion-style frequently asked questions |
-| CTA Sections | ✅ | Call-to-action blocks |
-| Newsletter Forms | ✅ | Email subscription forms |
-| Stats/Counters | ✅ | Animated statistics display |
-| Logo Grid | ✅ | Client/partner logo showcase |
-| Gallery | ✅ | Image grid layouts |
-| Blog Cards | ✅ | Article preview cards |
-| Cookie Banner | ✅ | GDPR compliance notice |
-| Floating Action Button | ✅ | FAB for quick actions |
-| Share Buttons | ✅ | Social media sharing |
-
----
-
-## 🎯 Design System
-
-### Color Palette
-
-**Dark Theme:**
-
-- Background: `#0A0F1E` (Deep navy)
-- Surface: `#0F1828` (Dark slate)
-- Text: `#E2E8F0` (Light gray)
-- Accent: `#00ADB5` → `#56DFCF` (Teal/cyan gradient)
-
-**Light Theme:**
-
-- Background: `#FAFBFC` (Off-white)
-- Surface: `#FFFFFF` (Pure white)
-- Text: `#0F172A` (Deep slate)
-- Accent: `#0ABAB5` → `#ADEED9` (Teal gradient with pink highlights)
-
-### Typography
-
-- **Headings**: Inter (700-800 weight)
-- **Body**: Inter (400-500 weight)
-- **Code**: Fira Code
-
-### Spacing Scale
-
-`0.25rem` · `0.5rem` · `0.75rem` · `1rem` · `1.5rem` · `2rem` · `3rem` · `4rem` · `6rem`
-
-### Border Radius
-
-- `xs`: 4px
-- `sm`: 6px
-- `md`: 8px (default)
-- `lg`: 12px
-- `xl`: 16px
-- `pill`: 999px
-
----
-
-## 💡 Usage Examples
-
-### Theme Toggle
-
-```html
-<button id="themeToggle" class="btn btn-icon">
-  <i class="fas fa-moon"></i>
-</button>
-```
-
-The theme automatically persists to localStorage and applies on page load.
-
-### Component Example - Card
-
-```html
-<div class="uk-card uk-card-glass">
-  <div class="uk-card-body">
-    <h5 class="uk-card-title">Card Title</h5>
-    <p class="uk-card-text">Card content goes here.</p>
-    <a href="#" class="btn btn-accent">Learn More</a>
-  </div>
-</div>
-```
-
-### Component Example - Hero Section
-
-```html
-<section class="hero gradient-bg">
-  <div class="container">
-    <div class="hero-content text-center">
-      <h1 class="hero-title">Welcome to Vectra UI</h1>
-      <p class="hero-subtitle">Build faster with premium components</p>
-      <a href="#" class="btn btn-accent btn-lg">Get Started</a>
-    </div>
-  </div>
-</section>
-```
-
----
-
-## 🔧 Customization
-
-### Changing Colors
-
-Override CSS custom properties in your own stylesheet:
+All visual values live as CSS custom properties (`--v-*`) on `:root`. Override any token in your own stylesheet loaded **after** `vectra.css`:
 
 ```css
+/* Change the accent colour to violet */
 :root {
-  --uk-accent: #FF6B6B;        /* Your brand color */
-  --uk-accent-alt: #FFE66D;    /* Secondary color */
-  --uk-radius-md: 16px;        /* Border radius */
-}
-```
-
-### Custom Theme
-
-Create a custom theme by adding a data attribute:
-
-```html
-<html data-theme="custom">
-```
-
-```css
-[data-theme="custom"] {
-  --uk-bg: #yourColor;
-  --uk-text: #yourColor;
-  /* ... other variables */
+  --v-accent:      #7c3aed;
+  --v-accent-2:    #a78bfa;
+  --v-accent-rgb:  124, 58, 237;
+  --v-accent-soft: rgba(124, 58, 237, .1);
+  --v-accent-grad: linear-gradient(135deg, #7c3aed, #a78bfa);
+  --v-accent-glow: 0 0 0 3px rgba(124, 58, 237, .3);
 }
 ```
 
 ---
 
-## 🚀 JavaScript Features
+## 🔧 JavaScript API
 
-The optional `ui-kit.js` file provides:
+`vectra.js` auto-initialises on `DOMContentLoaded` and exposes `window.Vectra`:
 
-- **Theme Toggle** - Persistent dark/light mode switching
-- **Back to Top** - Smooth scroll to top button
-- **Code Copy** - One-click code snippet copying
-- **Stat Counters** - Animated number counting
-- **Testimonial Slider** - Auto-playing testimonial carousel
-- **Sidebar Navigation** - Smooth scrolling and active states
-- **AOS Integration** - Scroll-triggered animations
-
-**Progressive Enhancement**: The site works perfectly without JavaScript!
+| Method | Description |
+|--------|-------------|
+| `Vectra.toggleTheme()` | Switch between dark and light themes |
+| `Vectra.initScrollSpy()` | Activate navbar scroll spy (`[data-scrollspy]`) |
+| `Vectra.initSideNav()` | Activate sidebar scroll spy (`[data-sidenav]`) |
+| `Vectra.initCounters()` | Animate `data-counter` numbers on scroll |
+| `Vectra.initCopyButtons()` | Wire `.v-copy-btn` to clipboard |
+| `Vectra.initSliders()` | Testimonial sliders with touch/swipe |
+| `Vectra.initPasswordToggle()` | Show/hide password fields |
+| `Vectra.initFileUpload()` | Drag-and-drop zones (`.v-drop-zone`) |
+| `Vectra.initFAB()` | Floating Action Button expand/collapse |
+| `Vectra.initCookieBanner()` | Cookie consent banner |
 
 ---
 
-## 📱 Browser Support
+## ♿ Accessibility
 
-- ✅ Chrome (latest)
-- ✅ Firefox (latest)
-- ✅ Safari (latest)
-- ✅ Edge (latest)
-- ⚠️ IE11 (not supported - requires modern CSS features)
+- All interactive elements have visible focus rings (`--v-focus`)  
+- Icon-only controls include `aria-label`  
+- Transitions disabled when `prefers-reduced-motion: reduce` is active  
+- Colour contrast meets WCAG AA in both themes  
+- Semantic landmarks: `<nav aria-label>`, `<main>`, `<header>`, `<footer>`  
+- Bootstrap's built-in keyboard nav for modals, dropdowns, tabs, accordion  
+
+---
+
+## 🌐 Browser Support
+
+All modern browsers. IE is not supported.
+
+| Chrome | Firefox | Safari | Edge |
+|--------|---------|--------|------|
+| ✅ 90+ | ✅ 89+ | ✅ 15+ | ✅ 90+ |
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Feel free to:
+Pull requests and issues are welcome! Please:
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+2. Create a feature branch (`git checkout -b feat/my-feature`)
+3. Commit your changes
+4. Open a pull request against `main`
 
 ---
 
 ## 📄 License
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
-**You are free to:**
-
-- ✅ Use commercially
-- ✅ Modify and adapt
-- ✅ Distribute
-- ✅ Use privately
-
-**No attribution required** - but appreciated! ⭐
-
----
-
-## 👨‍💻 Author
-
-**Florin Pinta** ([@xttrust](https://github.com/xttrust))
-
----
-
-## 🙏 Acknowledgments
-
-- [Bootstrap](https://getbootstrap.com/) - Component framework
-- [Font Awesome](https://fontawesome.com/) - Icon library
-- [AOS](https://michalsnik.github.io/aos/) - Animate on scroll library
-- [Inter](https://rsms.me/inter/) - Typography
-
----
-
-## 🌟 Show Your Support
-
-If you find this project useful, please consider:
-
-- ⭐ Starring the repository
-- 🐛 Reporting bugs and issues
-- 💡 Suggesting new features
-- 📢 Sharing with others
-- ☕ [Buy me a coffee](https://www.paypal.com/paypalme/xttrust)
-
----
-
-**🚀 Built with ❤️ by [Florin Pinta](https://github.com/xttrust)**
-
-**[⬆ Back to Top](#-vectra-ui-kit)**
+[MIT](LICENSE) © 2025 [Florin Pinta (xttrust)](https://github.com/xttrust)
