@@ -1,25 +1,50 @@
-# Vectra UI Kit — Pro Edition
+# Vectra UI Kit
 
-> A professional, accessible, dark/light-theme UI kit built on Bootstrap 5.  
-> No build tools. Drop in two files and go.
+**A professional-grade, fully free UI kit built on Bootstrap 5.**  
+Dark & light themes, 30+ components, auth pages, a complete form library, full documentation, and a clean vanilla JS engine — all without a single build tool.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-00c2cb.svg)](LICENSE)
-[![Bootstrap 5.3](https://img.shields.io/badge/Bootstrap-5.3-7952b3.svg)](https://getbootstrap.com)
+[![Bootstrap 5.3](https://img.shields.io/badge/Bootstrap-5.3.3-7952b3.svg)](https://getbootstrap.com)
+[![GitHub Stars](https://img.shields.io/github/stars/xttrust/Vectra-UI-KIT?style=flat&color=00c2cb)](https://github.com/xttrust/Vectra-UI-KIT/stargazers)
+
+> 💡 **Pro quality, zero cost.** Vectra started as an internal design system and has been fully open-sourced under the MIT licence — free for personal and commercial use, forever.
 
 ---
 
-## ✨ Features
+## ✨ What's Included
 
-- **Dark & light themes** — toggle on the fly; preference persisted to `localStorage`
-- **Working scroll spy** — IntersectionObserver-based, not Bootstrap's unreliable offset math
-- **Working modals** — correct z-index stacking, backdrop blur, dark-mode close button
-- **30+ components** — cards, buttons, badges, alerts, modals, tabs, accordion, timeline, steps, pricing, testimonials, FAB, and more
-- **Full form library** — all input types, floating labels, input groups, password toggle, validation states
-- **Auth page templates** — login, register, password recovery, profile settings
-- **Accessible** — focus rings, ARIA attributes, keyboard nav, `prefers-reduced-motion` support
-- **Anchor-safe navigation** — `scroll-margin-top` applied globally so anchors never hide under the fixed navbar
-- **Zero build tools** — pure HTML, CSS, and vanilla JS; fully CDN-driven
-- **MIT licensed** — free for commercial and personal use
+### 🎨 Design System
+- Full **dark and light theme** with one-click toggle — preference saved to `localStorage`
+- 40+ **CSS custom properties** (`--v-*`) covering colour, radius, shadow, transitions, and typography
+- **Inter** + **JetBrains Mono** font stack with zero config
+
+### 🧩 30+ Components
+Cards, buttons (5 variants), badges, alerts, modals (4 sizes), tabs, pills, accordion, tables, progress bars, spinners, pagination, breadcrumbs, timeline, steps, code blocks with copy, tooltips, testimonial slider (touch/swipe), pricing cards, stat counters, file upload drop zone, floating action button, offcanvas panel
+
+### 📝 Complete Form Library
+All HTML input types, floating labels, input groups, password show/hide toggle, checkboxes, radios, switches, range slider, validation states (`.is-valid` / `.is-invalid`), and full sample forms (contact, newsletter)
+
+### 🔐 Auth Page Templates
+- Login — email/password + social buttons + remember me
+- Register — full fields + terms checkbox
+- Password Recovery — email form with animated sent-confirmation state
+- Profile — tabbed settings (personal info, password + 2FA, notifications, billing)
+
+### 📚 Documentation & Utilities
+- Docs page covering quick start, design tokens, theming, JS API, data attributes, accessibility, and customisation
+- Utility class reference with live swatches (colours, flex, borders, shadows, sizing, display, dividers, labels)
+
+### ♿ Accessibility
+- Visible focus rings on all interactive elements
+- `aria-label` on all icon-only controls
+- All animations disabled under `prefers-reduced-motion: reduce`
+- WCAG AA colour contrast in both themes
+- Semantic landmarks (`<nav>`, `<main>`, `<header>`, `<footer>`)
+
+### ⚙️ Engineering Highlights
+- **IntersectionObserver scroll spy** — replaces Bootstrap's unreliable offset-based spy; tracks both top navbar and sidebar independently
+- **Anchor-safe navigation** — `scroll-margin-top: var(--v-navbar-h)` applied globally so deep links never hide under the fixed navbar
+- **Zero build tools** — pure HTML, CSS, and vanilla JS; fully CDN-driven, works straight from the file system
 
 ---
 
@@ -144,25 +169,39 @@ All visual values live as CSS custom properties (`--v-*`) on `:root`. Override a
 
 ## 🌐 Browser Support
 
-All modern browsers. IE is not supported.
+All evergreen browsers. Internet Explorer is not supported.
 
-| Chrome | Firefox | Safari | Edge |
-|--------|---------|--------|------|
-| ✅ 90+ | ✅ 89+ | ✅ 15+ | ✅ 90+ |
+| Chrome | Firefox | Safari | Edge | Opera |
+|--------|---------|--------|------|-------|
+| ✅ 90+ | ✅ 89+ | ✅ 15+ | ✅ 90+ | ✅ 76+ |
 
 ---
 
 ## 🤝 Contributing
 
-Pull requests and issues are welcome! Please:
+Contributions, bug reports, and feature requests are all welcome!
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feat/my-feature`)
-3. Commit your changes
-4. Open a pull request against `main`
+1. **Fork** the repository
+2. **Create** a feature branch — `git checkout -b feat/my-feature`
+3. **Commit** your changes with a clear message
+4. **Open a pull request** against `main`
+
+For larger changes, please open an issue first to discuss the proposal.
+
+---
+
+## 🙏 Credits
+
+Built and maintained by **[Florin Pinta (xttrust)](https://github.com/xttrust)**.
+
+If you find Vectra UI Kit useful, consider:
+- ⭐ Starring the repo on [GitHub](https://github.com/xttrust/Vectra-UI-KIT)
+- 🐦 Sharing it with your network
+- 🛒 Checking out premium products at [creativeigniter.com](https://creativeigniter.com)
 
 ---
 
 ## 📄 License
 
-[MIT](LICENSE) © 2025 [Florin Pinta (xttrust)](https://github.com/xttrust)
+[MIT](LICENSE) © 2026 [Florin Pinta (xttrust)](https://github.com/xttrust)  
+Free for personal and commercial use. No attribution required (though appreciated).
