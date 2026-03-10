@@ -4,34 +4,202 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Documentation — Vectra UI Kit</title>
-  <meta name="description" content="Full documentation for Vectra UI Kit: getting started, file structure, theming, JavaScript API, accessibility, and customisation." />
+  <meta name="description" content="Full documentation for Vectra UI Kit: getting started, theming, JavaScript API, auth pages, accessibility and customisation." />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2300c2cb'/><text x='50%' y='56%' dominant-baseline='middle' text-anchor='middle' font-family='system-ui' font-weight='700' font-size='18' fill='%2301292b'>V</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" crossorigin="anonymous" />
   <link rel="stylesheet" href="assets/css/vectra.css" />
   <style>
-    .doc-section{scroll-margin-top:var(--v-navbar-h);padding-top:2.5rem;padding-bottom:2.5rem;border-top:1px solid var(--v-border)}
-    .doc-section:first-child{border-top:none}
-    .doc-section h2{font-size:1.25rem;margin-bottom:.4rem}
-    .doc-section .lead{font-size:.9rem;color:var(--v-text-2);margin-bottom:1.5rem;max-width:660px}
-    .doc-section h3{font-size:1rem;margin-top:1.75rem;margin-bottom:.6rem}
-    .changelog-entry{padding:.75rem 1rem;border-left:2px solid var(--v-accent);margin-bottom:.75rem;background:var(--v-surface);border-radius:0 var(--v-r-sm) var(--v-r-sm) 0}
-    .changelog-entry .v{font-size:.75rem;font-family:var(--v-mono);color:var(--v-accent);font-weight:700;margin-bottom:.25rem}
-    .changelog-entry p{font-size:.875rem;margin:0;color:var(--v-text-2)}
-    .method-row{padding:.6rem 0;border-bottom:1px solid var(--v-border);display:flex;flex-wrap:wrap;gap:.5rem}
-    .method-row:last-child{border-bottom:none}
-    .method-row code{font-size:.82rem;font-family:var(--v-mono);color:var(--v-accent);background:var(--v-surface-2);padding:.1em .4em;border-radius:4px}
-    .method-desc{font-size:.875rem;color:var(--v-text-2);flex:1 1 200px}
+    /* ─── Docs Page Layout ───────────────────────────────────────── */
+    .docs-layout {
+      display: flex;
+      margin-top: var(--v-navbar-h);
+      min-height: calc(100vh - var(--v-navbar-h));
+    }
+
+    /* Sidebar */
+    .docs-sidebar {
+      width: 248px;
+      flex-shrink: 0;
+      position: sticky;
+      top: var(--v-navbar-h);
+      height: calc(100vh - var(--v-navbar-h));
+      overflow-y: auto;
+      border-right: 1px solid var(--v-border);
+      padding: 2rem 0 4rem;
+      background: var(--v-bg);
+    }
+    .docs-sidebar::-webkit-scrollbar { width: 3px; }
+    .docs-sidebar::-webkit-scrollbar-thumb { background: var(--v-border); border-radius: 2px; }
+
+    .docs-sidebar-inner { padding: 0 1rem; }
+
+    .docs-nav-group {
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--v-text-3);
+      padding: .25rem .75rem;
+      margin: 1.5rem 0 .35rem;
+    }
+    .docs-nav-group:first-child { margin-top: 0; }
+
+    .docs-sidebar-inner a {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      color: var(--v-text-2);
+      font-size: .875rem;
+      font-weight: 500;
+      padding: .32rem .75rem;
+      border-radius: var(--v-r-sm);
+      text-decoration: none;
+      transition: color var(--v-t-fast), background var(--v-t-fast);
+      line-height: 1.45;
+    }
+    .docs-sidebar-inner a:hover { color: var(--v-text); background: var(--v-surface); }
+    .docs-sidebar-inner a.active { color: var(--v-accent); background: var(--v-accent-soft); font-weight: 600; }
+
+    /* Content */
+    .docs-content {
+      flex: 1;
+      min-width: 0;
+      padding: 3rem 4rem 6rem;
+      max-width: 860px;
+    }
+
+    /* Mobile: collapse sidebar */
+    @media (max-width: 991px) {
+      .docs-sidebar { display: none; }
+      .docs-content { padding: 2rem 1.25rem 4rem; }
+    }
+    @media (max-width: 1279px) {
+      .docs-content { padding: 2.5rem 2.5rem 5rem; }
+    }
+
+    /* ─── Page header ─────────────────────────────────────────────── */
+    .docs-page-header {
+      padding-bottom: 2.5rem;
+      margin-bottom: 0;
+      border-bottom: 1px solid var(--v-border);
+    }
+    .docs-page-header .docs-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--v-accent);
+      margin-bottom: .75rem;
+    }
+    .docs-page-header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: .6rem;
+    }
+    .docs-page-header p {
+      font-size: 1rem;
+      color: var(--v-text-2);
+      max-width: 580px;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* ─── Sections ─────────────────────────────────────────────────── */
+    .doc-section {
+      padding: 3rem 0 2.5rem;
+      border-bottom: 1px solid var(--v-border);
+      scroll-margin-top: calc(var(--v-navbar-h) + 20px);
+    }
+    .doc-section:last-child { border-bottom: none; }
+
+    .doc-section > h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--v-text);
+      margin-bottom: .5rem;
+    }
+    .doc-section > .doc-lead {
+      font-size: .9375rem;
+      color: var(--v-text-2);
+      line-height: 1.7;
+      margin-bottom: 1.75rem;
+      max-width: 620px;
+    }
+    .doc-section h3 {
+      font-size: .9375rem;
+      font-weight: 600;
+      color: var(--v-text);
+      margin-top: 2rem;
+      margin-bottom: .6rem;
+    }
+    .doc-section p, .doc-section li {
+      font-size: .9rem;
+      color: var(--v-text-2);
+      line-height: 1.75;
+    }
+    .doc-section ul { padding-left: 1.25rem; }
+    .doc-section ul li { margin-bottom: .35rem; }
+    .doc-section a { color: var(--v-accent); text-decoration: none; }
+    .doc-section a:hover { text-decoration: underline; }
+
+    /* Method table */
+    .method-table { width: 100%; border-collapse: collapse; }
+    .method-table tr { border-bottom: 1px solid var(--v-border); }
+    .method-table tr:last-child { border-bottom: none; }
+    .method-table td { padding: .65rem .25rem; vertical-align: top; font-size: .875rem; }
+    .method-table td:first-child { white-space: nowrap; padding-right: 1.5rem; }
+    .method-table .method-desc { color: var(--v-text-2); }
+
+    /* Changelog */
+    .changelog-item {
+      display: flex;
+      gap: 1.5rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--v-border);
+    }
+    .changelog-item:last-child { border-bottom: none; }
+    .changelog-badge {
+      flex-shrink: 0;
+      font-size: .75rem;
+      font-family: var(--v-mono);
+      font-weight: 700;
+      color: var(--v-accent);
+      background: var(--v-accent-soft);
+      border-radius: var(--v-r-sm);
+      padding: .25rem .6rem;
+      height: fit-content;
+      margin-top: .1rem;
+      white-space: nowrap;
+    }
+    .changelog-body .changelog-title { font-size: .9rem; font-weight: 600; color: var(--v-text); margin-bottom: .35rem; }
+    .changelog-body p { font-size: .875rem; color: var(--v-text-2); margin: 0; line-height: 1.65; }
+
+    /* ─── Inline code ─────────────────────────────────────────────── */
+    .doc-section code, .docs-page-header code {
+      font-family: var(--v-mono);
+      font-size: .83em;
+      color: var(--v-accent);
+      background: var(--v-surface-2);
+      padding: .12em .4em;
+      border-radius: 4px;
+    }
+    /* don't double-wrap pre > code */
+    .v-code-block code { background: none; padding: 0; color: inherit; font-size: inherit; }
   </style>
 </head>
 <body>
 
   <button id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg fixed-top v-navbar" aria-label="Main navigation">
     <div class="container">
       <a class="navbar-brand" href="index.html"><span class="logo-dot" aria-hidden="true"></span> Vectra UI</a>
@@ -67,51 +235,58 @@
     </div>
   </nav>
 
-  <header class="v-hero">
-    <div class="container">
-      <span class="v-label">Reference</span>
-      <h1 class="mb-3">Documentation</h1>
-      <p class="v-lead">Everything you need to integrate, customise, and extend Vectra UI Kit.</p>
-    </div>
-  </header>
+  <!-- Docs layout: sidebar + content -->
+  <div class="docs-layout">
 
-  <div class="container py-5">
-    <div class="row g-5">
+    <!-- ── Sidebar ── -->
+    <aside class="docs-sidebar" aria-label="Documentation navigation">
+      <nav class="docs-sidebar-inner" data-sidenav>
 
-      <aside class="col-xl-2 col-lg-3 d-none d-lg-block">
-        <nav class="v-side-nav" data-sidenav aria-label="Documentation sections">
-          <span class="v-nav-group-label">Getting Started</span>
-          <a href="#quick-start">Quick Start</a>
-          <a href="#file-structure">File Structure</a>
-          <span class="v-nav-group-label mt-3">Theming</span>
-          <a href="#design-tokens">Design Tokens</a>
-          <a href="#dark-light">Dark &amp; Light</a>
-          <span class="v-nav-group-label mt-3">JavaScript</span>
-          <a href="#js-api">JS API</a>
-          <a href="#data-attrs">Data Attributes</a>
-          <span class="v-nav-group-label mt-3">Other</span>
-          <a href="#accessibility">Accessibility</a>
-          <a href="#customisation">Customisation</a>
-          <a href="#changelog">Changelog</a>
-          <span class="v-nav-group-label mt-3">Auth Pages</span>
-          <a href="#auth-pages">Auth Overview</a>
-          <a href="#auth-login">Login</a>
-          <a href="#auth-register">Register</a>
-          <a href="#auth-recovery">Recovery</a>
-          <a href="#auth-profile">Profile</a>
-        </nav>
-      </aside>
+        <div class="docs-nav-group">Getting Started</div>
+        <a href="#quick-start"><i class="fa-solid fa-bolt fa-fw"></i> Quick Start</a>
+        <a href="#file-structure"><i class="fa-solid fa-folder-tree fa-fw"></i> File Structure</a>
 
-      <main class="col-xl-10 col-lg-9">
+        <div class="docs-nav-group">Theming</div>
+        <a href="#design-tokens"><i class="fa-solid fa-palette fa-fw"></i> Design Tokens</a>
+        <a href="#dark-light"><i class="fa-solid fa-circle-half-stroke fa-fw"></i> Dark &amp; Light</a>
 
-        <!-- Quick Start -->
-        <section id="quick-start" class="doc-section">
-          <h2>Quick Start</h2>
-          <p class="lead">Drop three CDN links and the two Vectra files into your HTML <code>&lt;head&gt;</code> and you're ready to go — no build tools required.</p>
+        <div class="docs-nav-group">JavaScript</div>
+        <a href="#js-api"><i class="fa-solid fa-code fa-fw"></i> JS API</a>
+        <a href="#data-attrs"><i class="fa-solid fa-tag fa-fw"></i> Data Attributes</a>
 
-          <div class="v-code-block mb-4">
-            <div class="v-code-header"><span class="v-code-lang">html</span><button class="v-copy-btn">Copy</button></div>
-            <pre><code>&lt;!DOCTYPE html&gt;
+        <div class="docs-nav-group">Auth Pages</div>
+        <a href="#auth-pages"><i class="fa-solid fa-shield-halved fa-fw"></i> Overview</a>
+        <a href="#auth-login"><i class="fa-solid fa-right-to-bracket fa-fw"></i> Login</a>
+        <a href="#auth-register"><i class="fa-solid fa-user-plus fa-fw"></i> Register</a>
+        <a href="#auth-recovery"><i class="fa-solid fa-key fa-fw"></i> Recovery</a>
+        <a href="#auth-profile"><i class="fa-solid fa-circle-user fa-fw"></i> Profile</a>
+
+        <div class="docs-nav-group">Reference</div>
+        <a href="#accessibility"><i class="fa-solid fa-universal-access fa-fw"></i> Accessibility</a>
+        <a href="#customisation"><i class="fa-solid fa-sliders fa-fw"></i> Customisation</a>
+        <a href="#changelog"><i class="fa-solid fa-clock-rotate-left fa-fw"></i> Changelog</a>
+
+      </nav>
+    </aside>
+
+    <!-- ── Main Content ── -->
+    <main class="docs-content">
+
+      <!-- Page Header -->
+      <div class="docs-page-header">
+        <div class="docs-eyebrow"><i class="fa-solid fa-book"></i> Reference</div>
+        <h1>Documentation</h1>
+        <p>Everything you need to integrate, customise, and extend Vectra UI Kit. No build tools. No fluff.</p>
+      </div>
+
+      <!-- Quick Start -->
+      <section id="quick-start" class="doc-section">
+        <h2>Quick Start</h2>
+        <p class="doc-lead">Add three CDN links and the two Vectra files to your <code>&lt;head&gt;</code> and you're live — no bundler, no config, no dependencies to install.</p>
+
+        <div class="v-code-block mb-4">
+          <div class="v-code-header"><span class="v-code-lang">html</span><button class="v-copy-btn">Copy</button></div>
+          <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="en" data-theme="dark"&gt;
 &lt;head&gt;
   &lt;meta charset="UTF-8" /&gt;
@@ -134,11 +309,6 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         crossorigin="anonymous" /&gt;
 
-  &lt;!-- AOS (optional scroll animations) --&gt;
-  &lt;link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
-        crossorigin="anonymous" /&gt;
-
   &lt;!-- Vectra CSS --&gt;
   &lt;link rel="stylesheet" href="assets/css/vectra.css" /&gt;
 &lt;/head&gt;
@@ -150,366 +320,424 @@
   &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
           crossorigin="anonymous"&gt;&lt;/script&gt;
 
-  &lt;!-- AOS (optional) --&gt;
-  &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
-          crossorigin="anonymous"&gt;&lt;/script&gt;
-
   &lt;!-- Vectra JS --&gt;
   &lt;script src="assets/js/vectra.js"&gt;&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-          </div>
+        </div>
 
-          <div class="v-alert v-alert-info">
-            <i class="fa-solid fa-circle-info"></i>
-            Vectra JS initialises everything automatically on <code>DOMContentLoaded</code>. No manual calls needed.
-          </div>
-        </section>
+        <div class="v-alert v-alert-info">
+          <i class="fa-solid fa-circle-info"></i>
+          Vectra JS initialises everything automatically on <code>DOMContentLoaded</code> — no manual calls needed.
+        </div>
+      </section>
 
-        <!-- File Structure -->
-        <section id="file-structure" class="doc-section">
-          <h2>File Structure</h2>
-          <p class="lead">The kit is self-contained — no build tools required.</p>
-          <div class="v-code-block">
-            <div class="v-code-header"><span class="v-code-lang">text</span><button class="v-copy-btn">Copy</button></div>
-            <pre><code>Vectra-UI-KIT/
+      <!-- File Structure -->
+      <section id="file-structure" class="doc-section">
+        <h2>File Structure</h2>
+        <p class="doc-lead">The kit is entirely self-contained. Drop it into any project or serve it directly as a static site.</p>
+        <div class="v-code-block">
+          <div class="v-code-header"><span class="v-code-lang">text</span><button class="v-copy-btn">Copy</button></div>
+          <pre><code>Vectra-UI-KIT/
 ├── index.html          Landing / showcase page
 ├── components.html     Full component catalog
 ├── forms.html          Form elements reference
 ├── utilities.html      Utility classes reference
 ├── docs.html           This file — documentation
+├── pricing.html        Pricing section example
+├── sections.html       Section layout examples
 ├── LICENSE             MIT license
 ├── README.md           Project readme
 ├── auth/
-│   ├── login.html
-│   ├── register.html
-│   ├── recover.html
-│   └── profile.html
+│   ├── login.html      Sign-in page
+│   ├── register.html   Registration page
+│   ├── recover.html    Password recovery page
+│   └── profile.html    Tabbed user settings
 └── assets/
     ├── css/
-    │   └── vectra.css  Design system (900 + lines)
+    │   └── vectra.css  Design system (~1 700 lines)
     └── js/
-        └── vectra.js   JS engine (~400 lines)</code></pre>
-          </div>
-        </section>
+        └── vectra.js   JS engine (~450 lines)</code></pre>
+        </div>
+      </section>
 
-        <!-- Design Tokens -->
-        <section id="design-tokens" class="doc-section">
-          <h2>Design Tokens</h2>
-          <p class="lead">All visual values — colours, radius, shadow, transitions — live as CSS custom properties on <code>:root</code>. Override any token in your own stylesheet after the Vectra link.</p>
-          <div class="v-code-block mb-4">
-            <div class="v-code-header"><span class="v-code-lang">css</span><button class="v-copy-btn">Copy</button></div>
-            <pre><code>/* Example: change accent colour */
+      <!-- Design Tokens -->
+      <section id="design-tokens" class="doc-section">
+        <h2>Design Tokens</h2>
+        <p class="doc-lead">All visual values — colours, radii, shadows, and transitions — live as CSS custom properties on <code>:root</code>. Override any token in your own stylesheet loaded after <code>vectra.css</code>.</p>
+
+        <div class="v-code-block mb-4">
+          <div class="v-code-header"><span class="v-code-lang">css</span><button class="v-copy-btn">Copy</button></div>
+          <pre><code>/* Change accent to violet — my-overrides.css */
 :root {
-  --v-accent:     #7c3aed;  /* violet */
-  --v-accent-2:   #a78bfa;
-  --v-accent-rgb: 124, 58, 237;
-}</code></pre>
-          </div>
-
-          <h3>Full token reference</h3>
-          <table class="table table-sm">
-            <thead><tr><th>Token</th><th>Default (dark)</th><th>Override (light)</th></tr></thead>
-            <tbody>
-              <tr><td><code>--v-bg</code></td><td>#111318</td><td>#f5f7fa</td></tr>
-              <tr><td><code>--v-bg-2</code></td><td>#171b23</td><td>#eef1f5</td></tr>
-              <tr><td><code>--v-surface</code></td><td>#1d2333</td><td>#ffffff</td></tr>
-              <tr><td><code>--v-surface-2</code></td><td>#242d3e</td><td>#f0f3f7</td></tr>
-              <tr><td><code>--v-border</code></td><td>#2e3a4e</td><td>#dde3ec</td></tr>
-              <tr><td><code>--v-accent</code></td><td>#00c2cb</td><td>#0099a3</td></tr>
-              <tr><td><code>--v-text</code></td><td>#e2e8f0</td><td>#0f172a</td></tr>
-              <tr><td><code>--v-text-2</code></td><td>#94a3b8</td><td>#334155</td></tr>
-              <tr><td><code>--v-text-3</code></td><td>#627086</td><td>#64748b</td></tr>
-              <tr><td><code>--v-r</code></td><td>10px</td><td>10px</td></tr>
-              <tr><td><code>--v-navbar-h</code></td><td>64px</td><td>64px</td></tr>
-            </tbody>
-          </table>
-        </section>
-
-        <!-- Dark & Light -->
-        <section id="dark-light" class="doc-section">
-          <h2>Dark &amp; Light Theme</h2>
-          <p class="lead">Set <code>data-theme="dark"</code> or <code>data-theme="light"</code> on the <code>&lt;html&gt;</code> tag. Vectra JS persists the preference to <code>localStorage</code>.</p>
-
-          <h3>HTML attribute</h3>
-          <div class="v-code-block mb-4">
-            <div class="v-code-header"><span class="v-code-lang">html</span><button class="v-copy-btn">Copy</button></div>
-            <pre><code>&lt;!-- Dark (default) --&gt;
-&lt;html data-theme="dark"&gt;
-
-&lt;!-- Light --&gt;
-&lt;html data-theme="light"&gt;</code></pre>
-          </div>
-
-          <h3>Toggle button</h3>
-          <div class="v-code-block mb-4">
-            <div class="v-code-header"><span class="v-code-lang">html</span><button class="v-copy-btn">Copy</button></div>
-            <pre><code>&lt;button data-toggle="theme" aria-label="Toggle theme"&gt;
-  &lt;i class="fa-solid fa-sun"&gt;&lt;/i&gt;
-&lt;/button&gt;</code></pre>
-          </div>
-
-          <h3>JS API</h3>
-          <div class="v-code-block">
-            <div class="v-code-header"><span class="v-code-lang">js</span><button class="v-copy-btn">Copy</button></div>
-            <pre><code>// Toggle between dark and light
-Vectra.toggleTheme();
-
-// Explicitly set a theme
-document.documentElement.setAttribute('data-theme', 'light');
-localStorage.setItem('vectra-theme', 'light');</code></pre>
-          </div>
-        </section>
-
-        <!-- JS API -->
-        <section id="js-api" class="doc-section">
-          <h2>JavaScript API</h2>
-          <p class="lead"><code>vectra.js</code> exposes a global <code>window.Vectra</code> object. All methods are initialised automatically — you can also call them programmatically.</p>
-          <div class="v-card">
-            <div class="method-row"><code>Vectra.toggleTheme()</code><span class="method-desc">Switches between dark and light theme. Saves preference to localStorage.</span></div>
-            <div class="method-row"><code>Vectra.scrollToTop()</code><span class="method-desc">Smoothly scrolls the page to the top.</span></div>
-            <div class="method-row"><code>Vectra.initScrollSpy()</code><span class="method-desc">Activates IntersectionObserver scroll spy on <code>[data-scrollspy]</code> nav elements.</span></div>
-            <div class="method-row"><code>Vectra.initSideNav()</code><span class="method-desc">Activates sidebar scroll spy on <code>[data-sidenav]</code> nav elements.</span></div>
-            <div class="method-row"><code>Vectra.initCounters()</code><span class="method-desc">Starts animated number counters on elements with <code>data-counter</code>.</span></div>
-            <div class="method-row"><code>Vectra.initCopyButtons()</code><span class="method-desc">Wires <code>.v-copy-btn</code> to copy the nearest <code>&lt;pre&gt;</code> text to clipboard.</span></div>
-            <div class="method-row"><code>Vectra.initSliders()</code><span class="method-desc">Activates all <code>.v-slider</code> elements with touch, swipe, and dot nav.</span></div>
-            <div class="method-row"><code>Vectra.initFileUpload()</code><span class="method-desc">Enables drag-and-drop on <code>.v-drop-zone</code> elements.</span></div>
-            <div class="method-row"><code>Vectra.initFAB()</code><span class="method-desc">Toggles the Floating Action Button action list.</span></div>
-            <div class="method-row"><code>Vectra.initCookieBanner()</code><span class="method-desc">Shows/hides the cookie consent banner, persisted to localStorage.</span></div>
-            <div class="method-row"><code>Vectra.initPasswordToggle()</code><span class="method-desc">Wires <code>data-pw-toggle</code> buttons to reveal/hide the target password input.</span></div>
-          </div>
-        </section>
-
-        <!-- Data Attributes -->
-        <section id="data-attrs" class="doc-section">
-          <h2>Data Attributes</h2>
-          <p class="lead">Vectra JS activates features via data attributes — no manual JavaScript calls needed.</p>
-          <table class="table table-sm">
-            <thead><tr><th>Attribute</th><th>Element</th><th>Behaviour</th></tr></thead>
-            <tbody>
-              <tr><td><code>data-toggle="theme"</code></td><td><code>&lt;button&gt;</code></td><td>Toggles dark/light theme on click</td></tr>
-              <tr><td><code>data-scrollspy</code></td><td><code>&lt;nav&gt;</code></td><td>Activates top-navbar IntersectionObserver scroll spy</td></tr>
-              <tr><td><code>data-sidenav</code></td><td><code>&lt;nav&gt;</code></td><td>Activates sidebar IntersectionObserver scroll spy</td></tr>
-              <tr><td><code>data-counter="N"</code></td><td>any element</td><td>Animates number from 0 to N on viewport entry</td></tr>
-              <tr><td><code>data-autoplay="ms"</code></td><td><code>.v-slider</code></td><td>Auto-advances slider every N milliseconds</td></tr>
-              <tr><td><code>data-pw-toggle="id"</code></td><td><code>&lt;button&gt;</code></td><td>Reveal/hide password input with matching <code>id</code></td></tr>
-              <tr><td><code>data-cookie-accept</code></td><td><code>&lt;button&gt;</code></td><td>Accepts cookies and dismisses banner</td></tr>
-              <tr><td><code>data-cookie-decline</code></td><td><code>&lt;button&gt;</code></td><td>Declines cookies and dismisses banner</td></tr>
-            </tbody>
-          </table>
-        </section>
-
-        <!-- Accessibility -->
-        <section id="accessibility" class="doc-section">
-          <h2>Accessibility</h2>
-          <p class="lead">Vectra is built with accessibility as a first-class concern.</p>
-          <ul class="ps-3" style="line-height:1.85;color:var(--v-text-2)">
-            <li><strong style="color:var(--v-text)">Focus rings</strong> — all interactive elements display a clearly visible focus ring using <code>--v-focus</code>.</li>
-            <li><strong style="color:var(--v-text)">ARIA labels</strong> — icon-only buttons and toggles include <code>aria-label</code> attributes.</li>
-            <li><strong style="color:var(--v-text)">Reduced motion</strong> — all transitions and animations are disabled when <code>prefers-reduced-motion: reduce</code> is active.</li>
-            <li><strong style="color:var(--v-text)">Colour contrast</strong> — all text/background combinations in both themes meet or exceed WCAG AA (4.5:1 for normal text, 3:1 for large).</li>
-            <li><strong style="color:var(--v-text)">Keyboard navigation</strong> — modals, dropdowns, accordions, and tabs are all keyboard-accessible via Bootstrap's built-in handlers.</li>
-            <li><strong style="color:var(--v-text)">Semantic HTML</strong> — headings are hierarchical, navigation uses <code>&lt;nav&gt;</code> with <code>aria-label</code>, landmarks are used correctly.</li>
-            <li><strong style="color:var(--v-text)">Role attributes</strong> — switches carry <code>role="switch"</code>, modals trigger <code>role="dialog"</code>.</li>
-          </ul>
-        </section>
-
-        <!-- Customisation -->
-        <section id="customisation" class="doc-section">
-          <h2>Customisation</h2>
-          <p class="lead">The fastest way to customise Vectra is to override CSS variables in your own stylesheet, after the Vectra link.</p>
-
-          <h3>Change accent colour</h3>
-          <div class="v-code-block mb-4">
-            <div class="v-code-header"><span class="v-code-lang">css</span><button class="v-copy-btn">Copy</button></div>
-            <pre><code>/* my-overrides.css — loaded AFTER vectra.css */
-:root {
-  --v-accent:     #7c3aed;
-  --v-accent-2:   #a78bfa;
-  --v-accent-rgb: 124, 58, 237;
+  --v-accent:      #7c3aed;
+  --v-accent-2:    #a78bfa;
+  --v-accent-rgb:  124, 58, 237;
   --v-accent-soft: rgba(124, 58, 237, .1);
   --v-accent-grad: linear-gradient(135deg, #7c3aed, #a78bfa);
   --v-accent-glow: 0 0 0 3px rgba(124, 58, 237, .3);
 }</code></pre>
-          </div>
+        </div>
 
-          <h3>Change font</h3>
-          <div class="v-code-block mb-4">
-            <div class="v-code-header"><span class="v-code-lang">css</span><button class="v-copy-btn">Copy</button></div>
-            <pre><code>:root {
-  --v-font: 'Geist', 'DM Sans', system-ui, sans-serif;
-  --v-mono: 'Geist Mono', Consolas, monospace;
-}</code></pre>
-          </div>
+        <h3>Token reference</h3>
+        <table class="table table-sm">
+          <thead><tr><th>Token</th><th>Dark default</th><th>Light override</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><code>--v-bg</code></td><td><code>#111318</code></td><td><code>#f5f7fa</code></td><td>Page background</td></tr>
+            <tr><td><code>--v-bg-2</code></td><td><code>#171b23</code></td><td><code>#eef1f5</code></td><td>Secondary background</td></tr>
+            <tr><td><code>--v-surface</code></td><td><code>#1d2333</code></td><td><code>#ffffff</code></td><td>Card / panel surface</td></tr>
+            <tr><td><code>--v-surface-2</code></td><td><code>#242d3e</code></td><td><code>#f0f3f7</code></td><td>Elevated surface</td></tr>
+            <tr><td><code>--v-border</code></td><td><code>#2e3a4e</code></td><td><code>#dde3ec</code></td><td>Default border colour</td></tr>
+            <tr><td><code>--v-accent</code></td><td><code>#00c2cb</code></td><td><code>#0099a3</code></td><td>Primary accent</td></tr>
+            <tr><td><code>--v-accent-soft</code></td><td><code>rgba(0,194,203,.1)</code></td><td>same</td><td>Accent tint / badge bg</td></tr>
+            <tr><td><code>--v-text</code></td><td><code>#e2e8f0</code></td><td><code>#0f172a</code></td><td>Primary text</td></tr>
+            <tr><td><code>--v-text-2</code></td><td><code>#94a3b8</code></td><td><code>#334155</code></td><td>Secondary text</td></tr>
+            <tr><td><code>--v-text-3</code></td><td><code>#627086</code></td><td><code>#64748b</code></td><td>Muted / placeholder</td></tr>
+            <tr><td><code>--v-r</code></td><td><code>10px</code></td><td>same</td><td>Base border-radius</td></tr>
+            <tr><td><code>--v-navbar-h</code></td><td><code>64px</code></td><td>same</td><td>Fixed navbar height</td></tr>
+          </tbody>
+        </table>
+      </section>
 
-          <h3>Extend with new components</h3>
-          <p style="font-size:.875rem;color:var(--v-text-2);max-width:600px">
-            Create a new CSS file and use the existing design tokens. Your components will automatically theme-switch with the rest of Vectra.
-          </p>
-          <div class="v-code-block">
-            <div class="v-code-header"><span class="v-code-lang">css</span><button class="v-copy-btn">Copy</button></div>
-            <pre><code>.my-widget {
-  background: var(--v-surface);
-  border: 1px solid var(--v-border);
-  border-radius: var(--v-r);
-  padding: 1.25rem;
-  color: var(--v-text);
-  box-shadow: var(--v-shadow-sm);
-  transition: box-shadow var(--v-t);
-}
+      <!-- Dark & Light -->
+      <section id="dark-light" class="doc-section">
+        <h2>Dark &amp; Light Theme</h2>
+        <p class="doc-lead">Set <code>data-theme="dark"</code> or <code>data-theme="light"</code> on the <code>&lt;html&gt;</code> element. Vectra JS persists the user's choice to <code>localStorage</code> across sessions.</p>
 
-.my-widget:hover {
-  box-shadow: var(--v-shadow);
-}</code></pre>
-          </div>
-        </section>
+        <h3>HTML attribute</h3>
+        <div class="v-code-block mb-4">
+          <div class="v-code-header"><span class="v-code-lang">html</span><button class="v-copy-btn">Copy</button></div>
+          <pre><code>&lt;!-- Default dark --&gt;
+&lt;html lang="en" data-theme="dark"&gt;
 
-        <!-- Auth Pages -->
-        <section id="auth-pages" class="doc-section">
-          <h2>Auth Pages — Overview</h2>
-          <p class="lead">Vectra ships four ready-to-use authentication page templates in the <code>auth/</code> directory. Each page is fully themed, responsive, and built with the same design-token system as the rest of the kit.</p>
-          <table class="table table-sm">
-            <thead><tr><th>File</th><th>URL</th><th>Description</th></tr></thead>
-            <tbody>
-              <tr><td><code>auth/login.html</code></td><td><a class="v-link" href="auth/login.html" target="_blank">auth/login.html</a></td><td>Email + password sign-in with social buttons and a remember-me checkbox.</td></tr>
-              <tr><td><code>auth/register.html</code></td><td><a class="v-link" href="auth/register.html" target="_blank">auth/register.html</a></td><td>Full registration form with name, email, password, confirm-password, and a terms checkbox.</td></tr>
-              <tr><td><code>auth/recover.html</code></td><td><a class="v-link" href="auth/recover.html" target="_blank">auth/recover.html</a></td><td>Password-recovery flow with an animated sent-confirmation state.</td></tr>
-              <tr><td><code>auth/profile.html</code></td><td><a class="v-link" href="auth/profile.html" target="_blank">auth/profile.html</a></td><td>Tabbed user-settings page: personal info, security (password + 2FA), notifications, and billing.</td></tr>
-            </tbody>
-          </table>
-        </section>
+&lt;!-- Start in light mode --&gt;
+&lt;html lang="en" data-theme="light"&gt;</code></pre>
+        </div>
 
-        <!-- Auth: Login -->
-        <section id="auth-login" class="doc-section">
-          <h2>Auth — Login</h2>
-          <p class="lead">A clean, centred card for email/password sign-in. Includes social login buttons and a remember-me toggle.</p>
-          <div class="v-code-block">
-            <div class="v-code-header"><span class="v-code-lang">html</span><button class="v-copy-btn">Copy</button></div>
-            <pre><code>&lt;!-- Link to the page --&gt;
-&lt;a href="auth/login.html"&gt;Sign in&lt;/a&gt;
+        <h3>Toggle button</h3>
+        <div class="v-code-block mb-4">
+          <div class="v-code-header"><span class="v-code-lang">html</span><button class="v-copy-btn">Copy</button></div>
+          <pre><code>&lt;button class="v-theme-toggle" data-toggle="theme" aria-label="Toggle theme"&gt;
+  &lt;i class="fa-solid fa-sun"&gt;&lt;/i&gt;
+&lt;/button&gt;</code></pre>
+        </div>
 
-&lt;!-- Core form structure --&gt;
-&lt;form method="post" action="/login"&gt;
-  &lt;input type="email" name="email" required placeholder="Email address" /&gt;
-  &lt;input type="password" name="password" required placeholder="Password"
-         id="pw" /&gt;
-  &lt;button type="button" data-pw-toggle="pw" aria-label="Show password"&gt;
-    &lt;i class="fa-solid fa-eye"&gt;&lt;/i&gt;
-  &lt;/button&gt;
-  &lt;button type="submit"&gt;Sign in&lt;/button&gt;
+        <h3>Programmatic control</h3>
+        <div class="v-code-block">
+          <div class="v-code-header"><span class="v-code-lang">js</span><button class="v-copy-btn">Copy</button></div>
+          <pre><code>// Toggle between dark ↔ light
+Vectra.toggleTheme();
+
+// Force a specific theme
+document.documentElement.setAttribute('data-theme', 'light');
+localStorage.setItem('vectra-theme', 'light');</code></pre>
+        </div>
+      </section>
+
+      <!-- JS API -->
+      <section id="js-api" class="doc-section">
+        <h2>JavaScript API</h2>
+        <p class="doc-lead"><code>vectra.js</code> exposes a global <code>window.Vectra</code> object. Every feature is initialised automatically on page load — call methods manually only when you need programmatic control.</p>
+
+        <table class="method-table">
+          <tbody>
+            <tr><td><code>Vectra.toggleTheme()</code></td><td class="method-desc">Switches between dark and light theme. Persists preference to <code>localStorage</code>.</td></tr>
+            <tr><td><code>Vectra.scrollToTop()</code></td><td class="method-desc">Smoothly scrolls the page to the top.</td></tr>
+            <tr><td><code>Vectra.initScrollSpy()</code></td><td class="method-desc">Activates IntersectionObserver scroll spy on <code>[data-scrollspy]</code> nav elements.</td></tr>
+            <tr><td><code>Vectra.initSideNav()</code></td><td class="method-desc">Activates sidebar scroll spy + click-scroll on <code>[data-sidenav]</code> nav elements.</td></tr>
+            <tr><td><code>Vectra.initCounters()</code></td><td class="method-desc">Animates number counters from 0 to <code>data-counter</code> value on viewport entry.</td></tr>
+            <tr><td><code>Vectra.initCopyButtons()</code></td><td class="method-desc">Wires <code>.v-copy-btn</code> to copy the nearest <code>&lt;pre&gt;</code> block to clipboard.</td></tr>
+            <tr><td><code>Vectra.initSliders()</code></td><td class="method-desc">Activates all <code>.v-slider</code> elements with touch, swipe, and dot navigation.</td></tr>
+            <tr><td><code>Vectra.initFileUpload()</code></td><td class="method-desc">Enables drag-and-drop file upload on <code>.v-drop-zone</code> elements.</td></tr>
+            <tr><td><code>Vectra.initFAB()</code></td><td class="method-desc">Wires the Floating Action Button to toggle its action list.</td></tr>
+            <tr><td><code>Vectra.initCookieBanner()</code></td><td class="method-desc">Shows/hides the cookie consent banner; persists accept/decline to <code>localStorage</code>.</td></tr>
+            <tr><td><code>Vectra.initPasswordToggle()</code></td><td class="method-desc">Wires <code>data-pw-toggle</code> buttons to reveal or hide the target password input.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Data Attributes -->
+      <section id="data-attrs" class="doc-section">
+        <h2>Data Attributes</h2>
+        <p class="doc-lead">Vectra JS discovers and activates features through HTML data attributes — no <code>import</code> statements or manual init calls required.</p>
+
+        <table class="table table-sm">
+          <thead><tr><th>Attribute</th><th>Element</th><th>Behaviour</th></tr></thead>
+          <tbody>
+            <tr><td><code>data-toggle="theme"</code></td><td><code>&lt;button&gt;</code></td><td>Toggles dark/light theme on click</td></tr>
+            <tr><td><code>data-scrollspy</code></td><td><code>&lt;nav&gt;</code></td><td>Top-navbar IntersectionObserver scroll spy</td></tr>
+            <tr><td><code>data-sidenav</code></td><td><code>&lt;nav&gt;</code></td><td>Sidebar scroll spy + smooth anchor scroll</td></tr>
+            <tr><td><code>data-counter="N"</code></td><td>any element</td><td>Counts up from 0 to N when scrolled into view</td></tr>
+            <tr><td><code>data-autoplay="ms"</code></td><td><code>.v-slider</code></td><td>Auto-advances slider every N milliseconds</td></tr>
+            <tr><td><code>data-pw-toggle="id"</code></td><td><code>&lt;button&gt;</code></td><td>Reveals/hides password input with matching id</td></tr>
+            <tr><td><code>data-cookie-accept</code></td><td><code>&lt;button&gt;</code></td><td>Accepts cookies and dismisses the banner</td></tr>
+            <tr><td><code>data-cookie-decline</code></td><td><code>&lt;button&gt;</code></td><td>Declines cookies and dismisses the banner</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Auth Overview -->
+      <section id="auth-pages" class="doc-section">
+        <h2>Auth Pages — Overview</h2>
+        <p class="doc-lead">Four ready-to-use authentication templates live in the <code>auth/</code> directory. Each is fully themed, responsive, and uses the same design-token system as the rest of the kit.</p>
+
+        <table class="table table-sm">
+          <thead><tr><th>Page</th><th>File</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><a href="auth/login.html" target="_blank">Login</a></td>
+              <td><code>auth/login.html</code></td>
+              <td>Email + password card with social buttons, remember-me toggle, and show-password support.</td>
+            </tr>
+            <tr>
+              <td><a href="auth/register.html" target="_blank">Register</a></td>
+              <td><code>auth/register.html</code></td>
+              <td>Full registration form — name, email, password, confirmation, and terms checkbox.</td>
+            </tr>
+            <tr>
+              <td><a href="auth/recover.html" target="_blank">Recovery</a></td>
+              <td><code>auth/recover.html</code></td>
+              <td>Two-state flow: email entry then animated "link sent" confirmation.</td>
+            </tr>
+            <tr>
+              <td><a href="auth/profile.html" target="_blank">Profile</a></td>
+              <td><code>auth/profile.html</code></td>
+              <td>Tabbed settings dashboard — personal info, security, notifications, and billing.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Auth: Login -->
+      <section id="auth-login" class="doc-section">
+        <h2>Auth — Login</h2>
+        <p class="doc-lead">A centred sign-in card with email/password fields, an eye-button for reveal/hide, social login buttons, and a remember-me checkbox.</p>
+
+        <div class="v-code-block">
+          <div class="v-code-header"><span class="v-code-lang">html</span><button class="v-copy-btn">Copy</button></div>
+          <pre><code>&lt;form method="post" action="/login"&gt;
+  &lt;input type="email"    name="email"    required placeholder="Email address" /&gt;
+
+  &lt;div class="position-relative"&gt;
+    &lt;input type="password" name="password" required placeholder="Password" id="pw" /&gt;
+    &lt;button type="button" data-pw-toggle="pw" aria-label="Show password"&gt;
+      &lt;i class="fa-solid fa-eye"&gt;&lt;/i&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;button type="submit" class="v-btn v-btn-primary w-100"&gt;Sign in&lt;/button&gt;
 &lt;/form&gt;</code></pre>
-          </div>
-          <div class="v-alert v-alert-info mt-3">
-            <i class="fa-solid fa-circle-info"></i>
-            The <code>data-pw-toggle</code> attribute wires the eye-button to reveal/hide the password — handled automatically by <code>Vectra.initPasswordToggle()</code>.
-          </div>
-        </section>
+        </div>
 
-        <!-- Auth: Register -->
-        <section id="auth-register" class="doc-section">
-          <h2>Auth — Register</h2>
-          <p class="lead">Full registration card with first/last name, email, password confirmation, and a terms-of-service checkbox.</p>
-          <div class="v-code-block">
-            <div class="v-code-header"><span class="v-code-lang">html</span><button class="v-copy-btn">Copy</button></div>
-            <pre><code>&lt;!-- Link to the page --&gt;
-&lt;a href="auth/register.html"&gt;Create account&lt;/a&gt;
+        <div class="v-alert v-alert-info mt-3">
+          <i class="fa-solid fa-circle-info"></i>
+          <code>data-pw-toggle="id"</code> is handled automatically by <code>Vectra.initPasswordToggle()</code> — no extra JavaScript required.
+        </div>
+      </section>
 
-&lt;!-- Minimum required fields --&gt;
-&lt;form method="post" action="/register"&gt;
-  &lt;input type="text"  name="first_name" required placeholder="First name" /&gt;
-  &lt;input type="text"  name="last_name"  required placeholder="Last name" /&gt;
-  &lt;input type="email" name="email"      required placeholder="Email address" /&gt;
+      <!-- Auth: Register -->
+      <section id="auth-register" class="doc-section">
+        <h2>Auth — Register</h2>
+        <p class="doc-lead">Full registration card with first/last name, email, password, confirm-password, and a required terms checkbox.</p>
+
+        <div class="v-code-block">
+          <div class="v-code-header"><span class="v-code-lang">html</span><button class="v-copy-btn">Copy</button></div>
+          <pre><code>&lt;form method="post" action="/register"&gt;
+  &lt;div class="row g-3"&gt;
+    &lt;div class="col-6"&gt;
+      &lt;input type="text" name="first_name" required placeholder="First name" /&gt;
+    &lt;/div&gt;
+    &lt;div class="col-6"&gt;
+      &lt;input type="text" name="last_name" required placeholder="Last name" /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;input type="email"    name="email"    required placeholder="Email address" /&gt;
   &lt;input type="password" name="password" required placeholder="Password" id="pw" /&gt;
   &lt;input type="password" name="confirm"  required placeholder="Confirm password" /&gt;
-  &lt;input type="checkbox" name="terms" required /&gt;
-  &lt;button type="submit"&gt;Create account&lt;/button&gt;
+  &lt;label&gt;
+    &lt;input type="checkbox" name="terms" required /&gt;
+    I agree to the Terms of Service
+  &lt;/label&gt;
+  &lt;button type="submit" class="v-btn v-btn-primary w-100"&gt;Create account&lt;/button&gt;
 &lt;/form&gt;</code></pre>
-          </div>
-        </section>
+        </div>
+      </section>
 
-        <!-- Auth: Recovery -->
-        <section id="auth-recovery" class="doc-section">
-          <h2>Auth — Recovery</h2>
-          <p class="lead">A two-state password-recovery page: the initial email-input form, and an animated &ldquo;link sent&rdquo; confirmation card that replaces it on submission.</p>
-          <div class="v-code-block">
-            <div class="v-code-header"><span class="v-code-lang">html</span><button class="v-copy-btn">Copy</button></div>
-            <pre><code>&lt;!-- Link to the page --&gt;
-&lt;a href="auth/recover.html"&gt;Forgot password?&lt;/a&gt;
+      <!-- Auth: Recovery -->
+      <section id="auth-recovery" class="doc-section">
+        <h2>Auth — Recovery</h2>
+        <p class="doc-lead">A two-state page: the email entry form is shown by default. On submit, it animates into a confirmation card confirming the reset link was sent.</p>
 
-&lt;!-- State 1: email form (shown by default) --&gt;
+        <div class="v-code-block">
+          <div class="v-code-header"><span class="v-code-lang">html</span><button class="v-copy-btn">Copy</button></div>
+          <pre><code>&lt;!-- State 1: email form --&gt;
 &lt;div id="recoverForm"&gt;
   &lt;form&gt;
-    &lt;input type="email" required placeholder="Email address" /&gt;
-    &lt;button type="submit"&gt;Send reset link&lt;/button&gt;
+    &lt;input type="email" required placeholder="Your email address" /&gt;
+    &lt;button type="submit" class="v-btn v-btn-primary w-100"&gt;
+      Send reset link
+    &lt;/button&gt;
   &lt;/form&gt;
 &lt;/div&gt;
 
-&lt;!-- State 2: confirmation (hidden by default) --&gt;
-&lt;div id="recoverSuccess" style="display:none"&gt;
-  &lt;i class="fa-solid fa-circle-check"&gt;&lt;/i&gt;
+&lt;!-- State 2: success confirmation (hidden initially) --&gt;
+&lt;div id="recoverSuccess" style="display:none; text-align:center"&gt;
+  &lt;i class="fa-solid fa-circle-check fa-3x" style="color:var(--v-success)"&gt;&lt;/i&gt;
+  &lt;h3 class="mt-3"&gt;Link sent!&lt;/h3&gt;
   &lt;p&gt;Check your inbox — a reset link is on its way.&lt;/p&gt;
-&lt;/div&gt;</code></pre>
-          </div>
-        </section>
+&lt;/div&gt;
 
-        <!-- Auth: Profile -->
-        <section id="auth-profile" class="doc-section">
-          <h2>Auth — Profile</h2>
-          <p class="lead">A fully tabbed user-settings dashboard. Four tabs: <strong>Personal Info</strong>, <strong>Security</strong> (password change + 2FA toggle), <strong>Notifications</strong>, and <strong>Billing</strong>.</p>
-          <div class="v-code-block">
-            <div class="v-code-header"><span class="v-code-lang">html</span><button class="v-copy-btn">Copy</button></div>
-            <pre><code>&lt;!-- Link to the page --&gt;
-&lt;a href="auth/profile.html"&gt;My Profile&lt;/a&gt;
+&lt;script&gt;
+  document.querySelector('#recoverForm form').addEventListener('submit', e =&gt; {
+    e.preventDefault();
+    document.getElementById('recoverForm').style.display = 'none';
+    document.getElementById('recoverSuccess').style.display = 'block';
+  });
+&lt;/script&gt;</code></pre>
+        </div>
+      </section>
 
-&lt;!-- Tab navigation (Bootstrap pill tabs) --&gt;
-&lt;ul class="nav nav-pills" role="tablist"&gt;
-  &lt;li class="nav-item"&gt;&lt;button data-bs-toggle="pill"
-    data-bs-target="#tab-personal"&gt;Personal Info&lt;/button&gt;&lt;/li&gt;
-  &lt;li class="nav-item"&gt;&lt;button data-bs-toggle="pill"
-    data-bs-target="#tab-security"&gt;Security&lt;/button&gt;&lt;/li&gt;
-  &lt;li class="nav-item"&gt;&lt;button data-bs-toggle="pill"
-    data-bs-target="#tab-notifications"&gt;Notifications&lt;/button&gt;&lt;/li&gt;
-  &lt;li class="nav-item"&gt;&lt;button data-bs-toggle="pill"
-    data-bs-target="#tab-billing"&gt;Billing&lt;/button&gt;&lt;/li&gt;
+      <!-- Auth: Profile -->
+      <section id="auth-profile" class="doc-section">
+        <h2>Auth — Profile</h2>
+        <p class="doc-lead">A full-page tabbed settings dashboard with four tabs: <strong>Personal Info</strong>, <strong>Security</strong> (password + 2FA toggle), <strong>Notifications</strong>, and <strong>Billing</strong>.</p>
+
+        <div class="v-code-block mb-4">
+          <div class="v-code-header"><span class="v-code-lang">html</span><button class="v-copy-btn">Copy</button></div>
+          <pre><code>&lt;!-- Bootstrap pill tabs --&gt;
+&lt;ul class="nav nav-pills" id="profileTabs" role="tablist"&gt;
+  &lt;li class="nav-item" role="presentation"&gt;
+    &lt;button class="nav-link active" data-bs-toggle="pill"
+            data-bs-target="#tab-personal" type="button"&gt;Personal Info&lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li class="nav-item" role="presentation"&gt;
+    &lt;button class="nav-link" data-bs-toggle="pill"
+            data-bs-target="#tab-security" type="button"&gt;Security&lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li class="nav-item" role="presentation"&gt;
+    &lt;button class="nav-link" data-bs-toggle="pill"
+            data-bs-target="#tab-notifications" type="button"&gt;Notifications&lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li class="nav-item" role="presentation"&gt;
+    &lt;button class="nav-link" data-bs-toggle="pill"
+            data-bs-target="#tab-billing" type="button"&gt;Billing&lt;/button&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class="tab-content"&gt;
-  &lt;div class="tab-pane" id="tab-personal"&gt;&lt;!-- personal info fields --&gt;&lt;/div&gt;
-  &lt;div class="tab-pane" id="tab-security"&gt;&lt;!-- password + 2FA --&gt;&lt;/div&gt;
-  &lt;div class="tab-pane" id="tab-notifications"&gt;&lt;!-- toggles --&gt;&lt;/div&gt;
-  &lt;div class="tab-pane" id="tab-billing"&gt;&lt;!-- billing info --&gt;&lt;/div&gt;
+&lt;div class="tab-content mt-4"&gt;
+  &lt;div class="tab-pane fade show active" id="tab-personal"&gt;
+    &lt;!-- name, email, bio, avatar upload --&gt;
+  &lt;/div&gt;
+  &lt;div class="tab-pane fade" id="tab-security"&gt;
+    &lt;!-- change password, 2FA toggle --&gt;
+  &lt;/div&gt;
+  &lt;div class="tab-pane fade" id="tab-notifications"&gt;
+    &lt;!-- email/push notification toggles --&gt;
+  &lt;/div&gt;
+  &lt;div class="tab-pane fade" id="tab-billing"&gt;
+    &lt;!-- plan info, payment method, invoices --&gt;
+  &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-          </div>
-          <div class="v-alert v-alert-info mt-3">
-            <i class="fa-solid fa-circle-info"></i>
-            Tab switching is handled by Bootstrap 5's built-in pill-tab component — no extra JavaScript needed.
-          </div>
-        </section>
+        </div>
 
-        <!-- Changelog -->
-        <section id="changelog" class="doc-section">
-          <h2>Changelog</h2>
-          <p class="lead">Recent releases and what changed.</p>
+        <div class="v-alert v-alert-info">
+          <i class="fa-solid fa-circle-info"></i>
+          Tab switching is handled entirely by Bootstrap 5's built-in pill-tab component — no custom JavaScript needed.
+        </div>
+      </section>
 
-          <div class="changelog-entry">
-            <div class="v">v2.0.0 — 2025</div>
-            <p>Full professional rebuild. IntersectionObserver-based scroll spy replacing Bootstrap's broken offset spy. Working modals, dark/light themes, 30+ components, auth pages, docs, MIT licence.</p>
-          </div>
-          <div class="changelog-entry">
-            <div class="v">v1.x — Original</div>
-            <p>Initial kit with Bootstrap 5, Font Awesome, AOS. Various bugs identified: broken scroll spy, modal backdrop z-index issue, text visibility in light mode, anchor-under-navbar bug.</p>
-          </div>
-        </section>
+      <!-- Accessibility -->
+      <section id="accessibility" class="doc-section">
+        <h2>Accessibility</h2>
+        <p class="doc-lead">Accessibility is a first-class concern, not an afterthought. All components meet or exceed WCAG 2.1 AA.</p>
 
-      </main>
-    </div>
-  </div>
+        <ul>
+          <li><strong>Focus rings</strong> — every interactive element shows a clearly visible focus ring via <code>--v-focus</code>.</li>
+          <li><strong>ARIA labels</strong> — icon-only buttons, toggles, and nav elements all carry descriptive <code>aria-label</code> attributes.</li>
+          <li><strong>Reduced motion</strong> — all transitions and animations are disabled when <code>prefers-reduced-motion: reduce</code> is detected.</li>
+          <li><strong>Colour contrast</strong> — all text/background pairs in both themes meet WCAG AA — 4.5:1 for normal text, 3:1 for large.</li>
+          <li><strong>Keyboard navigation</strong> — modals, dropdowns, accordions, and tabs are keyboard-accessible via Bootstrap's handlers.</li>
+          <li><strong>Semantic HTML</strong> — heading hierarchy is strict, <code>&lt;nav&gt;</code> elements carry <code>aria-label</code>, landmark roles are used correctly.</li>
+          <li><strong>Role attributes</strong> — toggle switches carry <code>role="switch"</code>; modals use <code>role="dialog"</code> with <code>aria-modal</code>.</li>
+        </ul>
+      </section>
+
+      <!-- Customisation -->
+      <section id="customisation" class="doc-section">
+        <h2>Customisation</h2>
+        <p class="doc-lead">Override CSS tokens in your own stylesheet to retheme the entire kit in seconds — no SASS, no recompilation.</p>
+
+        <h3>Accent colour</h3>
+        <div class="v-code-block mb-4">
+          <div class="v-code-header"><span class="v-code-lang">css</span><button class="v-copy-btn">Copy</button></div>
+          <pre><code>/* Load AFTER vectra.css */
+:root {
+  --v-accent:      #7c3aed;
+  --v-accent-2:    #a78bfa;
+  --v-accent-rgb:  124, 58, 237;
+  --v-accent-soft: rgba(124, 58, 237, .1);
+  --v-accent-grad: linear-gradient(135deg, #7c3aed, #a78bfa);
+  --v-accent-glow: 0 0 0 3px rgba(124, 58, 237, .3);
+}</code></pre>
+        </div>
+
+        <h3>Typography</h3>
+        <div class="v-code-block mb-4">
+          <div class="v-code-header"><span class="v-code-lang">css</span><button class="v-copy-btn">Copy</button></div>
+          <pre><code>:root {
+  --v-font: 'Geist', 'DM Sans', system-ui, sans-serif;
+  --v-mono: 'Geist Mono', Consolas, monospace;
+}</code></pre>
+        </div>
+
+        <h3>Custom components</h3>
+        <p>Build new components using existing tokens — they will theme-switch automatically.</p>
+        <div class="v-code-block">
+          <div class="v-code-header"><span class="v-code-lang">css</span><button class="v-copy-btn">Copy</button></div>
+          <pre><code>.my-widget {
+  background:    var(--v-surface);
+  border:        1px solid var(--v-border);
+  border-radius: var(--v-r);
+  padding:       1.25rem;
+  color:         var(--v-text);
+  box-shadow:    var(--v-shadow-sm);
+  transition:    box-shadow var(--v-t);
+}
+.my-widget:hover { box-shadow: var(--v-shadow); }</code></pre>
+        </div>
+      </section>
+
+      <!-- Changelog -->
+      <section id="changelog" class="doc-section">
+        <h2>Changelog</h2>
+        <p class="doc-lead">A summary of releases and what changed in each version.</p>
+
+        <div class="changelog-item">
+          <span class="changelog-badge">v2.0.0</span>
+          <div class="changelog-body">
+            <div class="changelog-title">Full Professional Rebuild — 2026</div>
+            <p>Complete rewrite. IntersectionObserver-based scroll spy replacing Bootstrap's broken offset implementation. Fully working dark/light themes, 30+ components, 4 auth page templates, cookie banner, FAB, sliders, counters, drag-and-drop file upload, professional docs, MIT licence.</p>
+          </div>
+        </div>
+
+        <div class="changelog-item">
+          <span class="changelog-badge">v1.x</span>
+          <div class="changelog-body">
+            <div class="changelog-title">Original Release</div>
+            <p>Initial kit using Bootstrap 5, Font Awesome, and AOS. Multiple bugs identified: broken scroll spy, modal backdrop z-index, text not visible in light mode, anchor-under-navbar offset issue, cookie banner styling.</p>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+  </div><!-- /.docs-layout -->
 
   <!-- Footer -->
   <footer class="v-footer">
     <div class="container">
       <div class="v-footer-bottom">
-        <span>© 2025 Vectra UI Kit by <a href="https://github.com/xttrust" target="_blank" rel="noopener">xttrust</a>.</span>
+        <span>© 2026 Vectra UI Kit by <a href="https://github.com/xttrust" target="_blank" rel="noopener">xttrust</a>. MIT Licence.</span>
         <div class="d-flex gap-3">
           <a href="index.html">Home</a>
           <a href="components.html">Components</a>
@@ -520,7 +748,6 @@ localStorage.setItem('vectra-theme', 'light');</code></pre>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" crossorigin="anonymous"></script>
   <script src="assets/js/vectra.js"></script>
 </body>
 </html>
