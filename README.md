@@ -177,6 +177,14 @@ All evergreen browsers. Internet Explorer is not supported.
 
 ---
 
+## 🚀 Built on Vectra? See IgniterKit Pro
+
+**[IgniterKit Pro](https://creativeigniter.com/shop/igniterkit-pro)** is the full CI4 SaaS stack — authentication, dashboards, payments, admin panel, and more — all powered by the Vectra UI Kit front end.
+
+👉 **[Get IgniterKit Pro →](https://creativeigniter.com/shop/igniterkit-pro)**
+
+---
+
 ## 🤝 Contributing
 
 Contributions, bug reports, and feature requests are all welcome!
@@ -197,7 +205,7 @@ Built and maintained by **[Florin Pinta (xttrust)](https://github.com/xttrust)**
 If you find Vectra UI Kit useful, consider:
 - ⭐ Starring the repo on [GitHub](https://github.com/xttrust/Vectra-UI-KIT)
 - 🐦 Sharing it with your network
-- 🛒 Checking out premium products at [creativeigniter.com](https://creativeigniter.com)
+- 🛒 Checking out **[IgniterKit Pro](https://creativeigniter.com/shop/igniterkit-pro)** — the full CI4 SaaS stack built on Vectra
 
 ---
 
