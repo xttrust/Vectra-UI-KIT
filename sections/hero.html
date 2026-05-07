@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hero Variants — Vectra UI Kit</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="../assets/css/vectra.css" />
+</head>
+<body>
+<nav class="v-navbar" id="mainNavbar">
+  <div class="container d-flex align-items-center justify-content-between">
+    <a class="v-brand" href="../index.html">
+      <span class="v-brand-icon"><i class="fa-solid fa-bolt"></i></span>
+      <span>Vectra</span>
+    </a>
+    <button class="navbar-toggler v-btn v-btn-ghost v-btn-sm d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="../index.html">Overview</a></li>
+        <li class="nav-item"><a class="nav-link" href="../components.html">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="../forms.html">Forms</a></li>
+        <li class="nav-item"><a class="nav-link" href="../utilities.html">Utilities</a></li>
+        <li class="nav-item"><a class="nav-link" href="../docs.html">Docs</a></li>
+        <li class="nav-item dropdown active">
+          <a class="nav-link dropdown-toggle active" href="index.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sections</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="navbar.html"><i class="fa-solid fa-bars fa-fw me-2"></i>Navbar</a></li>
+            <li><a class="dropdown-item active" href="hero.html"><i class="fa-solid fa-star fa-fw me-2"></i>Hero</a></li>
+            <li><a class="dropdown-item" href="sidebar.html"><i class="fa-solid fa-table-columns fa-fw me-2"></i>Sidebar</a></li>
+            <li><a class="dropdown-item" href="offcanvas.html"><i class="fa-solid fa-sidebar fa-fw me-2"></i>Off-canvas</a></li>
+            <li><a class="dropdown-item" href="footer.html"><i class="fa-solid fa-window-maximize fa-fw me-2" style="transform:rotate(180deg)"></i>Footer</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="testimonials.html"><i class="fa-solid fa-quote-left fa-fw me-2"></i>Testimonials</a></li>
+            <li><a class="dropdown-item" href="cta.html"><i class="fa-solid fa-bullhorn fa-fw me-2"></i>CTA</a></li>
+            <li><a class="dropdown-item" href="subscribe.html"><i class="fa-solid fa-envelope fa-fw me-2"></i>Subscribe</a></li>
+            <li><a class="dropdown-item" href="news.html"><i class="fa-solid fa-newspaper fa-fw me-2"></i>News</a></li>
+            <li><a class="dropdown-item" href="feedback.html"><i class="fa-solid fa-comments fa-fw me-2"></i>Feedback</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="ecommerce.html"><i class="fa-solid fa-shop fa-fw me-2"></i>E-commerce</a></li>
+            <li><a class="dropdown-item" href="shop.html"><i class="fa-solid fa-cart-shopping fa-fw me-2"></i>Shop Page</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Auth</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="../auth/login.html"><i class="fa-solid fa-right-to-bracket fa-fw me-2"></i>Login</a></li>
+            <li><a class="dropdown-item" href="../auth/register.html"><i class="fa-solid fa-user-plus fa-fw me-2"></i>Register</a></li>
+            <li><a class="dropdown-item" href="../auth/recover.html"><i class="fa-solid fa-key fa-fw me-2"></i>Recovery</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="../auth/profile.html"><i class="fa-solid fa-circle-user fa-fw me-2"></i>Profile</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="d-flex align-items-center gap-2">
+        <button class="v-theme-toggle" data-toggle="theme" aria-label="Toggle theme"><i class="fa-solid fa-sun"></i></button>
+        <a href="../docs.html" class="v-btn v-btn-soft v-btn-sm"><i class="fa-solid fa-book"></i> Docs</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="v-hero-xs">
+  <div class="container">
+    <span class="v-badge mb-3"><i class="fa-solid fa-star"></i> Section Variants</span>
+    <h1 class="mb-3">Hero Variants</h1>
+    <p class="v-lead mb-0">Flexible launch-ready hero sections with split layouts, layered gradients, and glassmorphism presentation.</p>
+  </div>
+</header>
+
+<div class="container" style="padding-top:2rem;padding-bottom:4rem;">
+  <div class="row g-5">
+    <div class="col-lg-3 d-none d-lg-block">
+      <div style="position:sticky; top:80px;">
+        <p class="text-uppercase fw-semibold mb-3" style="font-size:.7rem;letter-spacing:.1em;color:var(--v-text-3)">Variants</p>
+        <nav class="v-scrollspy-nav" data-sidenav>
+          <a class="v-scrollspy-link active" href="#variant-1">Centered Text</a>
+          <a class="v-scrollspy-link" href="#variant-2">Split Layout</a>
+          <a class="v-scrollspy-link" href="#variant-3">Gradient Background</a>
+          <a class="v-scrollspy-link" href="#variant-4">Dark Glass</a>
+        </nav>
+      </div>
+    </div>
+    <div class="col-lg-9">
+      <div class="v-variant-block" id="variant-1" data-aos="fade-up"><div class="v-variant-label"><span class="v-variant-badge">Variant 1</span> Centered Text</div><div class="v-variant-preview no-pad"><section class="v-hero text-center" style="min-height:auto;background:radial-gradient(circle at top, rgba(var(--v-accent-rgb), .22), transparent 45%), linear-gradient(180deg, var(--v-bg), var(--v-bg-2));padding-inline:1rem;"><div class="container position-relative"><div class="v-glow-pulse" style="position:absolute;left:50%;top:4rem;transform:translateX(-50%);width:min(460px, 90%);height:160px;border-radius:999px;background:rgba(var(--v-accent-rgb), .18);filter:blur(36px);"></div><span class="v-badge mb-3"><i class="fa-solid fa-sparkles"></i> New release</span><h2 class="display-4 fw-bold mb-3" style="position:relative;z-index:1;">Design better launches with <span class="v-text-gradient">one polished hero</span>.</h2><p class="v-lead mx-auto mb-4" style="max-width:720px;position:relative;z-index:1;">Create immediate clarity with a bold headline, supportive copy, and focused calls to action on a luminous radial backdrop.</p><div class="d-flex flex-wrap justify-content-center gap-3 position-relative" style="z-index:1;"><a href="#" class="v-btn v-btn-primary v-btn-lg">Start Building</a><a href="#" class="v-btn v-btn-outline v-btn-lg">See Examples</a></div></div></section></div></div>
+      <div class="v-variant-block" id="variant-2" data-aos="fade-up"><div class="v-variant-label"><span class="v-variant-badge">Variant 2</span> Split Layout (Text + Visual)</div><div class="v-variant-preview no-pad"><section class="v-hero" style="min-height:auto;background:var(--v-surface);padding-inline:1rem;"><div class="container"><div class="row align-items-center g-5"><div class="col-lg-6"><span class="v-badge mb-3"><i class="fa-solid fa-chart-line"></i> Product analytics</span><h2 class="display-5 fw-bold mb-3">From idea to dashboard in a single sprint.</h2><p class="v-lead mb-4">Pair persuasive copy with a lightweight product mockup to make your headline feel instantly tangible.</p><div class="d-flex flex-wrap gap-3"><a href="#" class="v-btn v-btn-primary">Book Demo</a><a href="#" class="v-btn v-btn-soft">View Pricing</a></div></div><div class="col-lg-6"><div class="v-card v-card-glass p-4"><div class="d-flex justify-content-between align-items-center mb-4"><div><div class="v-small v-text-muted">Realtime revenue</div><div class="fs-2 fw-bold">$84,240</div></div><span class="v-badge v-badge-success"><i class="fa-solid fa-arrow-trend-up"></i> +18.6%</span></div><div class="row g-3 mb-3"><div class="col-6"><div class="v-card p-3 h-100"><div class="v-small v-text-muted mb-1">Conversion</div><div class="fw-bold fs-4">6.9%</div></div></div><div class="col-6"><div class="v-card p-3 h-100"><div class="v-small v-text-muted mb-1">New teams</div><div class="fw-bold fs-4">248</div></div></div></div><div class="v-card p-3"><div class="d-flex justify-content-between mb-2"><span class="v-small v-text-muted">Weekly growth</span><span class="fw-semibold">83%</span></div><div style="height:8px;border-radius:999px;background:var(--v-bg-2);overflow:hidden;"><div style="width:83%;height:100%;background:var(--v-accent-grad);"></div></div></div></div></div></div></div></section></div></div>
+      <div class="v-variant-block" id="variant-3" data-aos="fade-up"><div class="v-variant-label"><span class="v-variant-badge">Variant 3</span> Gradient Background</div><div class="v-variant-preview no-pad"><section class="v-hero text-white position-relative" style="min-height:auto;background:linear-gradient(135deg, #0f172a 0%, #312e81 40%, #0891b2 100%);padding-inline:1rem;overflow:hidden;"><div class="v-float-orb" style="position:absolute;top:18%;left:8%;width:140px;height:140px;border-radius:50%;background:rgba(255,255,255,.08);filter:blur(2px);"></div><div class="v-float-orb" style="position:absolute;right:10%;top:20%;width:180px;height:180px;border-radius:50%;background:rgba(56,249,215,.14);animation-delay:1.5s;"></div><div class="v-float-orb" style="position:absolute;left:45%;bottom:10%;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.08);animation-delay:3s;"></div><div class="container text-center position-relative" style="z-index:1;"><span class="v-badge mb-3" style="background:rgba(255,255,255,.14);color:#fff;border-color:transparent"><i class="fa-solid fa-rocket"></i> Made for launches</span><h2 class="display-4 fw-bold mb-3 text-white">A vivid gradient hero built to stop the scroll.</h2><p class="lead mx-auto mb-4" style="max-width:760px;color:rgba(255,255,255,.82);">Use layered color, floating orbs, and outlined actions to give your brand an energetic, premium presentation from the first viewport.</p><div class="d-flex flex-wrap justify-content-center gap-3"><a href="#" class="v-btn v-btn-outline" style="border-color:rgba(255,255,255,.6);color:#fff;">Preview UI</a><a href="#" class="v-btn v-btn-outline" style="border-color:rgba(255,255,255,.25);color:#fff;background:rgba(255,255,255,.08);">Read Story</a></div></div></section></div></div>
+      <div class="v-variant-block" id="variant-4" data-aos="fade-up"><div class="v-variant-label"><span class="v-variant-badge">Variant 4</span> Dark Glass</div><div class="v-variant-preview no-pad"><section class="v-hero" style="min-height:auto;background-color:#090d14;background-image:repeating-linear-gradient(0deg, rgba(255,255,255,.04) 0 1px, transparent 1px 32px), repeating-linear-gradient(90deg, rgba(255,255,255,.04) 0 1px, transparent 1px 32px);padding-inline:1rem;"><div class="container d-flex justify-content-center"><div class="v-card v-card-glass text-center" style="max-width:760px;width:100%;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.12);padding:3rem 2rem;box-shadow:0 30px 70px rgba(0,0,0,.45);"><span class="v-badge mb-3"><i class="fa-solid fa-shield"></i> Trusted by modern teams</span><h2 class="display-5 fw-bold mb-3">Launch secure workspaces with a focused glassmorphism shell.</h2><p class="v-lead mb-4">A central frosted card keeps attention anchored while the faint grid pattern adds technical depth to the background.</p><div class="d-flex flex-wrap justify-content-center gap-3"><a href="#" class="v-btn v-btn-gradient">Create Workspace</a><a href="#" class="v-btn v-btn-ghost">Watch Tour</a></div></div></div></section></div></div>
+    </div>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="../assets/js/vectra.js"></script>
+</body>
+</html>

@@ -29,6 +29,7 @@
       this.initAOS();
       this.initBootstrapComponents();
       this.initPasswordToggle();
+      this.initCustomizer();
     },
 
     /* ── Theme ──────────────────────────────────────────────────── */
@@ -429,6 +430,287 @@
           btn.setAttribute('aria-label', visible ? 'Show password' : 'Hide password');
         });
       });
+    },
+
+    /* ── Color Customizer ────────────────────────────────────────── */
+    initCustomizer() {
+      const STORAGE_KEY = 'vectra-custom-colors';
+
+      // ── Preset themes ──────────────────────────────────────────────
+      const PRESETS = {
+        'dark-teal': {
+          name: 'Dark Teal', theme: 'dark',
+          accent: '#00c2cb', accent2: '#38f9d7',
+          bg: '#111318', bg2: '#171b23',
+          surface: '#1a1f2e', surface2: '#1f2638',
+          text: '#e2e8f0', text2: '#94a3b8', text3: '#627086',
+          navbar: '#13171f',
+        },
+        'light': {
+          name: 'Light', theme: 'light',
+          accent: '#008f98', accent2: '#00c2cb',
+          bg: '#f4f7fb', bg2: '#edf1f7',
+          surface: '#ffffff', surface2: '#f1f5fb',
+          text: '#0f172a', text2: '#334155', text3: '#64748b',
+          navbar: '#ffffff',
+        },
+        'ocean': {
+          name: 'Ocean Blue', theme: 'dark',
+          accent: '#3b82f6', accent2: '#60a5fa',
+          bg: '#0d1117', bg2: '#13191f',
+          surface: '#161d27', surface2: '#1c2533',
+          text: '#e2e8f0', text2: '#94a3b8', text3: '#627086',
+          navbar: '#0f1923',
+        },
+        'midnight': {
+          name: 'Midnight Purple', theme: 'dark',
+          accent: '#8b5cf6', accent2: '#a78bfa',
+          bg: '#0e0e1a', bg2: '#131320',
+          surface: '#181826', surface2: '#1d1d2e',
+          text: '#e2e8f0', text2: '#94a3b8', text3: '#627086',
+          navbar: '#111122',
+        },
+        'amber': {
+          name: 'Warm Amber', theme: 'dark',
+          accent: '#f59e0b', accent2: '#fbbf24',
+          bg: '#111318', bg2: '#171b23',
+          surface: '#1a1f2e', surface2: '#1f2638',
+          text: '#e2e8f0', text2: '#94a3b8', text3: '#627086',
+          navbar: '#13171f',
+        },
+      };
+
+      // ── Helpers ────────────────────────────────────────────────────
+      const hexToRgb = hex => {
+        const r = parseInt(hex.slice(1,3),16);
+        const g = parseInt(hex.slice(3,5),16);
+        const b = parseInt(hex.slice(5,7),16);
+        return [r, g, b];
+      };
+
+      const applyColors = colors => {
+        const root = document.documentElement;
+        const [ar, ag, ab] = hexToRgb(colors.accent);
+        root.style.setProperty('--v-accent',       colors.accent);
+        root.style.setProperty('--v-accent-2',     colors.accent2);
+        root.style.setProperty('--v-accent-rgb',   `${ar}, ${ag}, ${ab}`);
+        root.style.setProperty('--v-accent-soft',  `rgba(${ar},${ag},${ab},.1)`);
+        root.style.setProperty('--v-accent-grad',  `linear-gradient(135deg,${colors.accent} 0%,${colors.accent2} 100%)`);
+        root.style.setProperty('--v-accent-glow',  `0 0 0 3px rgba(${ar},${ag},${ab},.3), 0 0 24px -4px rgba(${ar},${ag},${ab},.25)`);
+        root.style.setProperty('--v-focus',        `0 0 0 3px rgba(${ar},${ag},${ab},.3)`);
+        root.style.setProperty('--v-bg',           colors.bg);
+        root.style.setProperty('--v-bg-2',         colors.bg2);
+        root.style.setProperty('--v-surface',      colors.surface);
+        root.style.setProperty('--v-surface-2',    colors.surface2);
+        root.style.setProperty('--v-text',         colors.text);
+        root.style.setProperty('--v-text-2',       colors.text2);
+        root.style.setProperty('--v-text-3',       colors.text3);
+        root.style.setProperty('--v-navbar-bg',    colors.navbar || colors.surface);
+        if (colors.theme) root.setAttribute('data-theme', colors.theme);
+      };
+
+      const resetColors = () => {
+        const root = document.documentElement;
+        const props = ['--v-accent','--v-accent-2','--v-accent-rgb','--v-accent-soft',
+          '--v-accent-grad','--v-accent-glow','--v-focus','--v-bg','--v-bg-2',
+          '--v-surface','--v-surface-2','--v-text','--v-text-2','--v-text-3','--v-navbar-bg'];
+        props.forEach(p => root.style.removeProperty(p));
+        localStorage.removeItem(STORAGE_KEY);
+        const saved = localStorage.getItem('vectra-theme') || 'dark';
+        root.setAttribute('data-theme', saved);
+      };
+
+      const saveColors = colors => localStorage.setItem(STORAGE_KEY, JSON.stringify(colors));
+
+      const getCurrentColors = () => {
+        const s = getComputedStyle(document.documentElement);
+        return {
+          accent:  s.getPropertyValue('--v-accent').trim(),
+          accent2: s.getPropertyValue('--v-accent-2').trim(),
+          bg:      s.getPropertyValue('--v-bg').trim(),
+          bg2:     s.getPropertyValue('--v-bg-2').trim(),
+          surface: s.getPropertyValue('--v-surface').trim(),
+          surface2:s.getPropertyValue('--v-surface-2').trim(),
+          text:    s.getPropertyValue('--v-text').trim(),
+          text2:   s.getPropertyValue('--v-text-2').trim(),
+          text3:   s.getPropertyValue('--v-text-3').trim(),
+          navbar:  s.getPropertyValue('--v-navbar-bg').trim() || s.getPropertyValue('--v-surface').trim(),
+        };
+      };
+
+      // ── Build HTML ────────────────────────────────────────────────
+      const swatchHtml = Object.entries(PRESETS).map(([key, p]) =>
+        `<button class="v-cust-swatch" data-preset="${key}" title="${p.name}" style="background:${p.accent}" aria-label="${p.name} theme"></button>`
+      ).join('');
+
+      const colorRows = [
+        { id: 'c-accent',  label: 'Accent',     prop: 'accent'  },
+        { id: 'c-bg',      label: 'Background',  prop: 'bg'      },
+        { id: 'c-surface', label: 'Surface',      prop: 'surface' },
+        { id: 'c-text',    label: 'Text',         prop: 'text'    },
+        { id: 'c-navbar',  label: 'Navbar',       prop: 'navbar'  },
+      ];
+
+      const rowsHtml = colorRows.map(r => `
+        <div class="v-cust-row">
+          <label for="${r.id}">${r.label}</label>
+          <div class="v-cust-color-wrap">
+            <div class="v-cust-color-preview">
+              <input type="color" id="${r.id}" data-prop="${r.prop}" />
+            </div>
+            <span class="v-cust-hex" id="${r.id}-hex">#000000</span>
+          </div>
+        </div>`).join('');
+
+      document.body.insertAdjacentHTML('beforeend', `
+        <button id="v-customizer-btn" aria-label="Open color customizer" title="Customize colors">
+          <i class="fa-solid fa-palette" aria-hidden="true"></i>
+        </button>
+        <div id="v-customizer-overlay" aria-hidden="true"></div>
+        <div id="v-customizer-panel" role="dialog" aria-modal="true" aria-label="Color customizer">
+          <div class="v-cust-head">
+            <span><i class="fa-solid fa-palette me-2" aria-hidden="true"></i>Customizer</span>
+            <button id="v-customizer-close" aria-label="Close customizer"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <div class="v-cust-body">
+            <div class="v-cust-section">
+              <span class="v-cust-section-label">Preset Themes</span>
+              <div class="v-cust-presets">${swatchHtml}</div>
+            </div>
+            <div class="v-cust-section">
+              <span class="v-cust-section-label">Custom Colors</span>
+              ${rowsHtml}
+            </div>
+          </div>
+          <div class="v-cust-footer">
+            <button id="v-customizer-reset" class="v-btn v-btn-ghost v-btn-sm w-100 justify-content-center">
+              <i class="fa-solid fa-rotate-left me-1" aria-hidden="true"></i> Reset to Default
+            </button>
+          </div>
+        </div>`);
+
+      // ── Wire up UI ────────────────────────────────────────────────
+      const btn      = document.getElementById('v-customizer-btn');
+      const panel    = document.getElementById('v-customizer-panel');
+      const overlay  = document.getElementById('v-customizer-overlay');
+      const closeBtn = document.getElementById('v-customizer-close');
+      const resetBtn = document.getElementById('v-customizer-reset');
+
+      const openPanel = () => {
+        panel.classList.add('open');
+        overlay.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        updateInputs();
+      };
+      const closePanel = () => {
+        panel.classList.remove('open');
+        overlay.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      };
+
+      btn.addEventListener('click', () => panel.classList.contains('open') ? closePanel() : openPanel());
+      overlay.addEventListener('click', closePanel);
+      closeBtn.addEventListener('click', closePanel);
+
+      // Preset swatches
+      panel.querySelectorAll('.v-cust-swatch').forEach(swatch => {
+        swatch.addEventListener('click', () => {
+          const preset = PRESETS[swatch.dataset.preset];
+          if (!preset) return;
+          applyColors(preset);
+          saveColors(preset);
+          panel.querySelectorAll('.v-cust-swatch').forEach(s => s.classList.remove('active'));
+          swatch.classList.add('active');
+          updateInputs();
+          // sync theme toggle icons
+          document.querySelectorAll('[data-toggle="theme"]').forEach(b => this._updateThemeIcon(b, preset.theme));
+        });
+      });
+
+      // Color inputs
+      colorRows.forEach(row => {
+        const input = document.getElementById(row.id);
+        const hex   = document.getElementById(`${row.id}-hex`);
+        if (!input) return;
+
+        input.addEventListener('input', () => {
+          const curr = getCurrentColors();
+          curr[row.prop] = input.value;
+          // For accent, also update accent2 (lighter variant)
+          if (row.prop === 'accent') {
+            curr.accent2 = lightenHex(input.value, 30);
+          }
+          // For bg, update bg2
+          if (row.prop === 'bg') curr.bg2 = lightenHex(input.value, 8);
+          // For surface, update surface2
+          if (row.prop === 'surface') curr.surface2 = lightenHex(input.value, 6);
+          // For text, update text2/text3
+          if (row.prop === 'text') {
+            curr.text2 = blendWithBg(input.value, curr.bg, 0.55);
+            curr.text3 = blendWithBg(input.value, curr.bg, 0.35);
+          }
+          curr.theme = null; // don't force theme switch on manual change
+          applyColors(curr);
+          saveColors(curr);
+          if (hex) hex.textContent = input.value;
+          panel.querySelectorAll('.v-cust-swatch').forEach(s => s.classList.remove('active'));
+        });
+      });
+
+      resetBtn.addEventListener('click', () => {
+        resetColors();
+        updateInputs();
+        panel.querySelectorAll('.v-cust-swatch').forEach(s => s.classList.remove('active'));
+        const theme = localStorage.getItem('vectra-theme') || 'dark';
+        document.querySelectorAll('[data-toggle="theme"]').forEach(b => this._updateThemeIcon(b, theme));
+      });
+
+      // ── Color helpers ─────────────────────────────────────────────
+      const lightenHex = (hex, amount) => {
+        let [r,g,b] = hexToRgb(hex);
+        r = Math.min(255, r + amount); g = Math.min(255, g + amount); b = Math.min(255, b + amount);
+        return `#${r.toString(16).padStart(2,'0')}${g.toString(16).padStart(2,'0')}${b.toString(16).padStart(2,'0')}`;
+      };
+
+      const blendWithBg = (fg, bg, ratio) => {
+        const [fr,fg2,fb] = hexToRgb(fg); const [br,bg2,bb] = hexToRgb(bg);
+        const r = Math.round(fr*ratio + br*(1-ratio));
+        const g = Math.round(fg2*ratio + bg2*(1-ratio));
+        const b2 = Math.round(fb*ratio + bb*(1-ratio));
+        return `#${r.toString(16).padStart(2,'0')}${g.toString(16).padStart(2,'0')}${b2.toString(16).padStart(2,'0')}`;
+      };
+
+      const updateInputs = () => {
+        const curr = getCurrentColors();
+        colorRows.forEach(row => {
+          const input = document.getElementById(row.id);
+          const hex   = document.getElementById(`${row.id}-hex`);
+          if (!input) return;
+          const val = curr[row.prop] || '#000000';
+          // Only set if it's a valid 6-char hex
+          const clean = val.trim().replace(/\s/g,'');
+          if (/^#[0-9a-fA-F]{6}$/.test(clean)) {
+            input.value = clean;
+            if (hex) hex.textContent = clean;
+          }
+        });
+      };
+
+      // ── Load saved on init ────────────────────────────────────────
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        try {
+          const colors = JSON.parse(saved);
+          applyColors(colors);
+          // Mark matching preset as active
+          Object.entries(PRESETS).forEach(([key, p]) => {
+            if (p.accent === colors.accent && p.bg === colors.bg) {
+              panel.querySelectorAll(`.v-cust-swatch[data-preset="${key}"]`)
+                   .forEach(s => s.classList.add('active'));
+            }
+          });
+        } catch(e) { /* ignore corrupt data */ }
+      }
     },
 
   };
