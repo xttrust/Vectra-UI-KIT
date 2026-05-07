@@ -8,12 +8,42 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
   <link rel="stylesheet" href="../assets/css/vectra.css" />
+  <style>
+    /* Navbar demo previews — full-bleed, no extra padding */
+    .v-nb-preview {
+      border: 1px solid var(--v-border);
+      border-radius: 0 0 var(--v-r-lg) var(--v-r-lg);
+      overflow: hidden;
+    }
+    .v-nb-preview a { text-decoration: none; }
+
+    /* Demo navbar base resets so they sit flush */
+    .v-nb-bar {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: 0 2rem;
+      gap: 1.5rem;
+    }
+    /* Variant 2 pill wrapper */
+    .v-nb-pill-wrap {
+      padding: 1.25rem 2rem;
+      background: var(--v-bg);
+    }
+    /* Mega menu always-open panel */
+    .v-megamenu-panel {
+      background: var(--v-surface);
+      border-top: 1px solid var(--v-border);
+      padding: 2rem;
+    }
+  </style>
 </head>
 <body>
+
+<!-- ─── Site Navbar ──────────────────────────────────────────────────── -->
 <nav class="navbar navbar-expand-lg fixed-top v-navbar" id="mainNavbar" aria-label="Main navigation">
   <div class="container">
-    <a class="navbar-brand" href="../index.html">
-      <span class="logo-dot" aria-hidden="true"></span>Vectra UI</a>
+    <a class="navbar-brand" href="../index.html"><span class="logo-dot" aria-hidden="true"></span>Vectra UI</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse" id="mainNav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -60,38 +90,245 @@
   </div>
 </nav>
 
+<!-- ─── Page Hero ────────────────────────────────────────────────────── -->
 <header class="v-hero-xs">
   <div class="container">
     <span class="v-badge mb-3"><i class="fa-solid fa-bars"></i> Section Variants</span>
     <h1 class="mb-3">Navbar Variants</h1>
-    <p class="v-lead mb-0">A showcase of navigation patterns ranging from classic app bars to transparent overlays and SaaS-style mega menus.</p>
+    <p class="v-lead mb-0">Four production-ready navigation patterns — from classic app bars to transparent hero overlays and full-width SaaS mega menus.</p>
   </div>
 </header>
 
-<div class="container" style="padding-top:2rem;padding-bottom:4rem;">
-  <div class="row g-5">
-    <div class="col-lg-3 d-none d-lg-block">
-      <div style="position:sticky; top:80px;">
-        <p class="text-uppercase fw-semibold mb-3" style="font-size:.7rem;letter-spacing:.1em;color:var(--v-text-3)">Variants</p>
-        <nav class="v-scrollspy-nav" data-sidenav>
-          <a class="v-scrollspy-link active" href="#variant-1">Standard Navbar</a>
-          <a class="v-scrollspy-link" href="#variant-2">Compact Minimal</a>
-          <a class="v-scrollspy-link" href="#variant-3">Transparent Overlay</a>
-          <a class="v-scrollspy-link" href="#variant-4">Mega Menu</a>
-        </nav>
-      </div>
-    </div>
-    <div class="col-lg-9">
-      <div class="v-variant-block" id="variant-1" data-aos="fade-up"><div class="v-variant-label"><span class="v-variant-badge">Variant 1</span> Standard Navbar</div><div class="v-variant-preview no-pad"><div class="v-navbar" style="position:relative;border-radius:0;background:rgba(10,14,22,.95);"><div class="container d-flex align-items-center justify-content-between gap-3" style="min-height:76px;"><div class="d-flex align-items-center gap-3"><span class="v-brand-icon"><i class="fa-solid fa-bolt"></i></span><span class="fw-semibold fs-5">Vectra Cloud</span></div><div class="d-none d-md-flex align-items-center gap-4"><a href="#" class="text-white-50">Home</a><a href="#" class="text-white-50">About</a><a href="#" class="text-white-50">Services</a><a href="#" class="text-white-50">Contact</a></div><div class="d-flex align-items-center gap-2"><button class="v-theme-toggle" aria-label="Theme toggle"><i class="fa-solid fa-sun"></i></button><a href="#" class="v-btn v-btn-primary v-btn-sm">Get Started</a></div></div></div></div></div>
-      <div class="v-variant-block" id="variant-2" data-aos="fade-up"><div class="v-variant-label"><span class="v-variant-badge">Variant 2</span> Compact / Minimal</div><div class="v-variant-preview no-pad"><div style="padding:1.25rem;background:linear-gradient(180deg, rgba(255,255,255,.06), transparent);"><div class="d-flex align-items-center justify-content-between px-3" style="height:56px;border:1px solid var(--v-border);border-radius:999px;background:rgba(255,255,255,.06);backdrop-filter:blur(18px);"><span class="fw-semibold">Vectra</span><div class="d-none d-md-flex align-items-center gap-3" style="font-size:.9rem;"><a href="#" class="v-text-muted">Home</a><a href="#" class="v-text-muted">Features</a><a href="#" class="v-text-muted">Pricing</a><a href="#" class="v-text-muted">Contact</a></div><a href="#" class="small fw-semibold">Explore</a></div></div></div></div>
-      <div class="v-variant-block" id="variant-3" data-aos="fade-up"><div class="v-variant-label"><span class="v-variant-badge">Variant 3</span> Transparent / Hero Overlay</div><div class="v-variant-preview no-pad"><div style="position:relative;min-height:360px;background:linear-gradient(135deg, #0f172a 0%, #1d4ed8 45%, #06b6d4 100%);overflow:hidden;"><div class="v-glow-pulse" style="position:absolute;inset:auto auto 12% 12%;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.12);filter:blur(8px);"></div><div class="v-glow-pulse" style="position:absolute;top:18%;right:10%;width:120px;height:120px;border-radius:50%;background:rgba(56,249,215,.18);filter:blur(8px);animation-delay:1.2s;"></div><div class="v-navbar" style="position:absolute;inset:0 auto auto 0;width:100%;background:transparent;border-bottom:1px solid rgba(255,255,255,.12);box-shadow:none;"><div class="container d-flex align-items-center justify-content-between" style="min-height:80px;"><div class="d-flex align-items-center gap-3 text-white"><span class="v-brand-icon" style="background:rgba(255,255,255,.12);color:#fff;"><i class="fa-solid fa-bolt"></i></span><span class="fw-semibold fs-5">Nebula</span></div><div class="d-none d-md-flex align-items-center gap-4"><a href="#" style="color:rgba(255,255,255,.88)">Product</a><a href="#" style="color:rgba(255,255,255,.88)">Solutions</a><a href="#" style="color:rgba(255,255,255,.88)">Resources</a><a href="#" style="color:rgba(255,255,255,.88)">Pricing</a></div><a href="#" class="v-btn v-btn-ghost v-btn-sm" style="color:#fff;border-color:rgba(255,255,255,.35);">Sign Up Free</a></div></div><div class="container h-100 d-flex align-items-end" style="min-height:360px;padding-bottom:2.5rem;position:relative;z-index:1;"><div class="col-lg-7 px-0 text-white"><span class="v-badge" style="background:rgba(255,255,255,.14);color:#fff;border-color:transparent"><i class="fa-solid fa-wand-magic-sparkles"></i> Launch ready</span><h2 class="display-6 fw-bold mt-3 mb-3 text-white">Transparent navigation for immersive hero layouts.</h2><p class="mb-0" style="color:rgba(255,255,255,.82)">Ideal for product launches, creative portfolios, and brands that want the navigation to feel part of the hero scene.</p></div></div></div></div></div>
-      <div class="v-variant-block" id="variant-4" data-aos="fade-up"><div class="v-variant-label"><span class="v-variant-badge">Variant 4</span> Mega Menu</div><div class="v-variant-preview no-pad"><div style="padding:1.5rem;background:var(--v-bg-2);"><div class="v-card p-0 overflow-visible" style="box-shadow:none;"><div class="d-flex flex-wrap align-items-center justify-content-between px-4" style="min-height:76px;"><div class="d-flex align-items-center gap-3"><span class="v-brand-icon"><i class="fa-solid fa-bolt"></i></span><span class="fw-semibold fs-5">Vectra Suite</span></div><div class="d-flex align-items-center gap-4 flex-wrap"><div class="dropdown position-static"><button class="btn border-0 bg-transparent p-0 fw-semibold text-reset dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="true">Products</button><div class="dropdown-menu show mt-3 p-4" style="width:min(920px, 92vw);left:50%;transform:translateX(-50%);border-radius:24px;"><div class="row g-3"><div class="col-lg-4"><div class="v-card v-card-accent h-100"><span class="v-badge mb-3"><i class="fa-solid fa-layer-group"></i> Platform</span><h3 class="h5 mb-2">Everything for modern growth teams</h3><p class="v-text-muted mb-0">A unified product suite for analytics, collaboration, billing, and automation.</p></div></div><div class="col-lg-8"><div class="row g-3"><div class="col-md-6"><a href="#" class="d-block v-card h-100 text-reset"><div class="d-flex gap-3"><span class="v-avatar-sm"><i class="fa-solid fa-chart-line"></i></span><div><div class="fw-semibold mb-1">Analytics</div><div class="v-small v-text-muted">Real-time dashboards and forecasting tools.</div></div></div></a></div><div class="col-md-6"><a href="#" class="d-block v-card h-100 text-reset"><div class="d-flex gap-3"><span class="v-avatar-sm"><i class="fa-solid fa-users"></i></span><div><div class="fw-semibold mb-1">Workspace</div><div class="v-small v-text-muted">Collaborative docs, tasks, and team hubs.</div></div></div></a></div><div class="col-md-6"><a href="#" class="d-block v-card h-100 text-reset"><div class="d-flex gap-3"><span class="v-avatar-sm"><i class="fa-solid fa-credit-card"></i></span><div><div class="fw-semibold mb-1">Billing</div><div class="v-small v-text-muted">Subscriptions, usage metering, and invoices.</div></div></div></a></div><div class="col-md-6"><a href="#" class="d-block v-card h-100 text-reset"><div class="d-flex gap-3"><span class="v-avatar-sm"><i class="fa-solid fa-bolt"></i></span><div><div class="fw-semibold mb-1">Automation</div><div class="v-small v-text-muted">Smart workflows for support and ops teams.</div></div></div></a></div><div class="col-md-6"><a href="#" class="d-block v-card h-100 text-reset"><div class="d-flex gap-3"><span class="v-avatar-sm"><i class="fa-solid fa-shield"></i></span><div><div class="fw-semibold mb-1">Security</div><div class="v-small v-text-muted">Access controls, audit logs, and SSO.</div></div></div></a></div><div class="col-md-6"><a href="#" class="d-block v-card h-100 text-reset"><div class="d-flex gap-3"><span class="v-avatar-sm"><i class="fa-solid fa-code-branch"></i></span><div><div class="fw-semibold mb-1">Developers</div><div class="v-small v-text-muted">APIs, SDKs, and deployment integrations.</div></div></div></a></div></div></div></div></div></div><a href="#" class="text-reset">Pricing</a><a href="#" class="text-reset">Blog</a></div><div class="d-flex align-items-center gap-3"><a href="#" class="text-reset">Sign in</a><a href="#" class="v-btn v-btn-gradient v-btn-sm">Start Free Trial</a></div></div></div></div></div></div>
-    </div>
+<!-- ─── Quick-jump pills ─────────────────────────────────────────────── -->
+<div class="container" style="padding-top:2rem;padding-bottom:.5rem;">
+  <div class="d-flex flex-wrap gap-2">
+    <a href="#variant-1" class="v-btn v-btn-soft v-btn-sm"><i class="fa-solid fa-circle fa-xs me-1"></i> Standard App Bar</a>
+    <a href="#variant-2" class="v-btn v-btn-soft v-btn-sm"><i class="fa-solid fa-circle fa-xs me-1"></i> Minimal Pill</a>
+    <a href="#variant-3" class="v-btn v-btn-soft v-btn-sm"><i class="fa-solid fa-circle fa-xs me-1"></i> Transparent Overlay</a>
+    <a href="#variant-4" class="v-btn v-btn-soft v-btn-sm"><i class="fa-solid fa-circle fa-xs me-1"></i> Mega Menu</a>
   </div>
 </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script src="../assets/js/vectra.js"></script>
+<!-- ─── Variants ─────────────────────────────────────────────────────── -->
+<div class="container" style="padding-top:2.5rem;padding-bottom:5rem;">
+
+  <!-- ── Variant 1 — Standard App Bar ────────────────────────────── -->
+  <div class="mb-5" id="variant-1" data-aos="fade-up">
+    <div class="v-variant-label" style="border-radius:var(--v-r-lg) var(--v-r-lg) 0 0;">
+      <span><span class="v-variant-badge">Variant 1</span> Standard App Bar</span>
+      <span>Dark glass / full-width</span>
+    </div>
+    <div class="v-nb-preview">
+      <div style="background:rgba(10,14,22,.96);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.08);">
+        <div class="v-nb-bar" style="height:72px;">
+          <!-- Brand -->
+          <a href="#" class="d-flex align-items-center gap-2 text-white text-decoration-none me-2" style="font-weight:700;font-size:1.05rem;white-space:nowrap;">
+            <span style="width:32px;height:32px;border-radius:8px;background:var(--v-accent);display:grid;place-items:center;flex-shrink:0;"><i class="fa-solid fa-bolt" style="font-size:.8rem;color:#fff;"></i></span>
+            Vectra Cloud
+          </a>
+          <!-- Nav links -->
+          <div class="d-none d-md-flex align-items-center gap-1 me-auto" style="font-size:.9rem;">
+            <a href="#" class="px-3 py-2 rounded-2 text-white" style="opacity:.7;transition:opacity .2s;">Home</a>
+            <a href="#" class="px-3 py-2 rounded-2 text-white" style="opacity:.7;transition:opacity .2s;">Features</a>
+            <a href="#" class="px-3 py-2 rounded-2 text-white" style="opacity:.7;transition:opacity .2s;">Pricing</a>
+            <a href="#" class="px-3 py-2 rounded-2 text-white" style="opacity:.7;transition:opacity .2s;">Changelog</a>
+            <a href="#" class="px-3 py-2 rounded-2 text-white" style="opacity:.7;transition:opacity .2s;">Contact</a>
+          </div>
+          <!-- Right actions -->
+          <div class="d-flex align-items-center gap-2 ms-auto ms-md-0">
+            <button class="btn btn-sm d-flex align-items-center justify-content-center" style="width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);" aria-label="Notifications">
+              <i class="fa-solid fa-bell fa-sm"></i>
+            </button>
+            <a href="#" class="v-btn v-btn-primary v-btn-sm">Get Started</a>
+            <span style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--v-accent),#06b6d4);display:grid;place-items:center;font-size:.75rem;font-weight:700;color:#fff;cursor:pointer;flex-shrink:0;">JD</span>
+          </div>
+        </div>
+      </div>
+      <!-- Subpage breadcrumb strip to show context -->
+      <div style="background:rgba(10,14,22,.7);border-top:1px solid rgba(255,255,255,.05);padding:.65rem 2rem;display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:rgba(255,255,255,.45);">
+        <i class="fa-solid fa-house fa-xs"></i>
+        <span>/</span><a href="#" style="color:rgba(255,255,255,.45);text-decoration:none;">Dashboard</a>
+        <span>/</span><span style="color:rgba(255,255,255,.75);">Analytics</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Variant 2 — Minimal Pill ──────────────────────────────── -->
+  <div class="mb-5" id="variant-2" data-aos="fade-up">
+    <div class="v-variant-label" style="border-radius:var(--v-r-lg) var(--v-r-lg) 0 0;">
+      <span><span class="v-variant-badge">Variant 2</span> Minimal Pill</span>
+      <span>Floating glass capsule</span>
+    </div>
+    <div class="v-nb-preview" style="background:var(--v-bg-2);padding:1.75rem 2rem 2rem;">
+      <!-- Floating pill bar -->
+      <div style="display:flex;align-items:center;justify-content:space-between;height:52px;padding:0 1.25rem;border:1px solid var(--v-border);border-radius:999px;background:var(--v-surface);backdrop-filter:blur(20px);box-shadow:0 4px 24px rgba(0,0,0,.12);">
+        <a href="#" class="d-flex align-items-center gap-2 text-decoration-none" style="font-weight:700;font-size:.95rem;color:var(--v-text-1);">
+          <span style="width:26px;height:26px;border-radius:7px;background:var(--v-accent);display:grid;place-items:center;flex-shrink:0;"><i class="fa-solid fa-bolt" style="font-size:.7rem;color:#fff;"></i></span>
+          Vectra
+        </a>
+        <div class="d-none d-md-flex align-items-center gap-1" style="font-size:.875rem;">
+          <a href="#" class="px-2 py-1 rounded-pill" style="color:var(--v-text-2);text-decoration:none;transition:color .2s;">Home</a>
+          <a href="#" class="px-2 py-1 rounded-pill" style="color:var(--v-text-2);text-decoration:none;transition:color .2s;">Features</a>
+          <a href="#" class="px-2 py-1 rounded-pill" style="color:var(--v-text-2);text-decoration:none;transition:color .2s;">Pricing</a>
+          <a href="#" class="px-2 py-1 rounded-pill" style="color:var(--v-text-2);text-decoration:none;transition:color .2s;">Contact</a>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <a href="#" style="font-size:.85rem;font-weight:600;color:var(--v-text-2);text-decoration:none;">Sign in</a>
+          <a href="#" class="v-btn v-btn-primary v-btn-sm" style="border-radius:999px;font-size:.8rem;">Get Access</a>
+        </div>
+      </div>
+      <!-- Page context below pill -->
+      <div class="mt-4 text-center" style="color:var(--v-text-3);font-size:.85rem;">Floats over page content — suitable for landing pages &amp; marketing sites</div>
+    </div>
+  </div>
+
+  <!-- ── Variant 3 — Transparent Hero Overlay ─────────────────── -->
+  <div class="mb-5" id="variant-3" data-aos="fade-up">
+    <div class="v-variant-label" style="border-radius:var(--v-r-lg) var(--v-r-lg) 0 0;">
+      <span><span class="v-variant-badge">Variant 3</span> Transparent Hero Overlay</span>
+      <span>Navigation on gradient hero</span>
+    </div>
+    <div class="v-nb-preview" style="overflow:hidden;">
+      <div style="position:relative;min-height:340px;background:linear-gradient(135deg,#0f172a 0%,#1d4ed8 50%,#06b6d4 100%);">
+        <!-- Ambient glows -->
+        <div style="position:absolute;top:-60px;left:-60px;width:280px;height:280px;border-radius:50%;background:rgba(99,102,241,.25);filter:blur(80px);pointer-events:none;"></div>
+        <div style="position:absolute;bottom:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(6,182,212,.3);filter:blur(60px);pointer-events:none;"></div>
+        <!-- Navbar strip -->
+        <div style="position:relative;z-index:2;border-bottom:1px solid rgba(255,255,255,.12);">
+          <div class="v-nb-bar" style="height:76px;">
+            <a href="#" class="d-flex align-items-center gap-2 text-white text-decoration-none me-3" style="font-weight:700;font-size:1.05rem;flex-shrink:0;">
+              <span style="width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;"><i class="fa-solid fa-bolt" style="font-size:.85rem;color:#fff;"></i></span>
+              Nebula
+            </a>
+            <div class="d-none d-md-flex align-items-center gap-1 me-auto" style="font-size:.9rem;">
+              <a href="#" style="color:rgba(255,255,255,.8);text-decoration:none;padding:.4rem .75rem;border-radius:6px;transition:background .2s;">Product</a>
+              <a href="#" style="color:rgba(255,255,255,.8);text-decoration:none;padding:.4rem .75rem;border-radius:6px;transition:background .2s;">Solutions</a>
+              <a href="#" style="color:rgba(255,255,255,.8);text-decoration:none;padding:.4rem .75rem;border-radius:6px;transition:background .2s;">Resources</a>
+              <a href="#" style="color:rgba(255,255,255,.8);text-decoration:none;padding:.4rem .75rem;border-radius:6px;transition:background .2s;">Pricing</a>
+            </div>
+            <div class="d-flex align-items-center gap-2 ms-auto ms-md-0">
+              <a href="#" style="color:rgba(255,255,255,.75);text-decoration:none;font-size:.9rem;">Sign in</a>
+              <a href="#" style="display:inline-flex;align-items:center;gap:.4rem;padding:.45rem 1.1rem;border-radius:8px;border:1px solid rgba(255,255,255,.35);color:#fff;font-size:.875rem;font-weight:600;text-decoration:none;backdrop-filter:blur(8px);background:rgba(255,255,255,.1);transition:background .2s;">Sign Up Free</a>
+            </div>
+          </div>
+        </div>
+        <!-- Hero content area -->
+        <div style="position:relative;z-index:1;padding:3rem 2rem 3.5rem;">
+          <span class="v-badge" style="background:rgba(255,255,255,.15);color:#fff;border-color:transparent;backdrop-filter:blur(8px);"><i class="fa-solid fa-wand-magic-sparkles me-1"></i> Launch Ready</span>
+          <h2 class="mt-3 mb-2 text-white fw-bold" style="font-size:clamp(1.6rem,3vw,2.25rem);max-width:540px;line-height:1.25;">Transparent navigation for immersive hero layouts.</h2>
+          <p style="color:rgba(255,255,255,.75);max-width:460px;margin-bottom:1.5rem;">Ideal for product launches, creative portfolios, and brands that want the navigation to feel part of the hero scene.</p>
+          <div class="d-flex flex-wrap gap-2">
+            <a href="#" class="v-btn v-btn-primary">Get Started Free</a>
+            <a href="#" style="display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1.2rem;border-radius:8px;border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.85);font-size:.9rem;text-decoration:none;backdrop-filter:blur(6px);">
+              <i class="fa-solid fa-play fa-xs"></i> Watch demo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Variant 4 — Mega Menu ─────────────────────────────────── -->
+  <div class="mb-5" id="variant-4" data-aos="fade-up">
+    <div class="v-variant-label" style="border-radius:var(--v-r-lg) var(--v-r-lg) 0 0;">
+      <span><span class="v-variant-badge">Variant 4</span> Mega Menu</span>
+      <span>SaaS product navigation with open panel</span>
+    </div>
+    <div class="v-nb-preview">
+      <!-- Navbar bar -->
+      <div style="background:var(--v-surface);border-bottom:1px solid var(--v-border);">
+        <div class="v-nb-bar" style="height:72px;">
+          <a href="#" class="d-flex align-items-center gap-2 text-decoration-none me-4" style="font-weight:700;font-size:1rem;color:var(--v-text-1);flex-shrink:0;">
+            <span style="width:32px;height:32px;border-radius:9px;background:var(--v-accent);display:grid;place-items:center;flex-shrink:0;"><i class="fa-solid fa-bolt" style="font-size:.8rem;color:#fff;"></i></span>
+            Vectra Suite
+          </a>
+          <div class="d-none d-md-flex align-items-center gap-4 me-auto" style="font-size:.9rem;">
+            <!-- "Products" tab is highlighted / active to indicate mega menu is open -->
+            <span style="color:var(--v-accent);font-weight:600;cursor:pointer;display:flex;align-items:center;gap:.3rem;">
+              Products <i class="fa-solid fa-chevron-up fa-xs"></i>
+            </span>
+            <a href="#" style="color:var(--v-text-2);text-decoration:none;">Pricing</a>
+            <a href="#" style="color:var(--v-text-2);text-decoration:none;">Blog</a>
+            <a href="#" style="color:var(--v-text-2);text-decoration:none;">Enterprise</a>
+          </div>
+          <div class="d-flex align-items-center gap-3 ms-auto ms-md-0">
+            <a href="#" style="font-size:.875rem;font-weight:500;color:var(--v-text-2);text-decoration:none;">Sign in</a>
+            <a href="#" class="v-btn v-btn-gradient v-btn-sm">Start Free Trial</a>
+          </div>
+        </div>
+      </div>
+      <!-- Mega menu panel (always-visible demo) -->
+      <div class="v-megamenu-panel">
+        <div class="row g-3 align-items-stretch">
+          <!-- Featured promo column -->
+          <div class="col-lg-4">
+            <div class="v-card v-card-accent h-100 p-4">
+              <span class="v-badge mb-3"><i class="fa-solid fa-layer-group me-1"></i> Platform</span>
+              <h3 class="h5 fw-bold mb-2">Everything for modern growth teams</h3>
+              <p class="v-text-muted mb-4" style="font-size:.875rem;">A unified product suite covering analytics, collaboration, billing, automation, and security — from day one.</p>
+              <a href="#" class="v-btn v-btn-primary v-btn-sm">Explore Platform <i class="fa-solid fa-arrow-right fa-xs ms-1"></i></a>
+            </div>
+          </div>
+          <!-- Product links grid -->
+          <div class="col-lg-8">
+            <div class="row g-2 h-100">
+              <div class="col-md-6">
+                <a href="#" class="d-flex align-items-start gap-3 p-3 rounded-3 text-decoration-none" style="background:var(--v-bg-2);border:1px solid var(--v-border);transition:border-color .2s;">
+                  <span class="v-avatar-sm flex-shrink-0"><i class="fa-solid fa-chart-line"></i></span>
+                  <div><div class="fw-semibold mb-1" style="font-size:.9rem;color:var(--v-text-1);">Analytics</div><div style="font-size:.8rem;color:var(--v-text-3);">Real-time dashboards &amp; forecasting</div></div>
+                </a>
+              </div>
+              <div class="col-md-6">
+                <a href="#" class="d-flex align-items-start gap-3 p-3 rounded-3 text-decoration-none" style="background:var(--v-bg-2);border:1px solid var(--v-border);transition:border-color .2s;">
+                  <span class="v-avatar-sm flex-shrink-0"><i class="fa-solid fa-users"></i></span>
+                  <div><div class="fw-semibold mb-1" style="font-size:.9rem;color:var(--v-text-1);">Workspace</div><div style="font-size:.8rem;color:var(--v-text-3);">Collaborative docs, tasks &amp; team hubs</div></div>
+                </a>
+              </div>
+              <div class="col-md-6">
+                <a href="#" class="d-flex align-items-start gap-3 p-3 rounded-3 text-decoration-none" style="background:var(--v-bg-2);border:1px solid var(--v-border);transition:border-color .2s;">
+                  <span class="v-avatar-sm flex-shrink-0"><i class="fa-solid fa-credit-card"></i></span>
+                  <div><div class="fw-semibold mb-1" style="font-size:.9rem;color:var(--v-text-1);">Billing</div><div style="font-size:.8rem;color:var(--v-text-3);">Subscriptions, metering &amp; invoices</div></div>
+                </a>
+              </div>
+              <div class="col-md-6">
+                <a href="#" class="d-flex align-items-start gap-3 p-3 rounded-3 text-decoration-none" style="background:var(--v-bg-2);border:1px solid var(--v-border);transition:border-color .2s;">
+                  <span class="v-avatar-sm flex-shrink-0"><i class="fa-solid fa-bolt"></i></span>
+                  <div><div class="fw-semibold mb-1" style="font-size:.9rem;color:var(--v-text-1);">Automation</div><div style="font-size:.8rem;color:var(--v-text-3);">Smart workflows for ops &amp; support</div></div>
+                </a>
+              </div>
+              <div class="col-md-6">
+                <a href="#" class="d-flex align-items-start gap-3 p-3 rounded-3 text-decoration-none" style="background:var(--v-bg-2);border:1px solid var(--v-border);transition:border-color .2s;">
+                  <span class="v-avatar-sm flex-shrink-0"><i class="fa-solid fa-shield-halved"></i></span>
+                  <div><div class="fw-semibold mb-1" style="font-size:.9rem;color:var(--v-text-1);">Security</div><div style="font-size:.8rem;color:var(--v-text-3);">Access controls, audit logs &amp; SSO</div></div>
+                </a>
+              </div>
+              <div class="col-md-6">
+                <a href="#" class="d-flex align-items-start gap-3 p-3 rounded-3 text-decoration-none" style="background:var(--v-bg-2);border:1px solid var(--v-border);transition:border-color .2s;">
+                  <span class="v-avatar-sm flex-shrink-0"><i class="fa-solid fa-code-branch"></i></span>
+                  <div><div class="fw-semibold mb-1" style="font-size:.9rem;color:var(--v-text-1);">Developers</div><div style="font-size:.8rem;color:var(--v-text-3);">APIs, SDKs &amp; deployment integrations</div></div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Footer strip -->
+        <div class="mt-3 pt-3 d-flex flex-wrap align-items-center justify-content-between gap-2" style="border-top:1px solid var(--v-border);">
+          <div class="d-flex flex-wrap gap-3" style="font-size:.8rem;color:var(--v-text-3);">
+            <a href="#" style="color:var(--v-text-3);text-decoration:none;"><i class="fa-solid fa-book-open fa-xs me-1"></i>Documentation</a>
+            <a href="#" style="color:var(--v-text-3);text-decoration:none;"><i class="fa-solid fa-graduation-cap fa-xs me-1"></i>Academy</a>
+            <a href="#" style="color:var(--v-text-3);text-decoration:none;"><i class="fa-solid fa-circle-info fa-xs me-1"></i>Status</a>
+            <a href="#" style="color:var(--v-text-3);text-decoration:none;"><i class="fa-brands fa-github fa-xs me-1"></i>GitHub</a>
+          </div>
+          <span style="font-size:.75rem;color:var(--v-text-3);display:flex;align-items:center;gap:.4rem;"><i class="fa-solid fa-circle fa-xs" style="color:#22c55e;"></i>All systems operational</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="../assets/js/vectra.js"></script>
 </body>
 </html>
