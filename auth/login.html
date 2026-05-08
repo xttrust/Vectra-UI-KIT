@@ -14,78 +14,111 @@
   <link rel="stylesheet" href="../assets/css/vectra.css" />
   <link rel="stylesheet" href="../assets/css/generated-inline-cleanup.css" />
 </head>
-<body class="v-auth-body">
+<body>
 
-  <div class="v-auth-wrap">
+  <div class="v-auth-split">
 
-    <!-- Brand -->
-    <a href="../index.html" class="v-auth-brand">
-      <span class="logo-dot" aria-hidden="true"></span>
-      Vectra UI
-    </a>
+    <!-- Left: Info Panel -->
+    <div class="v-auth-left">
+      <div class="v-auth-left-grid" aria-hidden="true"></div>
 
-    <div class="v-auth-panel">
-      <div class="v-auth-header">
-        <h1>Welcome back</h1>
-        <p>Sign in to your account to continue.</p>
-      </div>
+      <a href="../index.html" class="v-auth-brand">
+        <span class="logo-dot" aria-hidden="true"></span>
+        Vectra UI
+      </a>
 
-      <!-- Social Logins -->
-      <div class="v-auth-socials">
-        <button type="button" class="v-btn v-btn-outline w-100 justify-content-center gap-2">
-          <i class="fa-brands fa-google"></i> Continue with Google
-        </button>
-        <button type="button" class="v-btn v-btn-outline w-100 justify-content-center gap-2">
-          <i class="fa-brands fa-github"></i> Continue with GitHub
-        </button>
-      </div>
-
-      <div class="v-divider-label">or sign in with email</div>
-
-      <!-- Login Form -->
-      <form novalidate>
-        <div class="mb-3">
-          <label class="form-label" for="login-email">Email address</label>
-          <input type="email" class="form-control" id="login-email" autocomplete="email"
-                 placeholder="alice@example.com" required />
-        </div>
-
-        <div class="mb-1">
-          <label class="form-label" for="login-pw">Password</label>
-          <div class="v-input-icon-wrap">
-            <input type="password" class="form-control" id="login-pw" autocomplete="current-password"
-                   placeholder="Enter your password" required />
-            <button class="v-input-icon-btn" type="button" data-pw-toggle="login-pw" aria-label="Show password">
-              <i class="fa-regular fa-eye"></i>
-            </button>
+      <div class="v-auth-left-body">
+        <span class="v-label mb-3 d-block">Design System</span>
+        <h2 class="v-auth-left-headline">Design fast.<br>Ship faster.</h2>
+        <p class="v-auth-left-sub">Vectra UI Kit gives you production-ready components, dark &amp; light themes, and zero build-tool overhead — all under the MIT license.</p>
+        <ul class="v-auth-features">
+          <li><i class="fa-solid fa-circle-check"></i> 30+ accessible components</li>
+          <li><i class="fa-solid fa-circle-check"></i> Dark &amp; light themes out of the box</li>
+          <li><i class="fa-solid fa-circle-check"></i> Bootstrap 5 based — no new abstractions</li>
+          <li><i class="fa-solid fa-circle-check"></i> MIT licensed — free for commercial use</li>
+        </ul>
+        <div class="v-auth-quote-card">
+          <p class="v-auth-quote-text">"Vectra has drastically sped up our front-end workflow. The dark/light theming is seamless and the components are pixel-perfect."</p>
+          <div class="v-auth-quote-author">
+            <div class="v-avatar">AJ</div>
+            <div>
+              <div class="v-auth-quote-name">Alice Johnson</div>
+              <div class="v-auth-quote-role">Lead Designer, Acme Corp</div>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div class="v-flex-between mb-4 mt-2">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="remember" />
-            <label class="form-check-label v-small" for="remember">Remember me</label>
-          </div>
-          <a href="recover.html" class="v-small v-text-accent v-inl-ynjvtl-1">Forgot password?</a>
-        </div>
-
-        <button type="submit" class="v-btn v-btn-primary w-100 justify-content-center">
-          Sign In
-        </button>
-      </form>
-
-      <p class="v-auth-footer-text">
-        Don't have an account? <a href="register.html">Create one</a>
-      </p>
+      <p class="v-small v-text-muted mb-0">© 2026 Vectra UI Kit · MIT License</p>
     </div>
 
-    <p class="v-auth-meta">
-      <a href="../docs.html">Documentation</a> ·
-      <a href="https://github.com/xttrust/Vectra-UI-KIT" target="_blank" rel="noopener">GitHub</a> ·
-      <button class="v-theme-toggle-inline" data-toggle="theme" aria-label="Toggle theme">
-        <i class="fa-solid fa-circle-half-stroke"></i> Toggle theme
-      </button>
-    </p>
+    <!-- Right: Auth Form -->
+    <div class="v-auth-right">
+      <div class="v-auth-right-inner">
+
+        <div class="v-auth-header">
+          <h1>Welcome back</h1>
+          <p>Sign in to your account to continue.</p>
+        </div>
+
+        <!-- Social Logins -->
+        <div class="v-auth-socials">
+          <button type="button" class="v-btn v-btn-outline w-100 justify-content-center gap-2">
+            <i class="fa-brands fa-google"></i> Continue with Google
+          </button>
+          <button type="button" class="v-btn v-btn-outline w-100 justify-content-center gap-2">
+            <i class="fa-brands fa-github"></i> Continue with GitHub
+          </button>
+        </div>
+
+        <div class="v-divider-label">or sign in with email</div>
+
+        <!-- Login Form -->
+        <form novalidate>
+          <div class="mb-3">
+            <label class="form-label" for="login-email">Email address</label>
+            <input type="email" class="form-control" id="login-email" autocomplete="email"
+                   placeholder="alice@example.com" required />
+          </div>
+
+          <div class="mb-1">
+            <label class="form-label" for="login-pw">Password</label>
+            <div class="v-input-icon-wrap">
+              <input type="password" class="form-control" id="login-pw" autocomplete="current-password"
+                     placeholder="Enter your password" required />
+              <button class="v-input-icon-btn" type="button" data-pw-toggle="login-pw" aria-label="Show password">
+                <i class="fa-regular fa-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="v-flex-between mb-4 mt-2">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="remember" />
+              <label class="form-check-label v-small" for="remember">Remember me</label>
+            </div>
+            <a href="recover.html" class="v-small v-text-accent">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="v-btn v-btn-primary w-100 justify-content-center">
+            Sign In
+          </button>
+        </form>
+
+        <p class="v-auth-footer-text">
+          Don't have an account? <a href="register.html">Create one</a>
+        </p>
+
+        <p class="v-auth-meta">
+          <a href="../docs.html">Documentation</a> ·
+          <a href="https://github.com/xttrust/Vectra-UI-KIT" target="_blank" rel="noopener">GitHub</a> ·
+          <button class="v-theme-toggle-inline" data-toggle="theme" aria-label="Toggle theme">
+            <i class="fa-solid fa-circle-half-stroke"></i> Toggle theme
+          </button>
+        </p>
+
+      </div>
+    </div>
 
   </div>
 

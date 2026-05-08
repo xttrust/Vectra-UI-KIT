@@ -14,100 +14,142 @@
   <link rel="stylesheet" href="../assets/css/vectra.css" />
   <link rel="stylesheet" href="../assets/css/generated-inline-cleanup.css" />
 </head>
-<body class="v-auth-body">
+<body>
 
-  <div class="v-auth-wrap">
+  <div class="v-auth-split">
 
-    <a href="../index.html" class="v-auth-brand">
-      <span class="logo-dot" aria-hidden="true"></span>
-      Vectra UI
-    </a>
+    <!-- Left: Info Panel -->
+    <div class="v-auth-left">
+      <div class="v-auth-left-grid" aria-hidden="true"></div>
 
-    <div class="v-auth-panel">
-      <div class="v-auth-header">
-        <h1>Create account</h1>
-        <p>Get started for free. No credit card required.</p>
+      <a href="../index.html" class="v-auth-brand">
+        <span class="logo-dot" aria-hidden="true"></span>
+        Vectra UI
+      </a>
+
+      <div class="v-auth-left-body">
+        <span class="v-label mb-3 d-block">100% Free &amp; Open Source</span>
+        <h2 class="v-auth-left-headline">Start building<br>something great.</h2>
+        <p class="v-auth-left-sub">Join thousands of developers shipping polished UIs with Vectra UI Kit. Free to use, no credit card, no build tools required.</p>
+        <ul class="v-auth-features">
+          <li><i class="fa-solid fa-circle-check"></i> 30+ production-ready components</li>
+          <li><i class="fa-solid fa-circle-check"></i> 10+ pre-built page sections</li>
+          <li><i class="fa-solid fa-circle-check"></i> Dark &amp; light themes, one toggle</li>
+          <li><i class="fa-solid fa-circle-check"></i> Built on Bootstrap 5 — no lock-in</li>
+        </ul>
+        <div class="d-flex gap-4">
+          <div>
+            <div class="v-auth-stat-val">30+</div>
+            <div class="v-small v-text-muted">Components</div>
+          </div>
+          <div>
+            <div class="v-auth-stat-val">10+</div>
+            <div class="v-small v-text-muted">Sections</div>
+          </div>
+          <div>
+            <div class="v-auth-stat-val">2</div>
+            <div class="v-small v-text-muted">Themes</div>
+          </div>
+          <div>
+            <div class="v-auth-stat-val">MIT</div>
+            <div class="v-small v-text-muted">License</div>
+          </div>
+        </div>
       </div>
 
-      <!-- Social Logins -->
-      <div class="v-auth-socials">
-        <button type="button" class="v-btn v-btn-outline w-100 justify-content-center gap-2">
-          <i class="fa-brands fa-google"></i> Sign up with Google
-        </button>
-        <button type="button" class="v-btn v-btn-outline w-100 justify-content-center gap-2">
-          <i class="fa-brands fa-github"></i> Sign up with GitHub
-        </button>
-      </div>
-
-      <div class="v-divider-label">or register with email</div>
-
-      <form novalidate>
-        <div class="row g-3 mb-3">
-          <div class="col-6">
-            <label class="form-label" for="reg-fname">First name</label>
-            <input type="text" class="form-control" id="reg-fname" autocomplete="given-name"
-                   placeholder="Alice" required />
-          </div>
-          <div class="col-6">
-            <label class="form-label" for="reg-lname">Last name</label>
-            <input type="text" class="form-control" id="reg-lname" autocomplete="family-name"
-                   placeholder="Johnson" required />
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label" for="reg-email">Email address</label>
-          <input type="email" class="form-control" id="reg-email" autocomplete="email"
-                 placeholder="alice@example.com" required />
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label" for="reg-pw">Password</label>
-          <div class="v-input-icon-wrap">
-            <input type="password" class="form-control" id="reg-pw" autocomplete="new-password"
-                   placeholder="Create a strong password" required minlength="8" />
-            <button class="v-input-icon-btn" type="button" data-pw-toggle="reg-pw" aria-label="Show password">
-              <i class="fa-regular fa-eye"></i>
-            </button>
-          </div>
-          <div class="v-small v-text-muted mt-1">Minimum 8 characters.</div>
-        </div>
-
-        <div class="mb-4">
-          <label class="form-label" for="reg-pw2">Confirm password</label>
-          <div class="v-input-icon-wrap">
-            <input type="password" class="form-control" id="reg-pw2" autocomplete="new-password"
-                   placeholder="Repeat your password" required />
-            <button class="v-input-icon-btn" type="button" data-pw-toggle="reg-pw2" aria-label="Show confirm password">
-              <i class="fa-regular fa-eye"></i>
-            </button>
-          </div>
-        </div>
-
-        <div class="form-check mb-4">
-          <input class="form-check-input" type="checkbox" id="reg-terms" required />
-          <label class="form-check-label v-small" for="reg-terms">
-            I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
-          </label>
-        </div>
-
-        <button type="submit" class="v-btn v-btn-primary w-100 justify-content-center">
-          Create Account
-        </button>
-      </form>
-
-      <p class="v-auth-footer-text">
-        Already have an account? <a href="login.html">Sign in</a>
-      </p>
+      <p class="v-small v-text-muted mb-0">© 2026 Vectra UI Kit · MIT License</p>
     </div>
 
-    <p class="v-auth-meta">
-      <a href="../docs.html">Documentation</a> ·
-      <a href="https://github.com/xttrust/Vectra-UI-KIT" target="_blank" rel="noopener">GitHub</a> ·
-      <button class="v-theme-toggle-inline" data-toggle="theme" aria-label="Toggle theme">
-        <i class="fa-solid fa-circle-half-stroke"></i> Toggle theme
-      </button>
-    </p>
+    <!-- Right: Auth Form -->
+    <div class="v-auth-right">
+      <div class="v-auth-right-inner">
+
+        <div class="v-auth-header">
+          <h1>Create account</h1>
+          <p>Get started for free. No credit card required.</p>
+        </div>
+
+        <!-- Social Logins -->
+        <div class="v-auth-socials">
+          <button type="button" class="v-btn v-btn-outline w-100 justify-content-center gap-2">
+            <i class="fa-brands fa-google"></i> Sign up with Google
+          </button>
+          <button type="button" class="v-btn v-btn-outline w-100 justify-content-center gap-2">
+            <i class="fa-brands fa-github"></i> Sign up with GitHub
+          </button>
+        </div>
+
+        <div class="v-divider-label">or register with email</div>
+
+        <form novalidate>
+          <div class="row g-3 mb-3">
+            <div class="col-6">
+              <label class="form-label" for="reg-fname">First name</label>
+              <input type="text" class="form-control" id="reg-fname" autocomplete="given-name"
+                     placeholder="Alice" required />
+            </div>
+            <div class="col-6">
+              <label class="form-label" for="reg-lname">Last name</label>
+              <input type="text" class="form-control" id="reg-lname" autocomplete="family-name"
+                     placeholder="Johnson" required />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" for="reg-email">Email address</label>
+            <input type="email" class="form-control" id="reg-email" autocomplete="email"
+                   placeholder="alice@example.com" required />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" for="reg-pw">Password</label>
+            <div class="v-input-icon-wrap">
+              <input type="password" class="form-control" id="reg-pw" autocomplete="new-password"
+                     placeholder="Create a strong password" required minlength="8" />
+              <button class="v-input-icon-btn" type="button" data-pw-toggle="reg-pw" aria-label="Show password">
+                <i class="fa-regular fa-eye"></i>
+              </button>
+            </div>
+            <div class="v-small v-text-muted mt-1">Minimum 8 characters.</div>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label" for="reg-pw2">Confirm password</label>
+            <div class="v-input-icon-wrap">
+              <input type="password" class="form-control" id="reg-pw2" autocomplete="new-password"
+                     placeholder="Repeat your password" required />
+              <button class="v-input-icon-btn" type="button" data-pw-toggle="reg-pw2" aria-label="Show confirm password">
+                <i class="fa-regular fa-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-check mb-4">
+            <input class="form-check-input" type="checkbox" id="reg-terms" required />
+            <label class="form-check-label v-small" for="reg-terms">
+              I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+            </label>
+          </div>
+
+          <button type="submit" class="v-btn v-btn-primary w-100 justify-content-center">
+            Create Account
+          </button>
+        </form>
+
+        <p class="v-auth-footer-text">
+          Already have an account? <a href="login.html">Sign in</a>
+        </p>
+
+        <p class="v-auth-meta">
+          <a href="../docs.html">Documentation</a> ·
+          <a href="https://github.com/xttrust/Vectra-UI-KIT" target="_blank" rel="noopener">GitHub</a> ·
+          <button class="v-theme-toggle-inline" data-toggle="theme" aria-label="Toggle theme">
+            <i class="fa-solid fa-circle-half-stroke"></i> Toggle theme
+          </button>
+        </p>
+
+      </div>
+    </div>
 
   </div>
 
