@@ -120,6 +120,17 @@
             <div class="swatch"><div class="swatch-color v-inl-9qm1j1-215"></div><div class="swatch-label">--v-danger</div></div>
             <div class="swatch"><div class="swatch-color v-inl-aqwnek-216"></div><div class="swatch-label">--v-info</div></div>
           </div>
+          <div class="v-code-block">
+            <div class="v-code-header"><span class="v-code-lang">css</span><button class="v-copy-btn">Copy</button></div>
+            <pre><code>/* Override tokens in your own stylesheet */
+:root {
+  --v-accent:   #00c2cb; /* Primary teal */
+  --v-accent-2: #0ea5e9; /* Secondary blue */
+  --v-success:  #22c55e;
+  --v-warning:  #f59e0b;
+  --v-danger:   #ef4444;
+}</code></pre>
+          </div>
         </section>
 
         <!-- Text -->
@@ -155,6 +166,15 @@
               <tr><td><code class="u">v-mono</code></td><td>font-family: var(--v-mono)</td></tr>
             </tbody>
           </table>
+          <div class="v-code-block mt-3">
+            <div class="v-code-header"><span class="v-code-lang">html</span><button class="v-copy-btn">Copy</button></div>
+            <pre><code>&lt;span class=&quot;v-text-accent&quot;&gt;Accent text&lt;/span&gt;
+&lt;span class=&quot;v-text-muted&quot;&gt;Muted text&lt;/span&gt;
+&lt;span class=&quot;v-text-faint&quot;&gt;Faint text&lt;/span&gt;
+&lt;span class=&quot;v-text-xs&quot;&gt;Extra small (0.72 rem)&lt;/span&gt;
+&lt;span class=&quot;v-small&quot;&gt;Small (0.8125 rem)&lt;/span&gt;
+&lt;span class=&quot;v-mono&quot;&gt;Monospace text&lt;/span&gt;</code></pre>
+          </div>
         </section>
 
         <!-- Backgrounds -->
@@ -171,6 +191,14 @@
               <tr><td><code class="u">v-gradient</code></td><td>background: var(--v-accent-grad); -webkit-background-clip: text; color: transparent</td></tr>
             </tbody>
           </table>
+          <div class="v-code-block">
+            <div class="v-code-header"><span class="v-code-lang">html</span><button class="v-copy-btn">Copy</button></div>
+            <pre><code>&lt;div class=&quot;v-bg&quot;&gt;Base background&lt;/div&gt;
+&lt;div class=&quot;v-bg-alt&quot;&gt;Alternate background&lt;/div&gt;
+&lt;div class=&quot;v-surface&quot;&gt;Surface level 1&lt;/div&gt;
+&lt;div class=&quot;v-surface-2&quot;&gt;Surface level 2&lt;/div&gt;
+&lt;span class=&quot;v-gradient&quot;&gt;Gradient text&lt;/span&gt;</code></pre>
+          </div>
         </section>
 
         <!-- Spacing -->
@@ -185,6 +213,16 @@
             </tbody>
           </table>
           <p class="desc mt-2">For granular control use Bootstrap utilities: <code class="u">mt-3</code>, <code class="u">px-4</code>, <code class="u">gap-2</code>, etc.</p>
+          <div class="v-code-block mt-3">
+            <div class="v-code-header"><span class="v-code-lang">html</span><button class="v-copy-btn">Copy</button></div>
+            <pre><code>&lt;section class=&quot;v-section&quot;&gt;
+  &lt;!-- 80px vertical padding on desktop --&gt;
+&lt;/section&gt;
+
+&lt;section class=&quot;v-section-sm&quot;&gt;
+  &lt;!-- 48px vertical padding --&gt;
+&lt;/section&gt;</code></pre>
+          </div>
         </section>
 
         <!-- Flex -->
@@ -204,6 +242,17 @@
             <span>Left content</span>
             <button class="v-btn v-btn-sm v-btn-soft">Action</button>
           </div>
+          <div class="v-code-block mt-3">
+            <div class="v-code-header"><span class="v-code-lang">html</span><button class="v-copy-btn">Copy</button></div>
+            <pre><code>&lt;div class=&quot;v-flex-between&quot;&gt;
+  &lt;span&gt;Left content&lt;/span&gt;
+  &lt;button class=&quot;v-btn v-btn-sm v-btn-soft&quot;&gt;Action&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;v-flex-center&quot;&gt;
+  &lt;span&gt;Centered content&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+          </div>
         </section>
 
         <!-- Borders -->
@@ -221,6 +270,14 @@
               <tr><td><code class="u">v-rounded-pill</code></td><td>border-radius: var(--v-r-pill)</td></tr>
             </tbody>
           </table>
+          <div class="v-code-block">
+            <div class="v-code-header"><span class="v-code-lang">html</span><button class="v-copy-btn">Copy</button></div>
+            <pre><code>&lt;div class=&quot;v-border p-3&quot;&gt;Full border&lt;/div&gt;
+&lt;div class=&quot;v-border-t pt-3&quot;&gt;Top border only&lt;/div&gt;
+&lt;div class=&quot;v-border-b pb-3&quot;&gt;Bottom border only&lt;/div&gt;
+&lt;div class=&quot;v-rounded p-3&quot;&gt;Rounded corners&lt;/div&gt;
+&lt;div class=&quot;v-rounded-pill px-4 py-2&quot;&gt;Pill shape&lt;/div&gt;</code></pre>
+          </div>
         </section>
 
         <!-- Shadows -->
@@ -243,6 +300,16 @@
               <tr><td><code class="u">--v-shadow-xl</code></td><td>Full-screen overlays</td></tr>
             </tbody>
           </table>
+          <div class="v-code-block">
+            <div class="v-code-header"><span class="v-code-lang">css</span><button class="v-copy-btn">Copy</button></div>
+            <pre><code>/* Use shadow tokens in your own CSS */
+.my-card {
+  box-shadow: var(--v-shadow);
+}
+.my-modal {
+  box-shadow: var(--v-shadow-lg);
+}</code></pre>
+          </div>
         </section>
 
         <!-- Sizing -->
@@ -257,6 +324,12 @@
               <tr><td><code class="u">v-icon-box</code></td><td>40×40 px soft accent square</td></tr>
             </tbody>
           </table>
+          <div class="v-code-block">
+            <div class="v-code-header"><span class="v-code-lang">html</span><button class="v-copy-btn">Copy</button></div>
+            <pre><code>&lt;div class=&quot;v-avatar&quot;&gt;AJ&lt;/div&gt;
+&lt;div class=&quot;v-avatar v-avatar-lg&quot;&gt;AJ&lt;/div&gt;
+&lt;div class=&quot;v-icon-box&quot;&gt;&lt;i class=&quot;fa-solid fa-star&quot;&gt;&lt;/i&gt;&lt;/div&gt;</code></pre>
+          </div>
         </section>
 
         <!-- Display -->
@@ -274,6 +347,14 @@
               <tr><td><code class="u">d-none d-lg-block</code></td><td>hidden on mobile, visible on desktop</td></tr>
             </tbody>
           </table>
+          <div class="v-code-block">
+            <div class="v-code-header"><span class="v-code-lang">html</span><button class="v-copy-btn">Copy</button></div>
+            <pre><code>&lt;!-- Hide on mobile, show on desktop --&gt;
+&lt;div class=&quot;d-none d-lg-block&quot;&gt;Desktop only&lt;/div&gt;
+
+&lt;!-- Show on mobile, hide on desktop --&gt;
+&lt;div class=&quot;d-lg-none&quot;&gt;Mobile only&lt;/div&gt;</code></pre>
+          </div>
         </section>
 
         <!-- Dividers -->
@@ -322,6 +403,14 @@
               <tr><td><code class="u">v-gradient</code></td><td>Accent gradient text (applies background-clip)</td></tr>
             </tbody>
           </table>
+          <div class="v-code-block">
+            <div class="v-code-header"><span class="v-code-lang">html</span><button class="v-copy-btn">Copy</button></div>
+            <pre><code>&lt;p class=&quot;v-truncate&quot;&gt;This text will truncate with an ellipsis if too long…&lt;/p&gt;
+
+&lt;span class=&quot;v-gradient&quot;&gt;Gradient text effect&lt;/span&gt;
+
+&lt;div class=&quot;v-no-select&quot;&gt;User cannot select this text&lt;/div&gt;</code></pre>
+          </div>
         </section>
 
       </main>
