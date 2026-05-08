@@ -1,0 +1,466 @@
+- generic [ref=e1]:
+  - button "Back to top":
+    - generic: 
+  - navigation "Main navigation" [ref=e2]:
+    - generic [ref=e3]:
+      - link "Vectra UI" [ref=e4] [cursor=pointer]:
+        - /url: index.html
+        - text: Vectra UI
+      - generic [ref=e6]:
+        - list [ref=e7]:
+          - listitem [ref=e8]:
+            - link "Overview" [ref=e9] [cursor=pointer]:
+              - /url: "#overview"
+          - listitem [ref=e10]:
+            - link "Components" [ref=e11] [cursor=pointer]:
+              - /url: components.html
+          - listitem [ref=e12]:
+            - link "Forms" [ref=e13] [cursor=pointer]:
+              - /url: forms.html
+          - listitem [ref=e14]:
+            - link "Utilities" [ref=e15] [cursor=pointer]:
+              - /url: utilities.html
+          - listitem [ref=e16]:
+            - link "Docs" [ref=e17] [cursor=pointer]:
+              - /url: docs.html
+          - listitem [ref=e18]:
+            - button "Sections" [expanded] [active] [ref=e19] [cursor=pointer]
+            - list [ref=e20]:
+              - listitem [ref=e21]:
+                - link " Navbar" [ref=e22] [cursor=pointer]:
+                  - /url: sections/navbar.html
+                  - generic [ref=e23]: 
+                  - text: Navbar
+              - listitem [ref=e24]:
+                - link " Hero" [ref=e25] [cursor=pointer]:
+                  - /url: sections/hero.html
+                  - generic [ref=e26]: 
+                  - text: Hero
+              - listitem [ref=e27]:
+                - link " Sidebar" [ref=e28] [cursor=pointer]:
+                  - /url: sections/sidebar.html
+                  - generic [ref=e29]: 
+                  - text: Sidebar
+              - listitem [ref=e30]:
+                - link "Off-canvas" [ref=e31] [cursor=pointer]:
+                  - /url: sections/offcanvas.html
+                  - text: Off-canvas
+              - listitem [ref=e32]:
+                - link " Footer" [ref=e33] [cursor=pointer]:
+                  - /url: sections/footer.html
+                  - generic [ref=e34]: 
+                  - text: Footer
+              - listitem [ref=e35]:
+                - separator [ref=e36]
+              - listitem [ref=e37]:
+                - link " Testimonials" [ref=e38] [cursor=pointer]:
+                  - /url: sections/testimonials.html
+                  - generic [ref=e39]: 
+                  - text: Testimonials
+              - listitem [ref=e40]:
+                - link " CTA" [ref=e41] [cursor=pointer]:
+                  - /url: sections/cta.html
+                  - generic [ref=e42]: 
+                  - text: CTA
+              - listitem [ref=e43]:
+                - link " Subscribe" [ref=e44] [cursor=pointer]:
+                  - /url: sections/subscribe.html
+                  - generic [ref=e45]: 
+                  - text: Subscribe
+              - listitem [ref=e46]:
+                - link " News" [ref=e47] [cursor=pointer]:
+                  - /url: sections/news.html
+                  - generic [ref=e48]: 
+                  - text: News
+              - listitem [ref=e49]:
+                - link " Feedback" [ref=e50] [cursor=pointer]:
+                  - /url: sections/feedback.html
+                  - generic [ref=e51]: 
+                  - text: Feedback
+              - listitem [ref=e52]:
+                - separator [ref=e53]
+              - listitem [ref=e54]:
+                - link " E-commerce" [ref=e55] [cursor=pointer]:
+                  - /url: sections/ecommerce.html
+                  - generic [ref=e56]: 
+                  - text: E-commerce
+              - listitem [ref=e57]:
+                - link " Shop Page" [ref=e58] [cursor=pointer]:
+                  - /url: sections/shop.html
+                  - generic [ref=e59]: 
+                  - text: Shop Page
+          - listitem [ref=e60]:
+            - button "Auth" [ref=e61] [cursor=pointer]
+            - text:    
+        - generic [ref=e62]:
+          - button "Switch to light mode" [ref=e63] [cursor=pointer]:
+            - generic [ref=e64]: 
+          - link " Get Started" [ref=e65] [cursor=pointer]:
+            - /url: docs.html#getting-started
+            - generic [ref=e66]: 
+            - text: Get Started
+  - generic [ref=e69]:
+    - generic [ref=e70]:
+      - generic [ref=e71]:
+        - generic [ref=e72]: 
+        - text: v2.0.0 — MIT License
+      - heading "Build interfaces faster with Vectra UI" [level=1] [ref=e73]
+      - paragraph [ref=e74]: A professional, accessible design system built on Bootstrap 5. Ships with 30+ components, dark & light themes, working scroll spy, animated counters, testimonial sliders, and more. Zero build tools required.
+      - generic [ref=e75]:
+        - link " Browse Components" [ref=e76] [cursor=pointer]:
+          - /url: components.html
+          - generic [ref=e77]: 
+          - text: Browse Components
+        - link " Read the Docs" [ref=e78] [cursor=pointer]:
+          - /url: docs.html
+          - generic [ref=e79]: 
+          - text: Read the Docs
+      - generic [ref=e80]:
+        - generic [ref=e81]:
+          - generic [ref=e82]: "30"
+          - text: Components
+        - generic [ref=e83]:
+          - generic [ref=e84]: "2"
+          - text: Themes
+        - generic [ref=e85]:
+          - generic [ref=e86]: MIT
+          - text: License
+        - generic [ref=e87]:
+          - generic [ref=e88]: "0"
+          - text: Build tools
+    - generic [ref=e90]:
+      - generic [ref=e91]:
+        - generic [ref=e92]: 
+        - generic [ref=e93]:
+          - generic [ref=e94]: 
+          - text: Accessible
+        - paragraph [ref=e95]: ARIA, focus rings & keyboard nav built in.
+      - generic [ref=e96]:
+        - generic [ref=e97]: 
+        - generic [ref=e98]:
+          - generic [ref=e99]: 
+          - text: Themed
+        - paragraph [ref=e100]:
+          - text: Dark & light via
+          - code [ref=e101]: data-theme
+          - text: .
+      - generic [ref=e102]:
+        - generic [ref=e103]: 
+        - generic [ref=e104]:
+          - generic [ref=e105]: 
+          - text: Bootstrap 5
+        - paragraph [ref=e106]: Grid, modals, dropdowns — zero conflicts.
+      - generic [ref=e107]:
+        - generic [ref=e108]: 
+        - generic [ref=e109]:
+          - generic [ref=e110]: 
+          - text: Responsive
+        - paragraph [ref=e111]: Mobile-first from 320px up.
+  - generic [ref=e113]:
+    - generic [ref=e114]:
+      - text: Overview
+      - heading "Everything you need, nothing you don't" [level=2] [ref=e115]
+      - paragraph [ref=e116]: A focused, no-bloat design system. Use the pieces you need — ignore the rest.
+    - generic [ref=e117]:
+      - generic [ref=e118]:
+        - generic [ref=e119]: 
+        - heading "30+ Components" [level=5] [ref=e120]
+        - paragraph [ref=e121]: Cards, modals, tables, tabs, accordions, sliders, pricing cards, code blocks, and more — all styled to match.
+      - generic [ref=e122]:
+        - generic [ref=e123]: 
+        - heading "Dark & Light Themes" [level=5] [ref=e124]
+        - paragraph [ref=e125]:
+          - text: Switch with a single
+          - code [ref=e126]: data-theme
+          - text: attribute. Every component is tested in both modes.
+      - generic [ref=e127]:
+        - generic [ref=e128]: 
+        - heading "CSS Custom Properties" [level=5] [ref=e129]
+        - paragraph [ref=e130]: Retheme in minutes by changing variables. Colours, radius, shadows, and transitions are all tokens.
+      - generic [ref=e131]:
+        - generic [ref=e132]: 
+        - heading "Accessible Markup" [level=5] [ref=e133]
+        - paragraph [ref=e134]: ARIA roles, focus-visible rings, and keyboard navigation patterns applied consistently across components.
+      - generic [ref=e135]:
+        - generic [ref=e136]: 
+        - heading "No Build Tools" [level=5] [ref=e137]
+        - paragraph [ref=e138]: Drop in two files and go. CDN-linked vendors mean zero npm, webpack, or compiler setup required.
+      - generic [ref=e139]:
+        - generic [ref=e140]: 
+        - heading "MIT Licensed" [level=5] [ref=e141]
+        - paragraph [ref=e142]: Free for personal and commercial projects. Attribution appreciated but not required.
+  - generic [ref=e144]:
+    - generic [ref=e145]:
+      - text: Components
+      - heading "A taste of what's included" [level=2] [ref=e146]
+      - paragraph [ref=e147]: Every component is production-ready and works out of the box.
+    - generic [ref=e148]:
+      - heading "Buttons" [level=5] [ref=e149]
+      - generic [ref=e150]:
+        - button " Primary" [ref=e151] [cursor=pointer]:
+          - generic [ref=e152]: 
+          - text: Primary
+        - button " Gradient" [ref=e153] [cursor=pointer]:
+          - generic [ref=e154]: 
+          - text: Gradient
+        - button " Outline" [ref=e155] [cursor=pointer]:
+          - generic [ref=e156]: 
+          - text: Outline
+        - button " Soft" [ref=e157] [cursor=pointer]:
+          - generic [ref=e158]: 
+          - text: Soft
+        - button " Ghost" [ref=e159] [cursor=pointer]:
+          - generic [ref=e160]: 
+          - text: Ghost
+        - button "Neutral" [ref=e161] [cursor=pointer]
+        - button " Danger" [ref=e162] [cursor=pointer]:
+          - generic [ref=e163]: 
+          - text: Danger
+    - generic [ref=e164]:
+      - heading "Badges" [level=5] [ref=e165]
+      - generic [ref=e166]:
+        - generic [ref=e167]: Default
+        - generic [ref=e168]: Success
+        - generic [ref=e169]: Warning
+        - generic [ref=e170]: Danger
+        - generic [ref=e171]: Info
+        - generic [ref=e172]: Neutral
+        - generic [ref=e173]: With dot
+        - generic [ref=e174]: Outline
+    - generic [ref=e175]:
+      - heading "Alerts" [level=5] [ref=e176]
+      - generic [ref=e177]:
+        - generic [ref=e178]:
+          - generic [ref=e179]: 
+          - generic [ref=e180]:
+            - generic [ref=e181]: Default
+            - generic [ref=e182]: System maintenance scheduled for tonight.
+        - generic [ref=e183]:
+          - generic [ref=e184]: 
+          - generic [ref=e185]:
+            - generic [ref=e186]: Success
+            - generic [ref=e187]: Your profile has been updated.
+        - generic [ref=e188]:
+          - generic [ref=e189]: 
+          - generic [ref=e190]:
+            - generic [ref=e191]: Warning
+            - generic [ref=e192]: Storage limit approaching.
+        - generic [ref=e193]:
+          - generic [ref=e194]: 
+          - generic [ref=e195]:
+            - generic [ref=e196]: Error
+            - generic [ref=e197]: Something went wrong. Please try again.
+    - generic [ref=e198]:
+      - heading "Cards" [level=5] [ref=e199]
+      - generic [ref=e200]:
+        - generic [ref=e201]:
+          - heading "Default Card" [level=6] [ref=e202]
+          - paragraph [ref=e203]: Gradient surface with lift on hover.
+          - button "Action" [ref=e204] [cursor=pointer]
+        - generic [ref=e205]:
+          - heading "Glass Card" [level=6] [ref=e206]
+          - paragraph [ref=e207]: Frosted blur with translucency.
+          - button "Action" [ref=e208] [cursor=pointer]
+        - generic [ref=e209]:
+          - heading "Accent Card" [level=6] [ref=e210]
+          - paragraph [ref=e211]: Teal gradient border and glow.
+          - button "Action" [ref=e212] [cursor=pointer]
+        - generic [ref=e213]:
+          - heading "Outline Card" [level=6] [ref=e214]
+          - paragraph [ref=e215]: Minimal border-only style.
+          - button "Action" [ref=e216] [cursor=pointer]
+    - generic [ref=e217]:
+      - heading "Modals" [level=5] [ref=e218]
+      - generic [ref=e219]:
+        - button " Open Modal" [ref=e220] [cursor=pointer]:
+          - generic [ref=e221]: 
+          - text: Open Modal
+        - button "Small Modal" [ref=e222] [cursor=pointer]
+        - button "Large Modal" [ref=e223] [cursor=pointer]
+    - generic [ref=e224]:
+      - heading "Progress" [level=5] [ref=e225]
+      - generic [ref=e227]:
+        - generic [ref=e228]: Design System
+        - generic [ref=e229]: 85%
+      - generic [ref=e233]:
+        - generic [ref=e234]: Accessibility
+        - generic [ref=e235]: 92%
+      - generic [ref=e239]:
+        - generic [ref=e240]: Performance
+        - generic [ref=e241]: 78%
+    - link " View All Components" [ref=e245] [cursor=pointer]:
+      - /url: components.html
+      - generic [ref=e246]: 
+      - text: View All Components
+  - generic [ref=e249]:
+    - generic [ref=e250]:
+      - text: Quick Start
+      - heading "Up and running in seconds" [level=2] [ref=e251]
+      - paragraph [ref=e252]: Copy the snippet, link your HTML, and you're ready to build. No npm, no bundler, no compilation step.
+      - generic [ref=e253]:
+        - generic [ref=e254]:
+          - generic [ref=e255]: "1"
+          - generic [ref=e256]:
+            - generic [ref=e257]: Add HTML boilerplate
+            - generic [ref=e258]:
+              - text: Standard
+              - code [ref=e259]: <!DOCTYPE html>
+              - text: with
+              - code [ref=e260]: lang
+              - text: and
+              - code [ref=e261]: data-theme
+              - text: .
+        - generic [ref=e262]:
+          - generic [ref=e263]: "2"
+          - generic [ref=e264]:
+            - generic [ref=e265]: Link Vectra CSS
+            - generic [ref=e266]: After Bootstrap and Font Awesome.
+        - generic [ref=e267]:
+          - generic [ref=e268]: "3"
+          - generic [ref=e269]:
+            - generic [ref=e270]: Add Vectra JS
+            - generic [ref=e271]:
+              - text: Before
+              - code [ref=e272]: </body>
+              - text: ", after Bootstrap bundle."
+    - generic [ref=e274]:
+      - generic [ref=e275]:
+        - generic [ref=e276]: html
+        - button "Copy" [ref=e277] [cursor=pointer]
+      - code [ref=e279]: <!DOCTYPE html> <html lang="en" data-theme="dark"> <head> <meta charset="UTF-8" /> <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <title>My App</title> <!-- Bootstrap CSS (required) --> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" /> <!-- Font Awesome (required for icons) --> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" /> <!-- AOS (optional, for scroll animations) --> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" /> <!-- Vectra UI Kit --> <link rel="stylesheet" href="assets/css/vectra.css" /> </head> <body> <!-- Your content here --> <!-- Bootstrap Bundle JS (required) --> <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> <!-- AOS JS (optional) --> <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script> <!-- Vectra UI Kit JS --> <script src="assets/js/vectra.js"></script> </body> </html>
+  - text:  
+  - generic [ref=e281]:
+    - text: Built on Vectra
+    - heading "Need the full SaaS stack?" [level=2] [ref=e282]
+    - paragraph [ref=e283]:
+      - strong [ref=e284]: IgniterKit Pro
+      - text: ships authentication, dashboards, payments, an admin panel, and more — all powered by the Vectra UI Kit front end. Go from zero to production-ready in minutes.
+    - link " Get IgniterKit Pro" [ref=e285] [cursor=pointer]:
+      - /url: https://creativeigniter.com/shop/igniterkit-pro
+      - generic [ref=e286]: 
+      - text: Get IgniterKit Pro
+  - contentinfo [ref=e287]:
+    - generic [ref=e288]:
+      - generic [ref=e289]:
+        - generic [ref=e290]:
+          - generic [ref=e291]: Vectra UI
+          - paragraph [ref=e293]: A professional, open-source UI kit for modern web applications. Free forever under the MIT license.
+          - link "GitHub repository" [ref=e295] [cursor=pointer]:
+            - /url: https://github.com/xttrust/Vectra-UI-KIT
+            - generic [ref=e296]: 
+        - generic [ref=e297]:
+          - generic [ref=e298]: Pages
+          - list [ref=e299]:
+            - listitem [ref=e300]:
+              - link "Overview" [ref=e301] [cursor=pointer]:
+                - /url: index.html
+            - listitem [ref=e302]:
+              - link "Components" [ref=e303] [cursor=pointer]:
+                - /url: components.html
+            - listitem [ref=e304]:
+              - link "Forms" [ref=e305] [cursor=pointer]:
+                - /url: forms.html
+            - listitem [ref=e306]:
+              - link "Utilities" [ref=e307] [cursor=pointer]:
+                - /url: utilities.html
+            - listitem [ref=e308]:
+              - link "Docs" [ref=e309] [cursor=pointer]:
+                - /url: docs.html
+        - generic [ref=e310]:
+          - generic [ref=e311]: Auth
+          - list [ref=e312]:
+            - listitem [ref=e313]:
+              - link "Login" [ref=e314] [cursor=pointer]:
+                - /url: auth/login.html
+            - listitem [ref=e315]:
+              - link "Register" [ref=e316] [cursor=pointer]:
+                - /url: auth/register.html
+            - listitem [ref=e317]:
+              - link "Recovery" [ref=e318] [cursor=pointer]:
+                - /url: auth/recover.html
+            - listitem [ref=e319]:
+              - link "Profile" [ref=e320] [cursor=pointer]:
+                - /url: auth/profile.html
+        - generic [ref=e321]:
+          - generic [ref=e322]: Resources
+          - list [ref=e323]:
+            - listitem [ref=e324]:
+              - link "GitHub" [ref=e325] [cursor=pointer]:
+                - /url: https://github.com/xttrust/Vectra-UI-KIT
+            - listitem [ref=e326]:
+              - link "Changelog" [ref=e327] [cursor=pointer]:
+                - /url: docs.html#changelog
+            - listitem [ref=e328]:
+              - link "MIT License" [ref=e329] [cursor=pointer]:
+                - /url: LICENSE
+            - listitem [ref=e330]:
+              - link "IgniterKit Pro" [ref=e331] [cursor=pointer]:
+                - /url: https://creativeigniter.com/shop/igniterkit-pro
+      - generic [ref=e332]:
+        - generic [ref=e333]:
+          - text: © 2026 Vectra UI Kit. Built by
+          - link "xttrust" [ref=e334] [cursor=pointer]:
+            - /url: https://github.com/xttrust
+          - text: .
+        - generic [ref=e335]:
+          - text: Released under the
+          - link "MIT License" [ref=e336] [cursor=pointer]:
+            - /url: LICENSE
+          - text: .
+  - alert [ref=e337]:
+    - paragraph [ref=e338]:
+      - text: We use cookies to improve your experience. See our
+      - link "Privacy Policy" [ref=e339] [cursor=pointer]:
+        - /url: "#"
+      - text: .
+    - generic [ref=e340]:
+      - button "Decline" [ref=e341] [cursor=pointer]
+      - button "Accept" [ref=e342] [cursor=pointer]
+  - button "Open color customizer" [ref=e343] [cursor=pointer]:
+    - generic [ref=e344]: 
+  - dialog "Color customizer" [ref=e345]:
+    - generic [ref=e346]:
+      - generic [ref=e347]:
+        - generic [ref=e348]: 
+        - text: Customizer
+      - button "Close customizer" [ref=e349] [cursor=pointer]:
+        - generic [ref=e350]: 
+    - generic [ref=e351]:
+      - generic [ref=e352]:
+        - generic [ref=e353]: Preset Themes
+        - generic [ref=e354]:
+          - button "Dark Teal theme" [ref=e355] [cursor=pointer]
+          - button "Light theme" [ref=e356] [cursor=pointer]
+          - button "Ocean Blue theme" [ref=e357] [cursor=pointer]
+          - button "Midnight Purple theme" [ref=e358] [cursor=pointer]
+          - button "Warm Amber theme" [ref=e359] [cursor=pointer]
+      - generic [ref=e360]:
+        - generic [ref=e361]: Custom Colors
+        - generic [ref=e362]:
+          - generic [ref=e363] [cursor=pointer]: Accent
+          - generic [ref=e364]:
+            - textbox "Accent" [ref=e366] [cursor=pointer]: "#000000"
+            - generic [ref=e367]: "#000000"
+        - generic [ref=e368]:
+          - generic [ref=e369] [cursor=pointer]: Background
+          - generic [ref=e370]:
+            - textbox "Background" [ref=e372] [cursor=pointer]: "#000000"
+            - generic [ref=e373]: "#000000"
+        - generic [ref=e374]:
+          - generic [ref=e375] [cursor=pointer]: Surface
+          - generic [ref=e376]:
+            - textbox "Surface" [ref=e378] [cursor=pointer]: "#000000"
+            - generic [ref=e379]: "#000000"
+        - generic [ref=e380]:
+          - generic [ref=e381] [cursor=pointer]: Text
+          - generic [ref=e382]:
+            - textbox "Text" [ref=e384] [cursor=pointer]: "#000000"
+            - generic [ref=e385]: "#000000"
+        - generic [ref=e386]:
+          - generic [ref=e387] [cursor=pointer]: Navbar
+          - generic [ref=e388]:
+            - textbox "Navbar" [ref=e390] [cursor=pointer]: "#000000"
+            - generic [ref=e391]: "#000000"
+    - button "Reset to Default" [ref=e393] [cursor=pointer]:
+      - generic [ref=e394]: 
+      - text: Reset to Default

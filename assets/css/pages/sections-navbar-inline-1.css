@@ -1,0 +1,47 @@
+/* Navbar demo previews — full-bleed, no extra padding */
+    .v-nb-preview {
+      border: 1px solid var(--v-border);
+      border-radius: 0 0 var(--v-r-lg) var(--v-r-lg);
+      overflow: hidden;
+    }
+    .v-nb-preview a { text-decoration: none; }
+
+    /* Demo navbar base resets so they sit flush */
+    .v-nb-bar {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: 0 2rem;
+      gap: 1.5rem;
+    }
+    /* Variant 2 pill wrapper */
+    .v-nb-pill-wrap {
+      padding: 1.25rem 2rem;
+      background: var(--v-bg);
+    }
+    .v-megamenu-trigger {
+      background: transparent;
+      border: 0;
+      padding: 0;
+      color: var(--v-text-2);
+      font: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+    }
+    .v-megamenu-trigger[aria-expanded="true"] {
+      color: var(--v-accent);
+      font-weight: 600;
+    }
+    .v-megamenu-trigger i {
+      transition: transform .2s ease;
+    }
+    .v-megamenu-trigger[aria-expanded="true"] i {
+      transform: rotate(180deg);
+    }
+    /* Mega menu demo panel */
+    .v-megamenu-panel {
+      background: var(--v-surface);
+      border-top: 1px solid var(--v-border);
+      padding: 2rem;
+    }

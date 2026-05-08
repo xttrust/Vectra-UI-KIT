@@ -1,0 +1,1 @@
+document.querySelectorAll('[data-feedback-emoji]').forEach(button=>{button.addEventListener('click',()=>{document.querySelectorAll('[data-feedback-emoji]').forEach(btn=>{btn.classList.remove('v-btn-primary');btn.classList.add('v-btn-soft');});button.classList.remove('v-btn-soft');button.classList.add('v-btn-primary');});});

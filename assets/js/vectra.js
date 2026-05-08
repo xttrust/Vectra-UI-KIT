@@ -8,6 +8,10 @@
 (function () {
   'use strict';
 
+  const THEME_STORAGE_KEY = 'vectra-theme';
+  const DEFAULT_THEME = 'dark';
+  const VALID_THEMES = new Set(['dark', 'light']);
+
   /* ================================================================
      VECTRA — Core Application Object
      ================================================================ */
@@ -34,28 +38,77 @@
 
     /* ── Theme ──────────────────────────────────────────────────── */
     initTheme() {
-      const saved = localStorage.getItem('vectra-theme') || 'dark';
-      document.documentElement.setAttribute('data-theme', saved);
+      const theme = this.getPreferredTheme();
+      this.applyTheme(theme);
 
       document.querySelectorAll('[data-toggle="theme"]').forEach(btn => {
-        this._updateThemeIcon(btn, saved);
-        btn.addEventListener('click', () => this.toggleTheme(btn));
+        this._updateThemeIcon(btn, theme);
+        btn.addEventListener('click', () => this.toggleTheme());
+      });
+
+      window.addEventListener('storage', event => {
+        if (event.key !== THEME_STORAGE_KEY) return;
+        this.applyTheme(this.getPreferredTheme());
       });
     },
 
-    toggleTheme(btn) {
-      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+    getStoredTheme() {
+      try {
+        const theme = localStorage.getItem(THEME_STORAGE_KEY);
+        return VALID_THEMES.has(theme) ? theme : null;
+      } catch {
+        return null;
+      }
+    },
+
+    getPreferredTheme() {
+      const stored = this.getStoredTheme();
+      if (stored) return stored;
+
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        return 'light';
+      }
+
+      return DEFAULT_THEME;
+    },
+
+    applyTheme(theme, options = {}) {
+      const nextTheme = VALID_THEMES.has(theme) ? theme : DEFAULT_THEME;
+      const { persist = false } = options;
+
+      document.documentElement.setAttribute('data-theme', nextTheme);
+      document.documentElement.style.colorScheme = nextTheme;
+
+      if (persist) {
+        try {
+          localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+        } catch {
+          // Ignore storage failures; the visual state still applies.
+        }
+      }
+
+      this.syncThemeControls(nextTheme);
+      return nextTheme;
+    },
+
+    syncThemeControls(theme) {
+      document.querySelectorAll('[data-toggle="theme"]').forEach(btn => this._updateThemeIcon(btn, theme));
+    },
+
+    toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || DEFAULT_THEME;
       const next = current === 'light' ? 'dark' : 'light';
-      document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('vectra-theme', next);
-      document.querySelectorAll('[data-toggle="theme"]').forEach(b => this._updateThemeIcon(b, next));
+      return this.applyTheme(next, { persist: true });
     },
 
     _updateThemeIcon(btn, theme) {
       const icon = btn.querySelector('i');
-      if (!icon) return;
-      icon.className = theme === 'light' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+      if (icon) {
+        icon.className = theme === 'light' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+      }
+
       btn.setAttribute('aria-label', theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+      btn.setAttribute('aria-pressed', theme === 'light' ? 'true' : 'false');
     },
 
     /* ── Navbar ─────────────────────────────────────────────────── */
@@ -216,32 +269,129 @@
 
     /* ── Copy Buttons ────────────────────────────────────────────── */
     initCopyButtons() {
+      this.hydrateCodeBlockCopyButtons();
+      this.hydrateVariantCopyButtons();
+
       document.querySelectorAll('.v-copy-btn').forEach(btn => {
+        if (btn.dataset.copyBound === 'true') return;
+        btn.dataset.copyBound = 'true';
+        btn.type = 'button';
+
         btn.addEventListener('click', async () => {
-          const block = btn.closest('.v-code-block');
-          if (!block) return;
-          const code = block.querySelector('code')?.innerText?.trim();
+          const code = this.getCopyContent(btn);
           if (!code) return;
 
-          try {
-            await navigator.clipboard.writeText(code);
-          } catch {
-            // Fallback for older browsers or non-HTTPS
-            const ta = document.createElement('textarea');
-            ta.value = code;
-            ta.style.cssText = 'position:fixed;opacity:0';
-            document.body.appendChild(ta);
-            ta.select();
-            document.execCommand('copy');
-            document.body.removeChild(ta);
-          }
+          await this.copyText(code);
 
-          const original = btn.textContent;
+          const original = btn.dataset.copyLabel || btn.textContent;
           btn.textContent = 'Copied!';
           btn.classList.add('copied');
           setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 2000);
         });
       });
+    },
+
+    hydrateCodeBlockCopyButtons() {
+      document.querySelectorAll('.v-code-block').forEach(block => {
+        const header = block.querySelector('.v-code-header');
+        if (!header || header.querySelector('.v-copy-btn')) return;
+
+        const button = document.createElement('button');
+        button.className = 'v-copy-btn';
+        button.textContent = 'Copy';
+        button.dataset.copyLabel = 'Copy';
+        header.appendChild(button);
+      });
+    },
+
+    hydrateVariantCopyButtons() {
+      document.querySelectorAll('.v-variant-block').forEach(block => {
+        if (block.querySelector('.v-code-block')) return;
+
+        const label = block.querySelector('.v-variant-label');
+        const preview = block.querySelector('.v-variant-preview');
+        if (!label || !preview || label.querySelector('.v-copy-variant-btn')) return;
+
+        const button = document.createElement('button');
+        button.className = 'v-copy-btn v-copy-variant-btn';
+        button.textContent = 'Copy Code';
+        button.dataset.copyLabel = 'Copy Code';
+        button.dataset.copyMode = 'preview-html';
+        label.appendChild(button);
+      });
+    },
+
+    getCopyContent(btn) {
+      if (btn.dataset.copyMode === 'preview-html') {
+        const block = btn.closest('.v-variant-block');
+        const preview = block?.querySelector('.v-variant-preview');
+        return preview ? this.serializePreviewMarkup(preview) : '';
+      }
+
+      const block = btn.closest('.v-code-block');
+      return block?.querySelector('code')?.innerText?.trim() || '';
+    },
+
+    async copyText(text) {
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch {
+        // Fallback for older browsers or non-HTTPS
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.cssText = 'position:fixed;opacity:0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
+    },
+
+    serializePreviewMarkup(preview) {
+      const roots = Array.from(preview.children).filter(el => !el.classList.contains('v-code-block'));
+      if (!roots.length) return '';
+      return roots.map(node => this.formatMarkupNode(node)).join('\n\n').trim();
+    },
+
+    formatMarkupNode(node, depth = 0) {
+      const indent = '  '.repeat(depth);
+      const voidTags = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']);
+
+      if (node.nodeType === Node.TEXT_NODE) {
+        const text = node.textContent.replace(/\s+/g, ' ').trim();
+        return text ? `${indent}${text}` : '';
+      }
+
+      if (node.nodeType !== Node.ELEMENT_NODE) return '';
+
+      const tag = node.tagName.toLowerCase();
+      const attrs = Array.from(node.attributes)
+        .map(attr => `${attr.name}="${attr.value.replace(/"/g, '&quot;')}"`)
+        .join(' ');
+      const open = attrs ? `<${tag} ${attrs}>` : `<${tag}>`;
+
+      if (voidTags.has(tag)) {
+        return `${indent}${open}`;
+      }
+
+      const textChildren = Array.from(node.childNodes).filter(child => child.nodeType === Node.TEXT_NODE && child.textContent.trim());
+      const elementChildren = Array.from(node.children);
+
+      if (!textChildren.length && !elementChildren.length) {
+        return `${indent}${open}</${tag}>`;
+      }
+
+      if (textChildren.length === 1 && !elementChildren.length) {
+        const text = textChildren[0].textContent.replace(/\s+/g, ' ').trim();
+        return `${indent}${open}${text}</${tag}>`;
+      }
+
+      const children = Array.from(node.childNodes)
+        .map(child => this.formatMarkupNode(child, depth + 1))
+        .filter(Boolean)
+        .join('\n');
+
+      return `${indent}${open}\n${children}\n${indent}</${tag}>`;
     },
 
     /* ── Animated Counters ───────────────────────────────────────── */
@@ -516,8 +666,7 @@
           '--v-surface','--v-surface-2','--v-text','--v-text-2','--v-text-3','--v-navbar-bg'];
         props.forEach(p => root.style.removeProperty(p));
         localStorage.removeItem(STORAGE_KEY);
-        const saved = localStorage.getItem('vectra-theme') || 'dark';
-        root.setAttribute('data-theme', saved);
+        this.applyTheme(this.getPreferredTheme());
       };
 
       const saveColors = colors => localStorage.setItem(STORAGE_KEY, JSON.stringify(colors));
@@ -618,12 +767,11 @@
           const preset = PRESETS[swatch.dataset.preset];
           if (!preset) return;
           applyColors(preset);
+          this.applyTheme(preset.theme, { persist: true });
           saveColors(preset);
           panel.querySelectorAll('.v-cust-swatch').forEach(s => s.classList.remove('active'));
           swatch.classList.add('active');
           updateInputs();
-          // sync theme toggle icons
-          document.querySelectorAll('[data-toggle="theme"]').forEach(b => this._updateThemeIcon(b, preset.theme));
         });
       });
 
@@ -661,8 +809,6 @@
         resetColors();
         updateInputs();
         panel.querySelectorAll('.v-cust-swatch').forEach(s => s.classList.remove('active'));
-        const theme = localStorage.getItem('vectra-theme') || 'dark';
-        document.querySelectorAll('[data-toggle="theme"]').forEach(b => this._updateThemeIcon(b, theme));
       });
 
       // ── Color helpers ─────────────────────────────────────────────

@@ -3,40 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="../assets/js/pages/sections-navbar-inline-1.js"></script>
   <title>Navbar Variants — Vectra UI Kit</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
   <link rel="stylesheet" href="../assets/css/vectra.css" />
-  <style>
-    /* Navbar demo previews — full-bleed, no extra padding */
-    .v-nb-preview {
-      border: 1px solid var(--v-border);
-      border-radius: 0 0 var(--v-r-lg) var(--v-r-lg);
-      overflow: hidden;
-    }
-    .v-nb-preview a { text-decoration: none; }
-
-    /* Demo navbar base resets so they sit flush */
-    .v-nb-bar {
-      display: flex;
-      align-items: center;
-      width: 100%;
-      padding: 0 2rem;
-      gap: 1.5rem;
-    }
-    /* Variant 2 pill wrapper */
-    .v-nb-pill-wrap {
-      padding: 1.25rem 2rem;
-      background: var(--v-bg);
-    }
-    /* Mega menu always-open panel */
-    .v-megamenu-panel {
-      background: var(--v-surface);
-      border-top: 1px solid var(--v-border);
-      padding: 2rem;
-    }
-  </style>
+  <link rel="stylesheet" href="../assets/css/pages/sections-navbar-inline-1.css" />
+  <link rel="stylesheet" href="../assets/css/generated-inline-cleanup.css" />
 </head>
 <body>
 
@@ -59,7 +33,7 @@
             <li><a class="dropdown-item" href="hero.html"><i class="fa-solid fa-star fa-fw me-2"></i>Hero</a></li>
             <li><a class="dropdown-item" href="sidebar.html"><i class="fa-solid fa-table-columns fa-fw me-2"></i>Sidebar</a></li>
             <li><a class="dropdown-item" href="offcanvas.html"><i class="fa-solid fa-sidebar fa-fw me-2"></i>Off-canvas</a></li>
-            <li><a class="dropdown-item" href="footer.html"><i class="fa-solid fa-window-maximize fa-fw me-2" style="transform:rotate(180deg)"></i>Footer</a></li>
+            <li><a class="dropdown-item" href="footer.html"><i class="fa-solid fa-window-maximize fa-fw me-2 v-inl-vwdqlo-15"></i>Footer</a></li>
             <li><hr class="dropdown-divider" /></li>
             <li><a class="dropdown-item" href="testimonials.html"><i class="fa-solid fa-quote-left fa-fw me-2"></i>Testimonials</a></li>
             <li><a class="dropdown-item" href="cta.html"><i class="fa-solid fa-bullhorn fa-fw me-2"></i>CTA</a></li>
@@ -100,7 +74,7 @@
 </header>
 
 <!-- ─── Quick-jump pills ─────────────────────────────────────────────── -->
-<div class="container" style="padding-top:2rem;padding-bottom:.5rem;">
+<div class="container v-inl-g2enrb-106">
   <div class="d-flex flex-wrap gap-2">
     <a href="#variant-1" class="v-btn v-btn-soft v-btn-sm"><i class="fa-solid fa-circle fa-xs me-1"></i> Standard App Bar</a>
     <a href="#variant-2" class="v-btn v-btn-soft v-btn-sm"><i class="fa-solid fa-circle fa-xs me-1"></i> Minimal Pill</a>
@@ -110,116 +84,116 @@
 </div>
 
 <!-- ─── Variants ─────────────────────────────────────────────────────── -->
-<div class="container" style="padding-top:2.5rem;padding-bottom:5rem;">
+<div class="container v-inl-ch3pgm-107">
 
   <!-- ── Variant 1 — Standard App Bar ────────────────────────────── -->
   <div class="mb-5" id="variant-1" data-aos="fade-up">
-    <div class="v-variant-label" style="border-radius:var(--v-r-lg) var(--v-r-lg) 0 0;">
+    <div class="v-variant-label v-inl-18ekuim-108">
       <span><span class="v-variant-badge">Variant 1</span> Standard App Bar</span>
       <span>Dark glass / full-width</span>
     </div>
     <div class="v-nb-preview">
-      <div style="background:rgba(10,14,22,.96);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.08);">
-        <div class="v-nb-bar" style="height:72px;">
+      <div class="v-inl-104wkul-109" >
+        <div class="v-nb-bar v-inl-1of6ci5-110">
           <!-- Brand -->
-          <a href="#" class="d-flex align-items-center gap-2 text-white text-decoration-none me-2" style="font-weight:700;font-size:1.05rem;white-space:nowrap;">
-            <span style="width:32px;height:32px;border-radius:8px;background:var(--v-accent);display:grid;place-items:center;flex-shrink:0;"><i class="fa-solid fa-bolt" style="font-size:.8rem;color:#fff;"></i></span>
+          <a href="#" class="d-flex align-items-center gap-2 text-white text-decoration-none me-2 v-inl-1r0llg6-111">
+            <span class="v-inl-1x35m2k-112" ><i class="fa-solid fa-bolt v-inl-152gjux-113"></i></span>
             Vectra Cloud
           </a>
           <!-- Nav links -->
-          <div class="d-none d-md-flex align-items-center gap-1 me-auto" style="font-size:.9rem;">
-            <a href="#" class="px-3 py-2 rounded-2 text-white" style="opacity:.7;transition:opacity .2s;">Home</a>
-            <a href="#" class="px-3 py-2 rounded-2 text-white" style="opacity:.7;transition:opacity .2s;">Features</a>
-            <a href="#" class="px-3 py-2 rounded-2 text-white" style="opacity:.7;transition:opacity .2s;">Pricing</a>
-            <a href="#" class="px-3 py-2 rounded-2 text-white" style="opacity:.7;transition:opacity .2s;">Changelog</a>
-            <a href="#" class="px-3 py-2 rounded-2 text-white" style="opacity:.7;transition:opacity .2s;">Contact</a>
+          <div class="d-none d-md-flex align-items-center gap-1 me-auto v-inl-147regf-114">
+            <a href="#" class="px-3 py-2 rounded-2 text-white v-inl-sxvttd-115">Home</a>
+            <a href="#" class="px-3 py-2 rounded-2 text-white v-inl-sxvttd-115">Features</a>
+            <a href="#" class="px-3 py-2 rounded-2 text-white v-inl-sxvttd-115">Pricing</a>
+            <a href="#" class="px-3 py-2 rounded-2 text-white v-inl-sxvttd-115">Changelog</a>
+            <a href="#" class="px-3 py-2 rounded-2 text-white v-inl-sxvttd-115">Contact</a>
           </div>
           <!-- Right actions -->
           <div class="d-flex align-items-center gap-2 ms-auto ms-md-0">
-            <button class="btn btn-sm d-flex align-items-center justify-content-center" style="width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);" aria-label="Notifications">
+            <button class="btn btn-sm d-flex align-items-center justify-content-center v-inl-yk6jg1-116" aria-label="Notifications">
               <i class="fa-solid fa-bell fa-sm"></i>
             </button>
             <a href="#" class="v-btn v-btn-primary v-btn-sm">Get Started</a>
-            <span style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--v-accent),#06b6d4);display:grid;place-items:center;font-size:.75rem;font-weight:700;color:#fff;cursor:pointer;flex-shrink:0;">JD</span>
+            <span class="v-inl-132ohte-117" >JD</span>
           </div>
         </div>
       </div>
       <!-- Subpage breadcrumb strip to show context -->
-      <div style="background:rgba(10,14,22,.7);border-top:1px solid rgba(255,255,255,.05);padding:.65rem 2rem;display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:rgba(255,255,255,.45);">
+      <div class="v-inl-1exi08f-118" >
         <i class="fa-solid fa-house fa-xs"></i>
-        <span>/</span><a href="#" style="color:rgba(255,255,255,.45);text-decoration:none;">Dashboard</a>
-        <span>/</span><span style="color:rgba(255,255,255,.75);">Analytics</span>
+        <span>/</span><a href="#" class="v-inl-boqkr5-119" >Dashboard</a>
+        <span>/</span><span class="v-inl-1jqdbt1-120" >Analytics</span>
       </div>
     </div>
   </div>
 
   <!-- ── Variant 2 — Minimal Pill ──────────────────────────────── -->
   <div class="mb-5" id="variant-2" data-aos="fade-up">
-    <div class="v-variant-label" style="border-radius:var(--v-r-lg) var(--v-r-lg) 0 0;">
+    <div class="v-variant-label v-inl-18ekuim-108">
       <span><span class="v-variant-badge">Variant 2</span> Minimal Pill</span>
       <span>Floating glass capsule</span>
     </div>
-    <div class="v-nb-preview" style="background:var(--v-bg-2);padding:1.75rem 2rem 2rem;">
+    <div class="v-nb-preview v-inl-nlo4yh-121">
       <!-- Floating pill bar -->
-      <div style="display:flex;align-items:center;justify-content:space-between;height:52px;padding:0 1.25rem;border:1px solid var(--v-border);border-radius:999px;background:var(--v-surface);backdrop-filter:blur(20px);box-shadow:0 4px 24px rgba(0,0,0,.12);">
-        <a href="#" class="d-flex align-items-center gap-2 text-decoration-none" style="font-weight:700;font-size:.95rem;color:var(--v-text-1);">
-          <span style="width:26px;height:26px;border-radius:7px;background:var(--v-accent);display:grid;place-items:center;flex-shrink:0;"><i class="fa-solid fa-bolt" style="font-size:.7rem;color:#fff;"></i></span>
+      <div class="v-inl-15i8dxg-122" >
+        <a href="#" class="d-flex align-items-center gap-2 text-decoration-none v-inl-1bagbke-123">
+          <span class="v-inl-kkw7g7-124" ><i class="fa-solid fa-bolt v-inl-flfjn4-125"></i></span>
           Vectra
         </a>
-        <div class="d-none d-md-flex align-items-center gap-1" style="font-size:.875rem;">
-          <a href="#" class="px-2 py-1 rounded-pill" style="color:var(--v-text-2);text-decoration:none;transition:color .2s;">Home</a>
-          <a href="#" class="px-2 py-1 rounded-pill" style="color:var(--v-text-2);text-decoration:none;transition:color .2s;">Features</a>
-          <a href="#" class="px-2 py-1 rounded-pill" style="color:var(--v-text-2);text-decoration:none;transition:color .2s;">Pricing</a>
-          <a href="#" class="px-2 py-1 rounded-pill" style="color:var(--v-text-2);text-decoration:none;transition:color .2s;">Contact</a>
+        <div class="d-none d-md-flex align-items-center gap-1 v-inl-198myyq-126">
+          <a href="#" class="px-2 py-1 rounded-pill v-inl-g1plpk-127">Home</a>
+          <a href="#" class="px-2 py-1 rounded-pill v-inl-g1plpk-127">Features</a>
+          <a href="#" class="px-2 py-1 rounded-pill v-inl-g1plpk-127">Pricing</a>
+          <a href="#" class="px-2 py-1 rounded-pill v-inl-g1plpk-127">Contact</a>
         </div>
         <div class="d-flex align-items-center gap-2">
-          <a href="#" style="font-size:.85rem;font-weight:600;color:var(--v-text-2);text-decoration:none;">Sign in</a>
-          <a href="#" class="v-btn v-btn-primary v-btn-sm" style="border-radius:999px;font-size:.8rem;">Get Access</a>
+          <a href="#" class="v-inl-1uemfle-128" >Sign in</a>
+          <a href="#" class="v-btn v-btn-primary v-btn-sm v-inl-lsz415-129">Get Access</a>
         </div>
       </div>
       <!-- Page context below pill -->
-      <div class="mt-4 text-center" style="color:var(--v-text-3);font-size:.85rem;">Floats over page content — suitable for landing pages &amp; marketing sites</div>
+      <div class="mt-4 text-center v-inl-1wlw63v-130">Floats over page content — suitable for landing pages &amp; marketing sites</div>
     </div>
   </div>
 
   <!-- ── Variant 3 — Transparent Hero Overlay ─────────────────── -->
   <div class="mb-5" id="variant-3" data-aos="fade-up">
-    <div class="v-variant-label" style="border-radius:var(--v-r-lg) var(--v-r-lg) 0 0;">
+    <div class="v-variant-label v-inl-18ekuim-108">
       <span><span class="v-variant-badge">Variant 3</span> Transparent Hero Overlay</span>
       <span>Navigation on gradient hero</span>
     </div>
-    <div class="v-nb-preview" style="overflow:hidden;">
-      <div style="position:relative;min-height:340px;background:linear-gradient(135deg,#0f172a 0%,#1d4ed8 50%,#06b6d4 100%);">
+    <div class="v-nb-preview v-inl-mbtjfn-131">
+      <div class="v-inl-rjeg26-132" >
         <!-- Ambient glows -->
-        <div style="position:absolute;top:-60px;left:-60px;width:280px;height:280px;border-radius:50%;background:rgba(99,102,241,.25);filter:blur(80px);pointer-events:none;"></div>
-        <div style="position:absolute;bottom:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(6,182,212,.3);filter:blur(60px);pointer-events:none;"></div>
+        <div class="v-inl-8skgzw-133" ></div>
+        <div class="v-inl-vg4r4h-134" ></div>
         <!-- Navbar strip -->
-        <div style="position:relative;z-index:2;border-bottom:1px solid rgba(255,255,255,.12);">
-          <div class="v-nb-bar" style="height:76px;">
-            <a href="#" class="d-flex align-items-center gap-2 text-white text-decoration-none me-3" style="font-weight:700;font-size:1.05rem;flex-shrink:0;">
-              <span style="width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;"><i class="fa-solid fa-bolt" style="font-size:.85rem;color:#fff;"></i></span>
+        <div class="v-inl-15iidh9-135" >
+          <div class="v-nb-bar v-inl-80vtgh-136">
+            <a href="#" class="d-flex align-items-center gap-2 text-white text-decoration-none me-3 v-inl-iyvlpi-137">
+              <span class="v-inl-1yjpt8f-138" ><i class="fa-solid fa-bolt v-inl-1x4ba7q-139"></i></span>
               Nebula
             </a>
-            <div class="d-none d-md-flex align-items-center gap-1 me-auto" style="font-size:.9rem;">
-              <a href="#" style="color:rgba(255,255,255,.8);text-decoration:none;padding:.4rem .75rem;border-radius:6px;transition:background .2s;">Product</a>
-              <a href="#" style="color:rgba(255,255,255,.8);text-decoration:none;padding:.4rem .75rem;border-radius:6px;transition:background .2s;">Solutions</a>
-              <a href="#" style="color:rgba(255,255,255,.8);text-decoration:none;padding:.4rem .75rem;border-radius:6px;transition:background .2s;">Resources</a>
-              <a href="#" style="color:rgba(255,255,255,.8);text-decoration:none;padding:.4rem .75rem;border-radius:6px;transition:background .2s;">Pricing</a>
+            <div class="d-none d-md-flex align-items-center gap-1 me-auto v-inl-147regf-114">
+              <a href="#" class="v-inl-5oatbf-140" >Product</a>
+              <a href="#" class="v-inl-5oatbf-140" >Solutions</a>
+              <a href="#" class="v-inl-5oatbf-140" >Resources</a>
+              <a href="#" class="v-inl-5oatbf-140" >Pricing</a>
             </div>
             <div class="d-flex align-items-center gap-2 ms-auto ms-md-0">
-              <a href="#" style="color:rgba(255,255,255,.75);text-decoration:none;font-size:.9rem;">Sign in</a>
-              <a href="#" style="display:inline-flex;align-items:center;gap:.4rem;padding:.45rem 1.1rem;border-radius:8px;border:1px solid rgba(255,255,255,.35);color:#fff;font-size:.875rem;font-weight:600;text-decoration:none;backdrop-filter:blur(8px);background:rgba(255,255,255,.1);transition:background .2s;">Sign Up Free</a>
+              <a href="#" class="v-inl-1iv3uc9-141" >Sign in</a>
+              <a href="#" class="v-inl-1ylr1e9-142" >Sign Up Free</a>
             </div>
           </div>
         </div>
         <!-- Hero content area -->
-        <div style="position:relative;z-index:1;padding:3rem 2rem 3.5rem;">
-          <span class="v-badge" style="background:rgba(255,255,255,.15);color:#fff;border-color:transparent;backdrop-filter:blur(8px);"><i class="fa-solid fa-wand-magic-sparkles me-1"></i> Launch Ready</span>
-          <h2 class="mt-3 mb-2 text-white fw-bold" style="font-size:clamp(1.6rem,3vw,2.25rem);max-width:540px;line-height:1.25;">Transparent navigation for immersive hero layouts.</h2>
-          <p style="color:rgba(255,255,255,.75);max-width:460px;margin-bottom:1.5rem;">Ideal for product launches, creative portfolios, and brands that want the navigation to feel part of the hero scene.</p>
+        <div class="v-inl-flw5l6-143" >
+          <span class="v-badge v-inl-1tfadr8-144"><i class="fa-solid fa-wand-magic-sparkles me-1"></i> Launch Ready</span>
+          <h2 class="mt-3 mb-2 text-white fw-bold v-inl-1dgwcio-145">Transparent navigation for immersive hero layouts.</h2>
+          <p class="v-inl-gbyurw-146" >Ideal for product launches, creative portfolios, and brands that want the navigation to feel part of the hero scene.</p>
           <div class="d-flex flex-wrap gap-2">
             <a href="#" class="v-btn v-btn-primary">Get Started Free</a>
-            <a href="#" style="display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1.2rem;border-radius:8px;border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.85);font-size:.9rem;text-decoration:none;backdrop-filter:blur(6px);">
+            <a href="#" class="v-inl-arig28-147" >
               <i class="fa-solid fa-play fa-xs"></i> Watch demo
             </a>
           </div>
@@ -230,42 +204,41 @@
 
   <!-- ── Variant 4 — Mega Menu ─────────────────────────────────── -->
   <div class="mb-5" id="variant-4" data-aos="fade-up">
-    <div class="v-variant-label" style="border-radius:var(--v-r-lg) var(--v-r-lg) 0 0;">
+    <div class="v-variant-label v-inl-18ekuim-108">
       <span><span class="v-variant-badge">Variant 4</span> Mega Menu</span>
       <span>SaaS product navigation with open panel</span>
     </div>
     <div class="v-nb-preview">
       <!-- Navbar bar -->
-      <div style="background:var(--v-surface);border-bottom:1px solid var(--v-border);">
-        <div class="v-nb-bar" style="height:72px;">
-          <a href="#" class="d-flex align-items-center gap-2 text-decoration-none me-4" style="font-weight:700;font-size:1rem;color:var(--v-text-1);flex-shrink:0;">
-            <span style="width:32px;height:32px;border-radius:9px;background:var(--v-accent);display:grid;place-items:center;flex-shrink:0;"><i class="fa-solid fa-bolt" style="font-size:.8rem;color:#fff;"></i></span>
+      <div class="v-inl-uxos41-148" >
+        <div class="v-nb-bar v-inl-1of6ci5-110">
+          <a href="#" class="d-flex align-items-center gap-2 text-decoration-none me-4 v-inl-7sf1mp-149">
+            <span class="v-inl-1glp601-150" ><i class="fa-solid fa-bolt v-inl-152gjux-113"></i></span>
             Vectra Suite
           </a>
-          <div class="d-none d-md-flex align-items-center gap-4 me-auto" style="font-size:.9rem;">
-            <!-- "Products" tab is highlighted / active to indicate mega menu is open -->
-            <span style="color:var(--v-accent);font-weight:600;cursor:pointer;display:flex;align-items:center;gap:.3rem;">
-              Products <i class="fa-solid fa-chevron-up fa-xs"></i>
-            </span>
-            <a href="#" style="color:var(--v-text-2);text-decoration:none;">Pricing</a>
-            <a href="#" style="color:var(--v-text-2);text-decoration:none;">Blog</a>
-            <a href="#" style="color:var(--v-text-2);text-decoration:none;">Enterprise</a>
+          <div class="d-none d-md-flex align-items-center gap-4 me-auto v-inl-147regf-114">
+            <button type="button" class="v-megamenu-trigger" id="navbarMegaMenuToggle" data-bs-toggle="collapse" data-bs-target="#navbarMegaMenuPanel" aria-expanded="true" aria-controls="navbarMegaMenuPanel">
+              Products <i class="fa-solid fa-chevron-down fa-xs"></i>
+            </button>
+            <a href="#" class="v-inl-iaq0fm-151" >Pricing</a>
+            <a href="#" class="v-inl-iaq0fm-151" >Blog</a>
+            <a href="#" class="v-inl-iaq0fm-151" >Enterprise</a>
           </div>
           <div class="d-flex align-items-center gap-3 ms-auto ms-md-0">
-            <a href="#" style="font-size:.875rem;font-weight:500;color:var(--v-text-2);text-decoration:none;">Sign in</a>
+            <a href="#" class="v-inl-1uy76v6-152" >Sign in</a>
             <a href="#" class="v-btn v-btn-gradient v-btn-sm">Start Free Trial</a>
           </div>
         </div>
       </div>
       <!-- Mega menu panel (always-visible demo) -->
-      <div class="v-megamenu-panel">
+      <div class="collapse show v-megamenu-panel" id="navbarMegaMenuPanel" aria-labelledby="navbarMegaMenuToggle">
         <div class="row g-3 align-items-stretch">
           <!-- Featured promo column -->
           <div class="col-lg-4">
             <div class="v-card v-card-accent h-100 p-4">
               <span class="v-badge mb-3"><i class="fa-solid fa-layer-group me-1"></i> Platform</span>
               <h3 class="h5 fw-bold mb-2">Everything for modern growth teams</h3>
-              <p class="v-text-muted mb-4" style="font-size:.875rem;">A unified product suite covering analytics, collaboration, billing, automation, and security — from day one.</p>
+              <p class="v-text-muted mb-4 v-inl-198myyq-126">A unified product suite covering analytics, collaboration, billing, automation, and security — from day one.</p>
               <a href="#" class="v-btn v-btn-primary v-btn-sm">Explore Platform <i class="fa-solid fa-arrow-right fa-xs ms-1"></i></a>
             </div>
           </div>
@@ -273,53 +246,53 @@
           <div class="col-lg-8">
             <div class="row g-2 h-100">
               <div class="col-md-6">
-                <a href="#" class="d-flex align-items-start gap-3 p-3 rounded-3 text-decoration-none" style="background:var(--v-bg-2);border:1px solid var(--v-border);transition:border-color .2s;">
+                <a href="#" class="d-flex align-items-start gap-3 p-3 rounded-3 text-decoration-none v-inl-bg5xlh-153">
                   <span class="v-avatar-sm flex-shrink-0"><i class="fa-solid fa-chart-line"></i></span>
-                  <div><div class="fw-semibold mb-1" style="font-size:.9rem;color:var(--v-text-1);">Analytics</div><div style="font-size:.8rem;color:var(--v-text-3);">Real-time dashboards &amp; forecasting</div></div>
+                  <div><div class="fw-semibold mb-1 v-inl-lat1ip-154">Analytics</div><div class="v-inl-94b73m-155" >Real-time dashboards &amp; forecasting</div></div>
                 </a>
               </div>
               <div class="col-md-6">
-                <a href="#" class="d-flex align-items-start gap-3 p-3 rounded-3 text-decoration-none" style="background:var(--v-bg-2);border:1px solid var(--v-border);transition:border-color .2s;">
+                <a href="#" class="d-flex align-items-start gap-3 p-3 rounded-3 text-decoration-none v-inl-bg5xlh-153">
                   <span class="v-avatar-sm flex-shrink-0"><i class="fa-solid fa-users"></i></span>
-                  <div><div class="fw-semibold mb-1" style="font-size:.9rem;color:var(--v-text-1);">Workspace</div><div style="font-size:.8rem;color:var(--v-text-3);">Collaborative docs, tasks &amp; team hubs</div></div>
+                  <div><div class="fw-semibold mb-1 v-inl-lat1ip-154">Workspace</div><div class="v-inl-94b73m-155" >Collaborative docs, tasks &amp; team hubs</div></div>
                 </a>
               </div>
               <div class="col-md-6">
-                <a href="#" class="d-flex align-items-start gap-3 p-3 rounded-3 text-decoration-none" style="background:var(--v-bg-2);border:1px solid var(--v-border);transition:border-color .2s;">
+                <a href="#" class="d-flex align-items-start gap-3 p-3 rounded-3 text-decoration-none v-inl-bg5xlh-153">
                   <span class="v-avatar-sm flex-shrink-0"><i class="fa-solid fa-credit-card"></i></span>
-                  <div><div class="fw-semibold mb-1" style="font-size:.9rem;color:var(--v-text-1);">Billing</div><div style="font-size:.8rem;color:var(--v-text-3);">Subscriptions, metering &amp; invoices</div></div>
+                  <div><div class="fw-semibold mb-1 v-inl-lat1ip-154">Billing</div><div class="v-inl-94b73m-155" >Subscriptions, metering &amp; invoices</div></div>
                 </a>
               </div>
               <div class="col-md-6">
-                <a href="#" class="d-flex align-items-start gap-3 p-3 rounded-3 text-decoration-none" style="background:var(--v-bg-2);border:1px solid var(--v-border);transition:border-color .2s;">
+                <a href="#" class="d-flex align-items-start gap-3 p-3 rounded-3 text-decoration-none v-inl-bg5xlh-153">
                   <span class="v-avatar-sm flex-shrink-0"><i class="fa-solid fa-bolt"></i></span>
-                  <div><div class="fw-semibold mb-1" style="font-size:.9rem;color:var(--v-text-1);">Automation</div><div style="font-size:.8rem;color:var(--v-text-3);">Smart workflows for ops &amp; support</div></div>
+                  <div><div class="fw-semibold mb-1 v-inl-lat1ip-154">Automation</div><div class="v-inl-94b73m-155" >Smart workflows for ops &amp; support</div></div>
                 </a>
               </div>
               <div class="col-md-6">
-                <a href="#" class="d-flex align-items-start gap-3 p-3 rounded-3 text-decoration-none" style="background:var(--v-bg-2);border:1px solid var(--v-border);transition:border-color .2s;">
+                <a href="#" class="d-flex align-items-start gap-3 p-3 rounded-3 text-decoration-none v-inl-bg5xlh-153">
                   <span class="v-avatar-sm flex-shrink-0"><i class="fa-solid fa-shield-halved"></i></span>
-                  <div><div class="fw-semibold mb-1" style="font-size:.9rem;color:var(--v-text-1);">Security</div><div style="font-size:.8rem;color:var(--v-text-3);">Access controls, audit logs &amp; SSO</div></div>
+                  <div><div class="fw-semibold mb-1 v-inl-lat1ip-154">Security</div><div class="v-inl-94b73m-155" >Access controls, audit logs &amp; SSO</div></div>
                 </a>
               </div>
               <div class="col-md-6">
-                <a href="#" class="d-flex align-items-start gap-3 p-3 rounded-3 text-decoration-none" style="background:var(--v-bg-2);border:1px solid var(--v-border);transition:border-color .2s;">
+                <a href="#" class="d-flex align-items-start gap-3 p-3 rounded-3 text-decoration-none v-inl-bg5xlh-153">
                   <span class="v-avatar-sm flex-shrink-0"><i class="fa-solid fa-code-branch"></i></span>
-                  <div><div class="fw-semibold mb-1" style="font-size:.9rem;color:var(--v-text-1);">Developers</div><div style="font-size:.8rem;color:var(--v-text-3);">APIs, SDKs &amp; deployment integrations</div></div>
+                  <div><div class="fw-semibold mb-1 v-inl-lat1ip-154">Developers</div><div class="v-inl-94b73m-155" >APIs, SDKs &amp; deployment integrations</div></div>
                 </a>
               </div>
             </div>
           </div>
         </div>
         <!-- Footer strip -->
-        <div class="mt-3 pt-3 d-flex flex-wrap align-items-center justify-content-between gap-2" style="border-top:1px solid var(--v-border);">
-          <div class="d-flex flex-wrap gap-3" style="font-size:.8rem;color:var(--v-text-3);">
-            <a href="#" style="color:var(--v-text-3);text-decoration:none;"><i class="fa-solid fa-book-open fa-xs me-1"></i>Documentation</a>
-            <a href="#" style="color:var(--v-text-3);text-decoration:none;"><i class="fa-solid fa-graduation-cap fa-xs me-1"></i>Academy</a>
-            <a href="#" style="color:var(--v-text-3);text-decoration:none;"><i class="fa-solid fa-circle-info fa-xs me-1"></i>Status</a>
-            <a href="#" style="color:var(--v-text-3);text-decoration:none;"><i class="fa-brands fa-github fa-xs me-1"></i>GitHub</a>
+        <div class="mt-3 pt-3 d-flex flex-wrap align-items-center justify-content-between gap-2 v-inl-15vw8de-71">
+          <div class="d-flex flex-wrap gap-3 v-inl-94b73m-155">
+            <a href="#" class="v-inl-1gtb3o5-156" ><i class="fa-solid fa-book-open fa-xs me-1"></i>Documentation</a>
+            <a href="#" class="v-inl-1gtb3o5-156" ><i class="fa-solid fa-graduation-cap fa-xs me-1"></i>Academy</a>
+            <a href="#" class="v-inl-1gtb3o5-156" ><i class="fa-solid fa-circle-info fa-xs me-1"></i>Status</a>
+            <a href="#" class="v-inl-1gtb3o5-156" ><i class="fa-brands fa-github fa-xs me-1"></i>GitHub</a>
           </div>
-          <span style="font-size:.75rem;color:var(--v-text-3);display:flex;align-items:center;gap:.4rem;"><i class="fa-solid fa-circle fa-xs" style="color:#22c55e;"></i>All systems operational</span>
+          <span class="v-inl-h3rwl1-157" ><i class="fa-solid fa-circle fa-xs v-inl-1cjvn4l-158"></i>All systems operational</span>
         </div>
       </div>
     </div>
