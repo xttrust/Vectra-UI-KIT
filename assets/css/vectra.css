@@ -122,16 +122,24 @@
   --v-border:    #dde4ee;
   --v-border-2:  #c8d4e4;
 
-  --v-accent:      #008f98;
-  --v-accent-2:    #00c2cb;
-  --v-accent-rgb:  0, 143, 152;
-  --v-accent-soft: rgba(0, 143, 152, .1);
-  --v-accent-grad: linear-gradient(135deg, #008f98 0%, #00c2cb 100%);
-  --v-accent-glow: 0 0 0 3px rgba(0, 143, 152, .25), 0 0 24px -4px rgba(0, 143, 152, .2);
+  /* Light values are darker than the dark theme's so text and white-on-accent pass WCAG AA (4.5:1):
+     accent #00767e is 4.8:1 on every light surface and 5.4:1 under white text; text-3 is 4.8:1. */
+  --v-accent:      #00767e;
+  --v-accent-2:    #008f98;
+  --v-accent-rgb:  0, 118, 126;
+  --v-accent-soft: rgba(0, 118, 126, .1);
+  --v-accent-grad: linear-gradient(135deg, #00767e 0%, #008f98 100%);
+  --v-accent-glow: 0 0 0 3px rgba(0, 118, 126, .25), 0 0 24px -4px rgba(0, 118, 126, .2);
+
+  /* Semantic colours dark enough to read as text on light surfaces. */
+  --v-success: #15803d;
+  --v-warning: #92400e;
+  --v-danger:  #be123c;
+  --v-info:    #1d4ed8;
 
   --v-text:   #0f172a;
   --v-text-2: #334155;
-  --v-text-3: #64748b;
+  --v-text-3: #5b6b80;
 
   --v-shadow-xs:    0 1px 3px rgba(15,23,42,.07);
   --v-shadow-sm:    0 2px 8px rgba(15,23,42,.08);
@@ -140,7 +148,7 @@
   --v-shadow-xl:    0 16px 56px rgba(15,23,42,.14);
   --v-shadow-glass: 0 8px 32px rgba(15,23,42,.10), inset 0 0 0 1px rgba(0,0,0,.04);
 
-  --v-focus: 0 0 0 3px rgba(0, 143, 152, .3);
+  --v-focus: 0 0 0 3px rgba(0, 118, 126, .3);
 }
 
 
@@ -2470,6 +2478,9 @@ small, .v-small { font-size: .8125rem; }
   color: #f8fafc;
   border-color: rgba(255, 255, 255, .2);
 }
+
+/* ──────────────────────────────────────────────────────────
+   33. REDUCED MOTION
    ────────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
