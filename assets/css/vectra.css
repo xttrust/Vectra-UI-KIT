@@ -2470,6 +2470,9 @@ small, .v-small { font-size: .8125rem; }
   color: #f8fafc;
   border-color: rgba(255, 255, 255, .2);
 }
+
+/* ──────────────────────────────────────────────────────────
+   33. REDUCED MOTION
    ────────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
